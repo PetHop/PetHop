@@ -6,18 +6,22 @@ var stormpath = require('express-stormpath');
 
 var app = express();
 
-var userCtrl = require('./controllers/userCtrl.js');
-var travelCtrl = require('./controllers/travelCtrl.js');
-var petsCtrl = require('./controllers/petsCtrl.js');
-
 // Middlware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
 
+app.use(stormpath.init(app, {
+  website: true
+}));
 
+// Controller Requirements
+var userCtrl = require('./controllers/userCtrl.js');
+var travelCtrl = require('./controllers/travelCtrl.js');
+var petsCtrl = require('./controllers/petsCtrl.js');
 
+// Controller Functions
 app.get('/users', userCtrl.read);
 app.post('/users/', userCtrl.create);
 app.put('/users/:id', userCtrl.update);
@@ -76,11 +80,11 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-// app.on('stormpath.ready', function () {
+app.on('stormpath.ready', function () {
   app.listen(8080, function (err) {
     if (err) {
       return console.error(err);
     }
     console.log('Listening on 8080');
   });
-// });
+});

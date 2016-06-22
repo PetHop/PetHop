@@ -1,21 +1,34 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
-var Router = ReactRouter.Router; // replace with stormpath later
+// var Router = ReactRouter.Router; // replace with stormpath later
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
+import ReactStormpath, { Router, AuthenticatedRoute, LoginRoute, LoginLink } from 'react-stormpath';
+
 import TripDetails from './../tripDetails/tripDetails';
 import Feed from './../feed/feed';
 import Footer from './../footer/footer';
 import Home from './../home/home';
-import Login from './../login/login';
+import Login from './../auth/login';
 import Nav from './../nav/nav';
-import PetTrip from './../PetTrip/PetTrip';
-import ProfileEdit from './../ProfileEdit/ProfileEdit';
-import TripDetails from './../tripDetails/tripDetails';
+import PetTrip from './../petTrip/petTrip';
+import ProfileEdit from './../profileEdit/profileEdit';
+import RegistrationPage from './../auth/registrationPage';
 
+ReactStormpath.init({});
 
-ReactDOM.render(
-
+ReactDOM.render
+  (<Router history={hashHistory }>
+      <Route path='/' component={ Main }>
+        <IndexRoute component={ Home }/>
+        <Route path='/feed' component={ Feed }/>
+        <Route path='/tripdetails' component={ TripDetails }/>
+        <Route path='/pettrip' component={ PetTrip }/>
+        <Route path='/profileedit' component={ ProfileEdit }/>
+        <LoginRoute path='login' component={ Login }/>
+        <Route path='/register' component={ RegistrationPage } />
+      </Route>
+  </Router>
 );
