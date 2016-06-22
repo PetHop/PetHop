@@ -5,7 +5,7 @@ var userSchema = new mongoose.Schema({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   userImg: {type: String},
-  dateRegister: new Date,
+  dateRegistered: {type: Date, default: Date.now},
   street: {type: String, required: true},
   city: {type: String, required: true},
   state: {type: String, required: true},
