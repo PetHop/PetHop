@@ -16,10 +16,11 @@ import Nav from './../nav/nav';
 import PetTrip from './../petTrip/petTrip';
 import ProfileEdit from './../profileEdit/profileEdit';
 import RegistrationPage from './../auth/registrationPage';
+import Main from './../main.js';
 
 ReactStormpath.init({});
 
-ReactDOM.render
+ReactDOM.render(
   (<Router history={hashHistory }>
       <Route path='/' component={ Main }>
         <IndexRoute component={ Home }/>
@@ -30,5 +31,6 @@ ReactDOM.render
         <LoginRoute path='login' component={ Login }/>
         <Route path='/register' component={ RegistrationPage } />
       </Route>
-  </Router>
+  </Router>),
+  document.getElementById('app')
 );

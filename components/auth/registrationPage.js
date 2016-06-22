@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Login() {
+function Registration() {
   return (
-   <div className="registrationPage">
+   <div className="registration">
      <RegistrationForm>
        <div spIf="account.created">
          <span spIf="!account.enabled">To verify your account, click the verification link that we sent to your email then proceed to login by going to <LoginLink />.</span>
@@ -37,4 +37,4 @@ function Login() {
  );
 }
 
-module.exports =
+module.exports = Registration;

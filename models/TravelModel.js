@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var travelSchema = new mongoose.Schema({
   startDate: {type: Date, required: true},
-  endDate: {type: Date}, require: true},
+  endDate: {type: Date, require: true},
   wayPoints: {type: Array},
   comments: {type: String},
   userTraveler: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],

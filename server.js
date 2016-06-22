@@ -32,10 +32,10 @@ app.post('/travel/', travelCtrl.create);
 app.put('/travel/:id', travelCtrl.update);
 app.delete('/travel/:id', travelCtrl.delete);
 
-app.get('/pets', petCtrl.read);
-app.post('/pets/', petCtrl.create);
-app.put('/pets/:id', petCtrl.update);
-app.delete('/pets/:id', petCtrl.delete);
+app.get('/pets', petsCtrl.read);
+app.post('/pets/', petsCtrl.create);
+app.put('/pets/:id', petsCtrl.update);
+app.delete('/pets/:id', petsCtrl.delete);
 
 
 if (process.env.NODE_ENV === 'production') {
