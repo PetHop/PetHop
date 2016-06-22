@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactStormpath, { LoginForm } from 'react-stormpath';
 
 function Registration() {
   return (
