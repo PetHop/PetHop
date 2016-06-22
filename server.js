@@ -6,12 +6,32 @@ var stormpath = require('express-stormpath');
 
 var app = express();
 
+var userCtrl = require('./controllers/userCtrl.js');
+var travelCtrl = require('./controllers/travelCtrl.js');
+var petsCtrl = require('./controllers/petsCtrl.js');
+
 // Middlware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
 
+
+
+app.get('/users', userCtrl.read);
+app.post('/users/', userCtrl.create);
+app.put('/users/:id', userCtrl.update);
+app.delete('/users/:id', userCtrl.delete);
+
+app.get('/travel', travelCtrl.read);
+app.post('/travel/', travelCtrl.create);
+app.put('/travel/:id', travelCtrl.update);
+app.delete('/travel/:id', travelCtrl.delete);
+
+app.get('/pets', petCtrl.read);
+app.post('/pets/', petCtrl.create);
+app.put('/pets/:id', petCtrl.update);
+app.delete('/pets/:id', petCtrl.delete);
 
 
 if (process.env.NODE_ENV === 'production') {
