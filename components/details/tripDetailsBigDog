@@ -1,0 +1,14 @@
+import React from 'react';
+
+
+var TripDetailsBigDog = React.createClass({
+  render: function() {
+    return (
+     <div className="tripDetailsBigDog">
+        <img classname="animalpic" src="#"/>
+     </div>
+   )
+  }
+});
+
+export default TripDetailsBigDog;

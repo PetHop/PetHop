@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-var FeedListing = React.createClass({
+var ProfileListing = React.createClass({
   render: function () {
     return (
-     <div className="feedlisting">
+     <div className="profilelisting">
        <img classname="animalpic" src="#"/>
        <img classname="ownerpic" src="#"/>
        <p> NAME needs a ride to DEST </p>
@@ -17,4 +17,4 @@ var FeedListing = React.createClass({
 {/*<p>{ this.props.petName } needs a ride to { this.props.destination }</p>*/}
 
 
-export default FeedListing;
+export default ProfileListing;
