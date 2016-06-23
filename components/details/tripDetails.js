@@ -1,17 +1,15 @@
 import React from 'react';
 import Nav from './../nav/nav.js';
 import TripDetailsMainComponent from './tripDetailsMainComponent';
-import TripDetailsBigDog from './tripDetailsBigDog.js';
+import TripDetailsHeader from './tripDetailsHeader.js';
 import Footer from './../footer/footer.js'
 
 function TripDetails() {
   return (
    <div className="tripdetails">
-     <Nav />
-     <TripDetailsBigDog />
+     <TripDetailsHeader />
      <TripDetailsMainComponent />
      <TripDetailsMapComponent />
-     <Footer />
    </div>
  )
 }

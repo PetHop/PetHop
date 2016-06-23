@@ -17,6 +17,7 @@ import PetTrip from './../petTrip/petTrip';
 import ProfileEdit from './../profileEdit/profileEdit';
 import RegistrationPage from './../auth/registrationPage';
 import Main from './../main.js';
+import Profile from './../profile/profile.js';
 
 ReactStormpath.init({});
 
@@ -25,6 +26,7 @@ ReactDOM.render(
       <Route path='/' component={ Main }>
         <IndexRoute component={ Home }/>
         <Route path='/feed' component={ Feed }/>
+        <Route path='/profile' component={ Profile }/>
         <Route path='/tripdetails' component={ TripDetails }/>
         <Route path='/pettrip' component={ PetTrip }/>
         <Route path='/profileedit' component={ ProfileEdit }/>

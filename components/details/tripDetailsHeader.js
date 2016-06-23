@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-var TripDetailsBigDog = React.createClass({
+var TripDetailsHeader = React.createClass({
   render: function() {
     return (
-     <div className="tripDetailsBigDog">
+     <div className="tripDetailsHeader">
         <img classname="animalpic" src="#"/>
      </div>
    )
   }
 });
 
-export default TripDetailsBigDog;
+export default TripDetailsHeader;
