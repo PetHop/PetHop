@@ -7,7 +7,7 @@ function Login() {
   return (
    <div className="login">
     <img className='logo' src={ logo }/>
-     <LoginForm redirectTo='/admin' >
+     <LoginForm redirectTo='/feed' >
            <div className='login'>
              <h1>Login</h1>
              <br/>
