@@ -5,7 +5,8 @@ var ProfileEdit = React.createClass({
    return (
      <div>
        <div className="container">
-       <form className="form-inline" onSubmit={this.props.handleAdminSubmit}>
+
+       <form className="form-inline" onSubmit={this.props.xxxx}>
            <div className="form-group">
              <label>First Name</label>
              <input type="text" className="form-control" placeholder="First Name"

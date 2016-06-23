@@ -4,7 +4,7 @@ import ReactStormpath, { RegistrationForm, LoginLink } from 'react-stormpath';
 function Registration() {
   return (
    <div className="registration">
-     <RegistrationForm>
+     <RegistrationForm redirectTo='/profileedit'>
        <div spIf="account.created">
          <span spIf="!account.enabled">To verify your account, click the verification link that we sent to your email then proceed to login by going to <LoginLink />.</span>
        </div>
