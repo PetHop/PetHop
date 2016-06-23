@@ -7,7 +7,7 @@ var FeedListing = React.createClass({
      <div className="feedlisting">
        <img classname="animalpic" src="#"/>
        <img classname="ownerpic" src="#"/>
-       <p> NAME needs a reide to DEST </p>
+       <p> NAME needs a ride to DEST </p>
 
      </div>
    )

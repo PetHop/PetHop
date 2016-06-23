@@ -28,8 +28,8 @@ ReactDOM.render(
         <Route path='/tripdetails' component={ TripDetails }/>
         <Route path='/pettrip' component={ PetTrip }/>
         <Route path='/profileedit' component={ ProfileEdit }/>
-        <LoginRoute path='login' component={ Login }/>
-        <Route path='/register' component={ RegistrationPage } />
+        <LoginRoute path='/login' component={ Login }/>
+        <Route path='/register' component={ RegistrationPage }/>
       </Route>
   </Router>),
   document.getElementById('app')
