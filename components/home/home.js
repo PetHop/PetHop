@@ -9,10 +9,8 @@ function Home() {
   return (
    <div className="home">
    <Header />
-   <Nav />
    <InfoUpper />
    <InfoLower />
-   <Footer />
    </div>
  );
 }
