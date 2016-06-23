@@ -6,7 +6,7 @@ var logo = require('file!./../../views/img/login-logo.png');
 function Login() {
   return (
    <div className="login">
-      <img className='logo' src={ logo }/>
+    <img className='logo' src={ logo }/>
      <LoginForm redirectTo='/admin' >
            <div className='login'>
              <h1>Login</h1>
