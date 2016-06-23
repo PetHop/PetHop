@@ -4,8 +4,9 @@ import FeedLeft from './feedLeft.js';
 import FeedMap from './feedMap.js';
 import Footer from './../footer/footer.js'
 
-function Feed() {
-  return (
+var Feed = React.createClass({
+  render: function() {
+    return (
    <div className="feed">
      <Nav />
      <FeedLeft />
