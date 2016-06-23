@@ -10,6 +10,7 @@ var userSchema = new mongoose.Schema({
   city: {type: String, required: true},
   state: {type: String, required: true},
   zip: {type: Number, required: true},
+  phone: {type: Number},
   pets: [PetSchema],
   vehicle: {type: String},
   vehicleColor: {type: String},
