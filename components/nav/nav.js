@@ -19,6 +19,7 @@ var Nav = React.createClass({
               <Authenticated>
                 <Link to='profile'><li>Your Profile</li></Link>
                 <Link to='pettrip'><li>Create Listing</li></Link>
+                <Link to='profileedit'><li>Profile Settings</li></Link>
                 <LogoutLink redirectTo='/'>Logout</LogoutLink>
               </Authenticated>
           </ul>
