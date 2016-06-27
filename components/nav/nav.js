@@ -10,15 +10,16 @@ var Nav = React.createClass({
       <div className="nav">
         <img src={ navLogo } />
           <ul className="nav">
-            <Link to='home'><li>Home</li></Link>
+            <Link to='/'><li>Home</li></Link>
             <Link to ='feed'><li>View Listings</li></Link>
               <NotAuthenticated>
                 <Link to='register'><li>Sign Up</li></Link>
-                <Link to='Log In'><li>Log in</li></Link>
+                <Link to='login'><li>Log in</li></Link>
               </NotAuthenticated>
               <Authenticated>
                 <Link to='profile'><li>Your Profile</li></Link>
                 <Link to='pettrip'><li>Create Listing</li></Link>
+                <Link to='profileedit'><li>Profile Settings</li></Link>
                 <LogoutLink redirectTo='/'>Logout</LogoutLink>
               </Authenticated>
           </ul>

@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Footer() {
-  return (
-   <div className="footer">
-     <p>Footer go here!</p>
-   </div>
- );
-}
+var year = new Date().getFullYear();
+
+var Footer = React.createClass({
+  render: function () {
+    return (
+     <div className="footer">
+       <p>Copyright { year } MT Code School</p>
+     </div>
+   );
+  }
+});
 
 export default Footer;

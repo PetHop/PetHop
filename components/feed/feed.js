@@ -7,13 +7,12 @@ import Footer from './../footer/footer.js'
 var Feed = React.createClass({
   render: function() {
     return (
-   <div className="feed">
-     <Nav />
-     <FeedLeft />
-     <FeedMap />
-     <Footer />
-   </div>
- );
-}
+       <div className="feed">
+         <FeedLeft />
+         <FeedMap />
+       </div>
+    );
+  }
+});
 
 export default Feed;

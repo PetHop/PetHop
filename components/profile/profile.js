@@ -1,11 +1,20 @@
 import React from 'react';
+import Header from './profileHeader.js';
+import PicAndName from './profilePicAndName.js';
+import Info from './profileInfo.js';
+import Listing from './profileListing';
 
-function Profile() {
-  return (
-   <div className="profile">
-     <p>Details go here!</p>
-   </div>
- );
-}
+var Profile = React.createClass({
+  render: function () {
+    return (
+     <div className="profile">
+       <Header />
+       <PicAndName />
+       <Info />
+       <Listing />
+     </div>
+   );
+  }
+});
 
 export default Profile;

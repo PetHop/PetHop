@@ -5,6 +5,9 @@ var travelSchema = new mongoose.Schema({
   endDate: {type: Date, require: true},
   wayPoints: {type: Array},
   comments: {type: String},
+  startPoint: {type: String},
+  endPoint: {type: String},
+  details: {type: String},
   userTraveler: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
   userClient: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });

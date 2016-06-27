@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var PetSchema = require('./PetSchema.js');
 
 var userSchema = new mongoose.Schema({
+  stormpathId: {type: String},
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   userImg: {type: String},
@@ -10,7 +10,8 @@ var userSchema = new mongoose.Schema({
   city: {type: String, required: true},
   state: {type: String, required: true},
   zip: {type: Number, required: true},
-  pets: [PetSchema],
+  phone: {type: Number},
+  pets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pets'}],
   vehicle: {type: String},
   vehicleColor: {type: String},
   make: {type: String},
