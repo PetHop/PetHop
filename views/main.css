@@ -1,0 +1,9 @@
+#google-map-container{
+    height: 1000px;
+    width: 800px;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    border: 4px solid black;
+
+}
