@@ -46,6 +46,10 @@ handleUserChange: function(e){
 },
 
 
+<<<<<<< HEAD
+=======
+// Gets logged in user data and truncates the users ID from the account.href property (last 22 characters) of the returned data.
+>>>>>>> milton3
 handleStormpathId: function(){
   $.ajax({
     url: '/me',
@@ -68,8 +72,6 @@ handleStormpathId: function(){
    return (
      <div>
        <div className="container">
-
-
        <form className="form-inline" onSubmit={this.props.xxxx}>
 
            <div className="form-group">
