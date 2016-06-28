@@ -19,54 +19,14 @@ var userCreationCtrl = require('./controllers/userCreationCtrl.js');
 
 // Initialize and configure stormpath
 app.use(stormpath.init(app, {
-  //Define custom data/form fields
-  web: {
-    register: {
-      form: {
-        fields: {
-          street: {
-            enabled: true,
-            label: 'street',
-            name: 'street',
-            placeholder: 'street',
-            required: false,
-            type: 'text'
-          },
-          city: {
-            enabled: true,
-            label: 'City',
-            name: 'city',
-            placeholder: 'City',
-            required: false,
-            type: 'text'
-          },
-          state: {
-            enabled: true,
-            label: 'State',
-            name: 'state',
-            placeholder: 'State',
-            required: false,
-            type: 'text'
-          },
-          zip: {
-            enabled: true,
-            label: 'Zip Code',
-            name: 'zip',
-            placeholder: 'Zip Code',
-            required: false,
-            type: 'number'
-          }
-        }
-      }
-    }
-  },
   website: true,
+  //This option expands the custom data section when we do a GET request to ''/me' to see the account object of the currently logged in user. We need this because the mongo_id is in there.
   expand: { customData: true },
+  // This function calls "userCreationCtrl" which takes the newly created Stormpath account and creates an entry in mongoDB using that email and name, then calls back with the _id property from mongo to store in stormpath custom data as that user's mongo_id. Other user data will be gathered at profileEdit page after a redirect because stormpath has not yet implemented custom field data submission from their <RegistrationForm /> component.
   postRegistrationHandler: function (account, req, res, next) {
-    console.log('postRegistrationHandler activated');
     account.getCustomData(function(err, data) {
       if (err) {
-        console.log(err.toString, "error string");
+        console.log(err.toString);
         return next(err);
       } else {
         userCreationCtrl(account, null, function(err, resultId){
@@ -77,7 +37,6 @@ app.use(stormpath.init(app, {
       }
     });
   },
-
 }));
 
 // Controller Requirements
