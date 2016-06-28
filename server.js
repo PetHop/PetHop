@@ -12,8 +12,72 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
 
+
+// This contains function to copy stormpath
+var userCreationCtrl = require('./controllers/userCreationCtrl.js');
+
+
+// Initialize and configure stormpath
 app.use(stormpath.init(app, {
-  website: true
+  //Define custom data/form fields
+  web: {
+    register: {
+      form: {
+        fields: {
+          street: {
+            enabled: true,
+            label: 'street',
+            name: 'street',
+            placeholder: 'street',
+            required: false,
+            type: 'text'
+          },
+          city: {
+            enabled: true,
+            label: 'City',
+            name: 'city',
+            placeholder: 'City',
+            required: false,
+            type: 'text'
+          },
+          state: {
+            enabled: true,
+            label: 'State',
+            name: 'state',
+            placeholder: 'State',
+            required: false,
+            type: 'text'
+          },
+          zip: {
+            enabled: true,
+            label: 'Zip Code',
+            name: 'zip',
+            placeholder: 'Zip Code',
+            required: false,
+            type: 'number'
+          }
+        }
+      }
+    }
+  },
+  website: true,
+  expand: { customData: true },
+  postRegistrationHandler: function (account, req, res, next) {
+    console.log('postRegistrationHandler activated');
+    account.getCustomData(function(err, data) {
+      if (err) {
+        console.log(err.toString, "error string");
+        return next(err);
+      } else {
+        userCreationCtrl(account, null, function(err, resultId){
+          data.mongo_id = resultId;
+          data.save();
+          next();
+        });
+      }
+    });
+  },
+
 }));
 
 // Controller Requirements
@@ -72,7 +136,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-mongoose.connect("mongodb://localhost:27017/blog-db");
+mongoose.connect("mongodb://localhost:27017/pethop");
 mongoose.connection.once('open', function(){
   console.log("MongoDB connected successfully");
 });

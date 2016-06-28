@@ -10,8 +10,7 @@ getInitialState(){
     city: null,
     state: null,
     zip: null,
-    stormpathId: null
-  }
+    }
 },
 
 handleFirstNameChange: function(e){
@@ -47,17 +46,15 @@ handleUserChange: function(e){
 },
 
 
-
-
-// Gets logged in user data and truncates the users ID from the account.href property (last 22 characters) of the returned data.
 handleStormpathId: function(){
   $.ajax({
     url: '/me',
     method: "GET",
     success: function(data) {
+      console.log("handleStormpathId data:")
       console.log(data);
-      this.state.stormpathId = data.account.href.slice(data.account.href.length - 22);
-      console.log(typeof this.state.stormpathId);
+      this.state.stormpathId =  data.account.href.slice(data.account.href.length - 22);
+      console.log("stormpathId is " + this.state.stormpathId)
     }.bind(this),
     error: function(xhr, status, err) {
       console.error('/me', status, err.toString())
@@ -65,11 +62,13 @@ handleStormpathId: function(){
   })
 },
 
+
+
  render: function(){
    return (
      <div>
        <div className="container">
-       <form className="form-inline" onSubmit={this.props.xxxx}>
+       <form className="form-inline" >
            <div className="form-group">
              <label>First Name</label>
              <input type="text" className="form-control" placeholder="First Name"
@@ -100,8 +99,10 @@ handleStormpathId: function(){
            </div>
              <button type="submit" className="btn btn-primary">Register</button>
          </form>
-            <button  onClick={ this.handleStormpathId } >ID ME</button>
-       </div>
+
+          <button type="submit" onClick={ this.handleStormpathId }>ID ME</button>
+
+        </div>
      </div>
    )
  }

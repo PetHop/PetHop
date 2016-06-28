@@ -4,6 +4,13 @@ import Footer from './footer/footer.js';
 
 
 var Main = React.createClass({
+
+
+
+
+
+
+
   render: function(){
     return(
       <div className="main">
