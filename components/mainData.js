@@ -38,21 +38,21 @@ childContextTypes: {
     })
   },
 
-  // This function is for testing purposes only
-  consoleStormpathId: function(){
-    $.ajax({
-      url: '/me',
-      method: "GET",
-      success: function(data) {
-        console.log("MongoID: ", data.account.customData.mongo_id);
-        this.state.stormpathId =  data.account.href.slice(data.account.href.length - 22);
-        console.log("stormpathId is " + this.state.stormpathId)
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error('/me', status, err.toString())
-      }.bind(this)
-    })
-  },
+  // This function is for testing purposes only and also is broken now as it was written in profileEdit.js
+  // consoleStormpathId: function(){
+  //   $.ajax({
+  //     url: '/me',
+  //     method: "GET",
+  //     success: function(data) {
+  //       console.log("MongoID: ", data.account.customData.mongo_id);
+  //       this.state.stormpathId =  data.account.href.slice(data.account.href.length - 22);
+  //       console.log("stormpathId is " + this.state.stormpathId)
+  //     }.bind(this),
+  //     error: function(xhr, status, err) {
+  //       console.error('/me', status, err.toString())
+  //     }.bind(this)
+  //   })
+  // },
 
   // gives the children access
   render: function(){

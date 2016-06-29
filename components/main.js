@@ -10,7 +10,7 @@ var Main = React.createClass({
 
 
 
-
+  // MainData wraps these compnents to make its functions available to children through "context"
   render: function(){
     return(
       <div className="main">
