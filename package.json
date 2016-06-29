@@ -30,8 +30,8 @@
     "multer": "^1.1.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-materialize": "^0.14.4",
     "react-google-maps": "^4.11.0",
+    "react-materialize": "^0.14.4",
     "react-router": "^2.4.1",
     "react-stormpath": "^1.2.1",
     "reactify": "^1.1.1"

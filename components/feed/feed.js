@@ -10,11 +10,11 @@ var Feed = React.createClass({
     return (
        <div className="feed">
          <Geolocator/>
-        
+         {/*<FeedLeft />
+         <FeedMap />*/}
        </div>
     );
   }
 });
 
 module.exports = Feed;
-{/*<FeedLeft />*/}
