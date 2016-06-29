@@ -12,6 +12,12 @@ getInitialState(){
     }
 
 },
+
+// List context functions that I plan to use in this component
+contextTypes: {
+  handleMongoId: React.PropTypes.func.isRequired
+},
+
 handleStreetChange: function(e){
   this.setState({ street: e.target.value })
 },
@@ -36,26 +42,11 @@ handleFormSubmit: function(e){
 
   var mongoId;
 
-  this.handleMongoId(user, this.handleProfileUpdate);
+  this.context.handleMongoId(user, this.handleProfileUpdate);
   this.setState({ street: "", city: "", zip: "", state: ""});
 },
 
-// A get request to the /me route stormpath provides for us (and with customData expanded) gives us access to the mongo_id saved with the stormpath account. We will need this to update our corresponding mongoDB user info.
-handleMongoId: function(user, callback){
-  var mongoId = '';
-  $.ajax({
-    url: '/me',
-    method: "GET",
-    success: function(data) {
-      mongoId = data.account.customData.mongo_id;
-      console.log("mongoId:",mongoId);
-      callback(user, mongoId);
-    }.bind(this),
-    error: function(xhr, status, err) {
-      console.error('/me', status, err.toString())
-    }.bind(this)
-  })
-},
+
 // Move this way higher up in the component chain, this will need to be called from any edit page or even the feed or listing pages (to add a listing _id to the user profile)
 handleProfileUpdate: function(user, mongoId){
   console.log("handleProfileUpdate ", mongoId);
@@ -74,21 +65,7 @@ handleProfileUpdate: function(user, mongoId){
   });
 },
 
-// This function is for testing purposes only and should be removed later with the "ID ME" button below
-consoleStormpathId: function(){
-  $.ajax({
-    url: '/me',
-    method: "GET",
-    success: function(data) {
-      console.log("MongoID: ", data.account.customData.mongo_id);
-      this.state.stormpathId =  data.account.href.slice(data.account.href.length - 22);
-      console.log("stormpathId is " + this.state.stormpathId)
-    }.bind(this),
-    error: function(xhr, status, err) {
-      console.error('/me', status, err.toString())
-    }.bind(this)
-  })
-},
+
 
 
 
@@ -119,8 +96,6 @@ consoleStormpathId: function(){
            </div>
              <button type="submit" className="btn btn-primary" >Register</button>
          </form>
-
-          <button type="submit" onClick={ this.consoleStormpathId }>ID ME</button>
 
         </div>
      </div>
