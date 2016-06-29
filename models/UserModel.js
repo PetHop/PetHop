@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-  stormpathId: {type: String},
+  stormpathId: {type: String, required: true},
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   userImg: {type: String},
   dateRegistered: {type: Date, default: Date.now},
-  street: {type: String, required: true},
-  city: {type: String, required: true},
-  state: {type: String, required: true},
-  zip: {type: Number, required: true},
+  street: {type: String},
+  city: {type: String},
+  state: {type: String},
+  zip: {type: Number},
   phone: {type: Number},
   pets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pets'}],
   vehicle: {type: String},

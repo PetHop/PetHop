@@ -5,6 +5,8 @@ import Info from './profileInfo.js';
 import Listing from './profileListing';
 
 var Profile = React.createClass({
+
+
   render: function () {
     return (
      <div className="profile">
