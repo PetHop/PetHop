@@ -1,0 +1,69 @@
+/*Fonts*/
+
+/*font-family: 'Pacifico', cursive;*/
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+}
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+}
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+}
+
+/*LOGIN*/
+
+.login {
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+
+/*NAV*/
+/*.nav{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+ul {
+  width: 100vw;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+/*li a:hover {
+    background-color: #111;
+}*/

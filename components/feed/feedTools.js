@@ -5,7 +5,7 @@ var FeedTools = React.createClass({
   render: function() {
     return (
      <div className="feedtools">
-       <p>search goes here</p>
+        <a className="waves-effect blue darken-1 btn-large">Add Trip</a>
      </div>
    )
   }

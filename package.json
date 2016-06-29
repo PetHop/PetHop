@@ -29,6 +29,7 @@
     "mongoose": "^4.5.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-materialize": "^0.14.4",
     "react-router": "^2.4.1",
     "react-stormpath": "^1.2.1"
   },
@@ -56,7 +57,9 @@
   "engines": {
     "node": "0.12.7"
   },
-  "browser": { "fs": false },
+  "browser": {
+    "fs": false
+  },
   "name": "pethop",
   "keywords": [],
   "author": "Milton, She, Shawn, Brian",
