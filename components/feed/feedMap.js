@@ -1,14 +1,21 @@
-import React from 'react';
 
+ import React from 'react';
+ import { GoogleMap, Marker } from 'react-google-maps';
+ import MapLoader from './maploader.js';
 
-var FeedMap = React.createClass({
-  render: function() {
-    return (
-     <div className="map">
-       <p>google map goes here</p>
+ function FeedMap (props){
+     return (
+       <div id="google-map">
+         <MapLoader>
+         <GoogleMap
+          defaultZoom={14}
+          center={{lat: 46.8787, lng: -114.000}}
+          >
+         <Marker position={{lat: 0, lng: 0}} onClick={() => alert('hello world')} />
+       </GoogleMap>
+     </MapLoader>
      </div>
-   )
-  }
-});
+         )
+ };
 
-export default FeedMap;
+ module.exports = FeedMap;

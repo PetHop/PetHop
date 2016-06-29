@@ -56,7 +56,7 @@ handleMongoId: function(user, callback){
     }.bind(this)
   })
 },
-
+// Move this way higher up in the component chain, this will need to be called from any edit page or even the feed or listing pages (to add a listing _id to the user profile)
 handleProfileUpdate: function(user, mongoId){
   console.log("handleProfileUpdate ", mongoId);
   $.ajax({
@@ -117,7 +117,7 @@ consoleStormpathId: function(){
              <input type="text" className="form-control" placeholder="Zip"
              onChange={ this.handleZipChange } value={ this.state.zip }/>
            </div>
-             <button type="submit" className="btn btn-primary">Register</button>
+             <button type="submit" className="btn btn-primary" >Register</button>
          </form>
 
           <button type="submit" onClick={ this.consoleStormpathId }>ID ME</button>

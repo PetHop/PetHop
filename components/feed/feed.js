@@ -8,11 +8,11 @@ var Feed = React.createClass({
   render: function() {
     return (
        <div className="feed">
-         <FeedLeft />
          <FeedMap />
        </div>
     );
   }
 });
 
-export default Feed;
+module.exports = Feed;
+{/*<FeedLeft />*/}
