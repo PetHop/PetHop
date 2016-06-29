@@ -2,7 +2,7 @@
  import React from 'react';
  import { GoogleMap, Marker } from 'react-google-maps';
  import MapLoader from './maploader.js';
- import mapGeoCoder from './mapGeoCoder';
+
 
  function FeedMap (props){
      return (
@@ -20,10 +20,3 @@
  };
 
  module.exports = FeedMap;
- <body>
-   <div>
-     Enter an address <input type="text" id="address-input">
-     <button onclick="searchAddress();">Search</button>
-   </div>
-   <div id="map-canvas"></div>
- </body>
