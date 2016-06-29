@@ -67,8 +67,6 @@ handleProfileUpdate: function(user, mongoId){
 
 
 
-
-
  render: function(){
    return (
     <div className="row">
