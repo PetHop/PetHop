@@ -3,6 +3,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var stormpath = require('express-stormpath');
+var multer = require('multer');
 
 var app = express();
 
@@ -13,15 +14,20 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
 
 
-// This contains function to copy stormpath
+// This contains function to link stormpath and mongodb by placing each others IDs in their objects
 var userCreationCtrl = require('./controllers/userCreationCtrl.js');
-
 
 // Initialize and configure stormpath
 app.use(stormpath.init(app, {
   website: true,
   //This option expands the custom data section when we do a GET request to ''/me' to see the account object of the currently logged in user. We need this because the mongo_id is in there.
-  expand: { customData: true },
+  web: {
+    me: {
+      expand: {
+        customData: true
+      }
+    }
+  },
   // This function calls "userCreationCtrl" which takes the newly created Stormpath account and creates an entry in mongoDB using that email and name, then calls back with the _id property from mongo to store in stormpath custom data as that user's mongo_id. Other user data will be gathered at profileEdit page after a redirect because stormpath has not yet implemented custom field data submission from their <RegistrationForm /> component.
   postRegistrationHandler: function (account, req, res, next) {
     account.getCustomData(function(err, data) {
@@ -60,7 +66,28 @@ app.post('/pets/', petsCtrl.create);
 app.put('/pets/:id', petsCtrl.update);
 app.delete('/pets/:id', petsCtrl.delete);
 
+// Configure Multer storage location and naming convention for uploaded files
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now());
+  }
+});
+var upload = multer({ storage : storage }).array('userPhoto',2);  // Uploads an array of files to req.files (opposed to req.file for single) and limits to 2 files total
 
+// This route is to test file uploads
+app.post('/petpic',function(req,res){
+    upload(req,res,function(err) {
+        console.log(req.body);
+        console.log(req.files);
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+});
 
 
 if (process.env.NODE_ENV === 'production') {
