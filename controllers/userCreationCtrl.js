@@ -13,9 +13,6 @@ var createNewUser = function (account, res, next){
       firstName: account.givenName,
       lastName: account.surname,
       email: account.email,
-      street: account.street,
-      city: account.city,
-      zip: account.zip
   });
   // This saves the user we just created in MongoDB
   newUser.save(function(err, result){
