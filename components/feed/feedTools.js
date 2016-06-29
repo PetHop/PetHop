@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 var FeedTools = React.createClass({
   render: function() {
