@@ -8,6 +8,7 @@ var Feed = React.createClass({
   render: function() {
     return (
        <div className="feed">
+         <FeedLeft />
          <FeedMap />
        </div>
     );
