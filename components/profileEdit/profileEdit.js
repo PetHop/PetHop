@@ -94,36 +94,102 @@ consoleStormpathId: function(){
 
  render: function(){
    return (
-     <div>
-       <PetProfileEdit />
-       <div className="container">
-       <form className="form-inline" onSubmit={ this.handleFormSubmit }>
-           <div className="form-group">
-             <label>Street Address</label>
-             <input type="text" className="form-control" placeholder="Street Address" onChange={ this.handleStreetChange }   value={this.state.street}/>
-           </div>
-           <div className="form-group">
-             <label>City</label>
-             <input type="text" className="form-control" placeholder="City"
-             onChange={ this.handleCityChange } value={ this.state.city }/>
-           </div>
-           <div className="form-group">
-             <label>State</label>
-             <input type="text" className="form-control" placeholder="State"
-             onChange={ this.handleStateChange } value={ this.state.state }/>
-           </div>
-           <div className="form-group">
-             <label>Zip</label>
-             <input type="text" className="form-control" placeholder="Zip"
-             onChange={ this.handleZipChange } value={ this.state.zip }/>
-           </div>
-             <button type="submit" className="btn btn-primary" >Register</button>
-         </form>
+    //  <div>
+    //    <div className="container">
+    //    <form className="form-inline" onSubmit={this.props.xxxx}>
+    //        <div className="form-group">
+    //          <label>First Name</label>
+    //          <input type="text" className="form-control" placeholder="First Name"
+    //          onChange={ this.handleFirstNameChange } value={ this.state.firstName }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>Last Name</label>
+    //          <input type="text" className="form-control" placeholder="Last Name" onChange={ this.handleLastNameChange }   value={ this.state.lastName }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>Street Address</label>
+    //          <input type="text" className="form-control" placeholder="Street Address" onChange={ this.handleStreetChange }   value={this.state.street}/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>City</label>
+    //          <input type="text" className="form-control" placeholder="City"
+    //          onChange={ this.handleCityChange } value={ this.state.city }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>State</label>
+    //          <input type="text" className="form-control" placeholder="State"
+    //          onChange={ this.handleStateChange } value={ this.state.state }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>Zip</label>
+    //          <input type="text" className="form-control" placeholder="Zip"
+    //          onChange={ this.handleZipChange } value={ this.state.zip }/>
+    //        </div>
+    //          <button type="submit" className="btn btn-primary">Register</button>
+    //      </form>
+    //         <button  onClick={ this.handleStormpathId } >ID ME</button>
+    //    </div>
+    //  </div>
 
-          <button type="submit" onClick={ this.consoleStormpathId }>ID ME</button>
-
+    <div className="row">
+    <form className="col s12">
+      <div className="row">
+        <div className="input-field col s6">
+          <input id="fstreet_address" type="text" className="validate"/>
+          <label for="street_address">Street Address</label>
         </div>
-     </div>
+      </div>
+      <div className="row">
+        <div className="input-field col s6">
+          <input id="city" type="text" className="validate"/>
+          <label for="city">City</label>
+        </div>
+      </div>
+      <div className="row">
+        <div className="input-field col s6">
+          <input id="state" type="text" className="validate"/>
+          <label for="state">State</label>
+        </div>
+      </div>
+      <div className="row">
+        <div className="input-field col s6">
+          <input id="zip" type="number" className="validate"/>
+          <label for="zip">Zip</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+    //  <div>
+    //    <PetProfileEdit />
+    //    <div className="container">
+    //    <form className="form-inline" onSubmit={ this.handleFormSubmit }>
+    //        <div className="form-group">
+    //          <label>Street Address</label>
+    //          <input type="text" className="form-control" placeholder="Street Address" onChange={ this.handleStreetChange }   value={this.state.street}/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>City</label>
+    //          <input type="text" className="form-control" placeholder="City"
+    //          onChange={ this.handleCityChange } value={ this.state.city }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>State</label>
+    //          <input type="text" className="form-control" placeholder="State"
+    //          onChange={ this.handleStateChange } value={ this.state.state }/>
+    //        </div>
+    //        <div className="form-group">
+    //          <label>Zip</label>
+    //          <input type="text" className="form-control" placeholder="Zip"
+    //          onChange={ this.handleZipChange } value={ this.state.zip }/>
+    //        </div>
+    //          <button type="submit" className="btn btn-primary" >Register</button>
+    //      </form>
+     //
+    //       <button type="submit" onClick={ this.consoleStormpathId }>ID ME</button>
+     //
+    //     </div>
+    //  </div>
    )
  }
 });
