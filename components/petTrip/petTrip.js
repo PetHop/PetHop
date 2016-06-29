@@ -6,12 +6,17 @@ var PetTrip = React.createClass({
 
   getInitialState(){
     return{
-      startDate: null,
-      endDate: null,
-      startPoint: null,
-      endPoint: null,
-      comments: null
+      startDate: "",
+      endDate: "",
+      startPoint: "",
+      endPoint: "",
+      comments: ""
+
     }
+  },
+
+  contextTypes: {
+    handleMongoId: React.PropTypes.func.isRequired
   },
 
 
@@ -39,21 +44,26 @@ handleFormSubmit: function(e){
   trip.startPoint = this.state.startPoint;
   trip.endPoint = this.state.endPoint;
   trip.comments = this.state.comments;
+  trip.userTraveler = [];
 
   this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
   this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
 },
 
+//create
 handlePetTripFormUpdate: function (trip, mongoId){
+  console.log(mongoId, " handlePetTripFormUpdate")
+  trip.userTraveler.push(mongoId);
   $.ajax({
-    url: '/travel/' + mongoId,
-    method: 'PUT',
+    url: '/travel/',
+    method: 'POST',
     dataType: 'json',
     data: trip,
-    success: funtion(data){
+    success: function(data){
+      console.log("success")
     }.bind(this),
       error: function(xhr, status, err){
-        console.error('/users/' + mongId, status, err.toString());
+        console.error('/travel/' + mongoId, status, err.toString());
       }.bind(this)
   });
 },
@@ -64,6 +74,44 @@ handlePetTripFormUpdate: function (trip, mongoId){
      <div>
        <div className="container">
        <form className="form-inline" onSubmit={this.handleFormSubmit}>
+       <form>
+          <div className = "radio">
+            <label>
+                <input type="radio"  value="userDriver"/>
+                Giving a Ride?
+            </label>
+          </div>
+          <div className = "radio">
+            <label>
+                <input type="radio"  value="userTraveler"/>
+                Requesting a Ride?
+            </label>
+          </div>
+        </form>
+// ======================================
+<form>
+    <div className="radio">
+      <label>
+        <input type="radio" value="option1" checked={true} />
+        Option 1
+      </label>
+    </div>
+    <div className="radio">
+      <label>
+        <input type="radio" value="option2" />
+        Option 2
+      </label>
+    </div>
+    <div className="radio">
+      <label>
+        <input type="radio" value="option3" />
+        Option 3
+      </label>
+    </div>
+  </form>
+
+
+//  =========================================
            <div className="form-group">
              <label>Where are leaving from?</label>
              <input type="text" className="form-control" placeholder="Starting location"
