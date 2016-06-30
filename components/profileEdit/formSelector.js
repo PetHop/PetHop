@@ -1,0 +1,58 @@
+var React = require('react');
+var PetProfileEdit = require('./petProfileEdit.js');
+var VehicleEdit = require('./vehicleEdit.js');
+var ContactInfoEdit = require('./contactInfoEdit.js');
+var SelectorButtons = require('./selectorButtons.js');
+
+
+var ProfileEditSelector = React.createClass({
+
+  getInitialState: function(){
+    return{
+      activeComponent: 'contactInfoEdit', // components will include editAddress, addPet, editVehicle, ????
+      activeUserId: null,
+    }
+  },
+
+ // Displays one of several component based on the value of state.activeComponent
+  showComponent: function(){
+    if (this.state.activeComponent === 'contactInfoEdit') {
+      return <ContactInfoEdit handleStreetChange={ this.props.handleStreetChange }
+                              handleCityChange={ this.props.handleCityChange }
+                              handleStateChange={ this.props.handleStateChange }
+                              handleZipChange={ this.props.handleZipChange }
+                              handlePhoneChange={ this.props.handlePhoneChange }                              handleContactInfoSubmit={ this.props.handleContactInfoSubmit }/>
+    } else if ( this.state.activeComponent === 'vehicleEdit') {
+      return <VehicleEdit />
+    } else if ( this.state.activeComponent === 'addPet') {
+      return <PetProfileEdit handlePetNameChange={ this.props.handlePetNameChange }
+                             handleTypeChange={ this.props.handleTypeChange }
+                             handlePetSizeChange={ this.props.handlePetSizeChange }
+                             handlePetBreedChange={ this.props.handlePetBreedChange }
+                             handlePetDescChange={ this.props.handlePetDescChange }
+                             handleSpecialReqChange={ this.props.handleSpecialReqChange }
+                             handlePetProfileSubmit={ this.props.handlePetProfileSubmit }/>
+    } else {
+      throw new Error('No active profileEdit component: ', this.state.activeComponent)
+    }
+  },
+
+  // Gives functions in children access to state.activeComponent
+  toggleActiveComponent: function(name){
+    this.setState({
+      activeComponent: name
+    })
+  },
+
+
+  render: function(){
+    return(
+      <div>
+        <SelectorButtons toggleActiveComponent={ this.toggleActiveComponent } />
+        { this.showComponent() }
+      </div>
+    )
+  }
+});
+
+module.exports = ProfileEditSelector;
