@@ -7,6 +7,7 @@ propTypes: {
   children: React.PropTypes.node.isRequired
 },
 
+// Declares the type of the context?
 childContextTypes: {
   handleMongoId: React.PropTypes.func,
   consoleStormpathId: React.PropTypes.func
@@ -20,9 +21,10 @@ childContextTypes: {
     }
   },
 
+  // GETs the mongoId of the logged in User and then passes it to the callback along with the data it was given.
   // A get request to the /me route stormpath provides for us (and with customData expanded) gives us access to the mongo_id saved with the stormpath account. We will need this to update our corresponding mongoDB user info.
   handleMongoId: function(user, callback){
-    console.log("new special function!");
+    console.log("handleMongoId is ajaxing...");
     var mongoId = '';
     $.ajax({
       url: '/me',

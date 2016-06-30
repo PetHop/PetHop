@@ -45,6 +45,7 @@ handleFormSubmit: function(e){
 },
 
 handlePetTripFormUpdate: function (trip, mongoId){
+  
   $.ajax({
     url: '/travel/' + mongoId,
     method: 'PUT',
