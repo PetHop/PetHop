@@ -4,31 +4,38 @@ import React from 'react';
 var InfoUpper = React.createClass({
   render: function() {
     return (
+
       <div className="row">
+        <h3 className="center">How PetHop Works!</h3>
+          <h5 className="center condensed">It's easy as 1, 2, 3</h5>
+          <div className="col s12 m4">
+            <div className="icon-block">
+              <h2 className="center light-blue-text"><i className="medium material-icons">web</i></h2>
+              <h5 className="center">Step 1</h5>
+              <h6 className="center">Search Listings</h6>
+
+              <p className="light center">Browse loving, trusted dog sitters and walkers near you.</p>
+            </div>
+          </div>
+
         <div className="col s12 m4">
           <div className="icon-block">
-            <h2 className="center light-blue-text"><i className="material-icons">flash_on</i></h2>
-            <h5 className="center">Speeds up development</h5>
+            <h2 className="center light-blue-text"><i className="medium material-icons">contacts</i></h2>
+            <h5 className="center">Step 2</h5>
+            <h6 className="center">Select Pet Trip</h6>
 
-            <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+
+            <p className="light center">Get to know your sitter at a Meet & Greet. Then book a stay—at their house or yours.</p>
           </div>
         </div>
 
         <div className="col s12 m4">
           <div className="icon-block">
-            <h2 className="center light-blue-text"><i className="material-icons">group</i></h2>
-            <h5 className="center">User Experience Focused</h5>
+            <h2 className="center light-blue-text"><i className="medium material-icons">loyalty</i></h2>
+            <h5 className="center">Step 3</h5>
+            <h6 className="center">Breathe Easy</h6>
 
-            <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div className="col s12 m4">
-          <div className="icon-block">
-            <h2 className="center light-blue-text"><i className="material-icons">settings</i></h2>
-            <h5 className="center">Easy to work with</h5>
-
-            <p className="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <p className="light center">You’ll enjoy text and photo updates, world-class customer support, and premium insurance.</p>
           </div>
         </div>
       </div>
