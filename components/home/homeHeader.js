@@ -4,34 +4,26 @@ var HomeHeader = React.createClass({
   render: function () {
     return (
 
-
         <div className="slider">
           <ul className="slides">
             <li>
-              <img src="http://lorempixel.com/580/250/nature/1"/>
+              <img src="https://static.pexels.com/photos/57627/pexels-photo-57627-large.jpeg"/>
               <div className="caption center-align">
                 <h3>This is our big Tagline!</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
             <li>
-              <img src="http://lorempixel.com/580/250/nature/2"/>
-              <div className="caption left-align">
+              <img src="https://static.pexels.com/photos/96428/pexels-photo-96428.jpeg"/>
+              <div className="caption center-align">
                 <h3>Left Aligned Caption</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
             <li>
-              <img src="http://lorempixel.com/580/250/nature/3"/>
-              <div className="caption right-align">
+              <img src="https://static.pexels.com/photos/55609/pexels-photo-55609-large.jpeg"/>
+              <div className="caption center-align top">
                 <h3>Right Aligned Caption</h3>
-                <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-            <li>
-              <img src="http://lorempixel.com/580/250/nature/4"/>
-              <div className="caption center-align">
-                <h3>This is our big Tagline!</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
