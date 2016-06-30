@@ -50,7 +50,7 @@ handlePetTripFormUpdate: function (trip, mongoId){
     method: 'PUT',
     dataType: 'json',
     data: trip,
-    success: funtion(data){
+    success: function(data){
     }.bind(this),
       error: function(xhr, status, err){
         console.error('/users/' + mongId, status, err.toString());
