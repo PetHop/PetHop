@@ -1,6 +1,8 @@
 import React from 'react';
 
-
+function bark(message){
+  document.getElementById('output').innerHTML = message;
+};
 
 var PetTrip = React.createClass({
 
@@ -10,8 +12,8 @@ var PetTrip = React.createClass({
       endDate: "",
       startPoint: "",
       endPoint: "",
-      comments: ""
-
+      comments: "",
+      active: null
     }
   },
 
@@ -68,50 +70,34 @@ handlePetTripFormUpdate: function (trip, mongoId){
   });
 },
 
-
+giving: function(e){
+  var value = e.target.value;
+  if (this.state.active !== value) {
+    bark("Giving a Ride");
+    this.setState({ active: value });
+  }
+},
+requesting: function(e){
+  var value = e.target.value;
+  if (this.state.active !== value) {
+    bark("Requesting a ride");
+    this.setState({ active: value });
+  }
+},
  render: function(){
    return (
      <div>
        <div className="container">
        <form className="form-inline" onSubmit={this.handleFormSubmit}>
        <form>
-          <div className = "radio">
-            <label>
-                <input type="radio"  value="userDriver"/>
-                Giving a Ride?
-            </label>
-          </div>
-          <div className = "radio">
-            <label>
-                <input type="radio"  value="userTraveler"/>
-                Requesting a Ride?
-            </label>
-          </div>
-        </form>
-// ======================================
-<form>
-    <div className="radio">
-      <label>
-        <input type="radio" value="option1" checked={true} />
-        Option 1
-      </label>
-    </div>
-    <div className="radio">
-      <label>
-        <input type="radio" value="option2" />
-        Option 2
-      </label>
-    </div>
-    <div className="radio">
-      <label>
-        <input type="radio" value="option3" />
-        Option 3
-      </label>
-    </div>
-  </form>
-
-
-//  =========================================
+        <div>
+           <input id="radiobtn" type="radio" onChange={this.giving} value="Giving a ride"/>Giving a ride
+        </div>
+        <div>
+           <input id="radiobtn" type="radio" onChange={this.requesting} value="Requesting a ride"/>Requesting a ride
+        </div>
+       </form>
+       <div id="output"></div>
            <div className="form-group">
              <label>Where are leaving from?</label>
              <input type="text" className="form-control" placeholder="Starting location"
