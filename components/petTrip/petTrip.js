@@ -1,16 +1,19 @@
 import React from 'react';
 
-
+function bark(message){
+  document.getElementById('output').innerHTML = message;
+};
 
 var PetTrip = React.createClass({
 
   getInitialState(){
     return{
-      startDate: null,
-      endDate: null,
-      startPoint: null,
-      endPoint: null,
-      comments: null
+      startDate: undefined,
+      endDate: undefined,
+      startPoint: undefined,
+      endPoint: undefined,
+      comments: undefined,
+      active: null
     }
   },
 
@@ -45,7 +48,7 @@ handleFormSubmit: function(e){
 },
 
 handlePetTripFormUpdate: function (trip, mongoId){
-  
+
   $.ajax({
     url: '/travel/' + mongoId,
     method: 'PUT',
@@ -59,12 +62,35 @@ handlePetTripFormUpdate: function (trip, mongoId){
   });
 },
 
-
+giving: function(e){
+  var value = e.target.value;
+  if (this.state.active !== value) {
+    bark("Giving a Ride");
+    this.setState({ active: value });
+  }
+},
+requesting: function(e){
+  var value = e.target.value;
+  if (this.state.active !== value) {
+    bark("Requesting a ride");
+    this.setState({ active: value });
+  }
+},
  render: function(){
    return (
      <div>
        <div className="container">
        <form className="form-inline" onSubmit={this.handleFormSubmit}>
+
+       <form>
+        <div>
+           <input id="radiobtn" type="radio" onChange={this.giving} value="Giving a ride"/>Giving a ride
+        </div>
+        <div>
+           <input id="radiobtn" type="radio" onChange={this.requesting} value="Requesting a ride"/>Requesting a ride
+        </div>
+       </form>
+       <div id="output"></div>
            <div className="form-group">
              <label>Where are leaving from?</label>
              <input type="text" className="form-control" placeholder="Starting location"

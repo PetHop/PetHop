@@ -76,3 +76,10 @@ li a {
     border: 4px solid black;
 
 }
+
+/*petTrip*/
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+  position: static;
+  left: 0;
+}
