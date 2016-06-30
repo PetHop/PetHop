@@ -1,80 +1,63 @@
-/*Fonts*/
-
-/*font-family: 'Pacifico', cursive;*/
-
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-}
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 22px;
-}
-h3 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-}
-h4 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-h5 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-}
-h6 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
-}
-
-/*LOGIN*/
-
 .login {
   position: relative;
   margin: 0 auto 0 auto;
 }
-
-/*NAV*/
-/*.nav{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
+.feed {
+  min-height: 52vw;
 }
-
-ul {
-  width: 100vw;
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #333;
+.feedtools{
+  width: 20vw;
 }
-
-li {
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
+.slider {
+  width: 100%;
+  height: 100vh;
 }
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+#google-map{
+    z-index: -2;
 }
-
-/* Change the link color to #111 (black) on hover */
-/*li a:hover {
-    background-color: #111;
-}*/
 #google-map-container{
-    height: 1000px;
-    width: 800px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100vh;
+    width: 49.5vw;
     margin: auto;
     margin-bottom: 10%;
-    margin-top: 10%;
-    border: 4px solid black;
+    margin-top: 64px;
+    z-index: 0
+}
+.gm-style-mtc {
+  display: none;
+}
+.parallax-container {
+    height: 600px;
+   }
 
+.nav-wrapper {
+  z-index: 1;
+}
+.footer-wrapper {
+  z-index: 1;
+}
+.addtrip{
+  margin-top: 10px;
+  position: relative;
+  left: 10px;
+}
+.card {
+  position: relative;
+}
+.ownerPic{
+  position: absolute;
+  margin-right: 15px;
+  right: 0;
+  bottom: 72.5px;
+  z-index: 5;
+}
+@media only screen and (max-width: 992px) {
+  #google-map-container{
+    display: none;
+  }
 }
 
 /*petTrip*/

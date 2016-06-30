@@ -7,8 +7,10 @@ var Nav = React.createClass({
   render: function(){
     return(
       <nav>
-        <div className="nav-wrapper orange darken-1">
-          <a href="#" className="brand-logo"><img src={ navLogo } /></a>
+        <div className="nav-wrapper orange darken-1 z-depth-1">
+        <a href="#" className="brand-logo">PetHop</a>
+
+          {/*<a href="#" className="brand-logo"><img src={ navLogo } />PetHop</a>*/}
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                        <Link to='/'><li>Home</li></Link>
                        <Link to ='feed'><li>View Listings</li></Link>
