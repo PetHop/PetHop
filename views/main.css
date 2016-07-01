@@ -58,7 +58,11 @@
   position: relative;
   margin: 0 auto 0 auto;
 }
-@media only screen and (max-width: 992px) {
+.parallax-tagline {
+  position: relative;
+  top: 225px;
+}
+@media only screen and (max-width: 1100px) {
   #google-map-container{
     display: none;
   }

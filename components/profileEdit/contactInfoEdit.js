@@ -4,41 +4,44 @@ var ContactInfoEdit = React.createClass({
 
   render: function(){
     return (
+  <div>
      <div className="row">
        <form className="col s12" onSubmit={ this.props.handleContactInfoSubmit }>
          <div className="row">
-           <div className="input-field col s6">
+                 <h3>Update Your Contact Info!</h3>
+           <div className="input-field col s12 m12 l6">
              <input id="phone" type="text" className="validate" onChange={ this.props.handlePhoneChange}/>
              <label for="phone">Telephone</label>
            </div>
          </div>
          <div className="row">
-           <div className="input-field col s6">
+           <div className="input-field col s12 m12 l6">
              <input id="street" type="text" className="validate" onChange={ this.props.handleStreetChange } />
              <label for="street">Street Address</label>
            </div>
          </div>
          <div className="row">
-           <div className="input-field col s6">
+           <div className="input-field col s12 m12 l6">
              <input id="city" type="text" className="validate" onChange={ this.props.handleCityChange }/>
              <label for="city">City</label>
            </div>
          </div>
          <div className="row">
-           <div className="input-field col s6">
+           <div className="input-field col s12 m12 l6">
              <input id="state" type="text" className="validate" onChange={ this.props.handleStateChange } />
              <label for="state">State</label>
            </div>
          </div>
          <div className="row">
-           <div className="input-field col s6">
+           <div className="input-field col s12 m12 l6">
              <input id="zip" type="number" className="validate" onChange={ this.props.handleZipChange } />
              <label for="zip">Zip</label>
            </div>
          </div>
-         <button type="submit" >Submit</button>
+         <button className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" >Submit</button>
        </form>
      </div>
+    </div>
     )
   }
 });
