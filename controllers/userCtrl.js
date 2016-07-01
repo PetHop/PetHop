@@ -17,6 +17,7 @@ module.exports =
     UserSchema
     .find()
     .populate('pets')
+    .populate('animalBeingSent')
     .exec(function(err, result){
       if (err) {
         res.send(err);

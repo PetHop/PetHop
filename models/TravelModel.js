@@ -8,7 +8,7 @@ var travelSchema = new mongoose.Schema({
   startPoint: {type: String},
   endPoint: {type: String},
   details: {type: String},
-  userTraveler: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+  animalTraveler: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pets'}],
   userDriver: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
