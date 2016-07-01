@@ -1,9 +1,9 @@
-var TravelSchema = require('./../models/TravelModel.js');
+var TravelModel = require('./../models/TravelModel.js');
 
 module.exports =
 {
   create: function (req, res, next){
-    var post = new TravelSchema(req.body);
+    var post = new TravelModel(req.body);
     post.save(function(err, result){
       if(err) {
         res.send(err);
@@ -14,8 +14,10 @@ module.exports =
   },
 
   read: function (req, res, next){
-    TravelSchema
+    TravelModel
     .find()
+    .populate('animalTraveler')
+    .populate('userDriver')
     .exec(function(err, result){
       if (err) {
         res.send(err);
@@ -26,7 +28,7 @@ module.exports =
   },
 
   update: function (req, res, next){
-    TravelSchema.findByIdAndUpdate(req.params.id, req.body, function (err, result) {
+    TravelModel.findByIdAndUpdate(req.params.id, req.body, function (err, result) {
       if (err) {
         res.send(err);
       } else {
@@ -36,7 +38,7 @@ module.exports =
   },
 
   delete: function (req, res, next) {
-    TravelSchema.findByIdAndRemove(req.params.id, req.body, function (err, result) {
+    TravelModel.findByIdAndRemove(req.params.id, req.body, function (err, result) {
       if (err) {
         res.send(err);
       } else {
@@ -46,7 +48,7 @@ module.exports =
   },
 
   readById: function (req, res, next) {
-    TravelSchema.findById(req.params.id, function(err, result) {
+    TravelModel.findById(req.params.id, function(err, result) {
       if (err) {
         res.send(err);
       } else {

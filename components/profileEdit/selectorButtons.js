@@ -5,11 +5,14 @@ var SelectorButtons = React.createClass({
     return(
       <div>
         <div>
-          <button onClick={ this.props.toggleActiveComponent.bind(null, 'contactInfoEdit') }> Your Contact info</button>
-          <button onClick={ this.props.toggleActiveComponent.bind(null, 'vehicleEdit') }>Your Vehicle</button>
-          <button onClick={ this.props.toggleActiveComponent.bind(null, 'addPet') }>Add a Pet</button>
+        <ul>
+          <li><button className="btn block waves-effect waves-light col s12 m12 l6 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'contactInfoEdit') }> Your Contact info</button></li>
+          <li><button className="btn block waves-effect waves-light col s12 m12 l6 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'vehicleEdit') }>Your Vehicle</button></li>
+          <li><button className="btn block waves-effect waves-light col s12 m12 l6 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'addPet') }>Add a Pet</button></li>
+        </ul>
         </div>
       </div>
+
     )
   }
 });

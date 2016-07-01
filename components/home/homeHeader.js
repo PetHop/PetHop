@@ -4,6 +4,11 @@ import slider2 from 'file!./../../views/img/pexels-photo-96428-large.png';
 import slider3 from 'file!./../../views/img/pexels-photo-55609-large.png';
 
 var HomeHeader = React.createClass({
+  componentDidMount: function(){
+    $(document).ready(function () {
+        $('.slider').slider({full_width: true});
+    });
+  },
   render: function () {
     return (
 
