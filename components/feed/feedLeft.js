@@ -1,6 +1,7 @@
 import React from 'react';
-import FeedListing from './feedListing';
 import FeedTools from './feedTools';
+import FeedListing from './feedListing';
+
 
 
 var FeedLeft = React.createClass({

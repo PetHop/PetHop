@@ -10,4 +10,5 @@ var Info = React.createClass({
    )
   }
 });
+
 export default Info;

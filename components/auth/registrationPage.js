@@ -163,11 +163,11 @@ var Registration = React.createClass({
             <input type="submit" value="Register" />
           </p>
         </div>
-        
+
       </RegistrationForm>
     </div>
   );
 }
 });
 
-module.exports = Registration;
+export default Registration;

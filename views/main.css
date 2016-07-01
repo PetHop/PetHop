@@ -54,10 +54,17 @@
   bottom: 72.5px;
   z-index: 5;
 }
+.profile-card {
+  position: relative;
+  margin: 0 auto 0 auto;
+}
 @media only screen and (max-width: 992px) {
   #google-map-container{
     display: none;
   }
+}
+@media only screen and (max-width: 1500px) {
+
 }
 
 /*petTrip*/

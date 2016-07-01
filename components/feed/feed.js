@@ -17,4 +17,4 @@ var Feed = React.createClass({
   }
 });
 
-module.exports = Feed;
+export default Feed;

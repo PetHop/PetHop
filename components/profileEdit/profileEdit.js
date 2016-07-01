@@ -69,11 +69,13 @@ handleProfileUpdate: function(user, mongoId){
 
  render: function(){
    return (
-    <div className="row">
-    <form className="col s12">
+
+  <div className="row">
+    <h1 className="black-text text-lighten-3 center">Update Profile</h1>
+    <form className="col s6">
       <div className="row">
         <div className="input-field col s6">
-          <input id="fstreet_address" type="text" className="validate"/>
+          <input id="street_address" type="text" className="validate"/>
           <label for="street_address">Street Address</label>
         </div>
       </div>
@@ -91,12 +93,17 @@ handleProfileUpdate: function(user, mongoId){
       </div>
       <div className="row">
         <div className="input-field col s6">
-          <input id="zip" type="number" className="validate"/>
+          <input id="zip" type="text" className="validate"/>
           <label for="zip">Zip</label>
         </div>
       </div>
+      <div className="row">
+         <div className="input-field col s6">
+           <a href="#profile" className="btn waves-effect waves-light col s12 blue" onclick="Materialize.toast('Profile Updated', 4000)">Update</a>
+         </div>
+       </div>
     </form>
-  </div>
+    </div>
    )
  }
 });
