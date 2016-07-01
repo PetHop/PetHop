@@ -14,7 +14,9 @@ module.exports = {
   },
 
   read: function(req, res, next) {
-    PetSchema.find().exec(function (err, result) {
+    PetSchema.find()
+    .populate('owner')
+    .exec(function (err, result) {
       if (err) {
         res.send(err);
       } else {
