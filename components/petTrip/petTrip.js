@@ -8,17 +8,13 @@ var PetTrip = React.createClass({
 
   getInitialState(){
     return{
-      startDate: "",
-      endDate: "",
-      startPoint: "",
-      endPoint: "",
-      comments: "",
+      startDate: undefined,
+      endDate: undefined,
+      startPoint: undefined,
+      endPoint: undefined,
+      comments: undefined,
       active: null
     }
-  },
-
-  contextTypes: {
-    handleMongoId: React.PropTypes.func.isRequired
   },
 
 
@@ -46,26 +42,22 @@ handleFormSubmit: function(e){
   trip.startPoint = this.state.startPoint;
   trip.endPoint = this.state.endPoint;
   trip.comments = this.state.comments;
-  trip.userTraveler = [];
 
   this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
   this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
 },
 
-//create
 handlePetTripFormUpdate: function (trip, mongoId){
-  console.log(mongoId, " handlePetTripFormUpdate")
-  trip.userTraveler.push(mongoId);
+
   $.ajax({
-    url: '/travel/',
-    method: 'POST',
+    url: '/travel/' + mongoId,
+    method: 'PUT',
     dataType: 'json',
     data: trip,
     success: function(data){
-      console.log("success")
     }.bind(this),
       error: function(xhr, status, err){
-        console.error('/travel/' + mongoId, status, err.toString());
+        console.error('/users/' + mongId, status, err.toString());
       }.bind(this)
   });
 },
@@ -89,6 +81,7 @@ requesting: function(e){
      <div>
        <div className="container">
        <form className="form-inline" onSubmit={this.handleFormSubmit}>
+
        <form>
         <div>
            <input id="radiobtn" type="radio" onChange={this.giving} value="Giving a ride"/>Giving a ride

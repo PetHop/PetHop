@@ -14,7 +14,7 @@ import Home from './../home/home';
 import Login from './../auth/login';
 import Nav from './../nav/nav';
 import PetTrip from './../petTrip/petTrip';
-import ProfileEdit from './../profileEdit/profileEdit';
+import ProfileEdit from './../profileEdit/profileEditData';
 import RegistrationPage from './../auth/registrationPage';
 import Main from './../main.js';
 import Profile from './../profile/profile.js';
