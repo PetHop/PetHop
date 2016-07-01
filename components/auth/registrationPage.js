@@ -160,7 +160,7 @@ var Registration = React.createClass({
             <span spBind="form.errorMessage" />
           </p>
           <p>
-            <input type="submit" value="Register" />
+            <input className="btn waves-effect waves-light col s12 m12 l6 blue"type="submit" value="Register" />
           </p>
         </div>
 

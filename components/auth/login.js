@@ -6,11 +6,10 @@ var logo = require('file!./../../views/img/login-logo.png');
 function Login() {
   return (
    <div className="login">
-    <img className='logo' src={ logo }/>
      <LoginForm redirectTo='/feed' >
 
      <div className="row">
-        <div className="col s6 m6 l6 center">
+        <div className="col s12 m12 l6 center">
           <div className='login'>
             <h1>Login</h1>
             <br/>
@@ -27,7 +26,7 @@ function Login() {
               <span spBind="form.errorMessage" />
             </p>
             <p>
-              <input type="submit" value="Login" />
+              <input className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" value="Login" />
             </p>
           </div>
         </div>
