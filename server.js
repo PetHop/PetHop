@@ -12,6 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
+require('./multerImpl')(app); //Call the multerImpl and pass in app state to it
 
 
 // This contains function to link stormpath and mongodb by placing each others IDs in their objects
