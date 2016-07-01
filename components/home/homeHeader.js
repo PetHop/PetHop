@@ -1,4 +1,7 @@
 import React from 'react';
+import slider1 from 'file!./../../views/img/pexels-photo-57627-large.png';
+import slider2 from 'file!./../../views/img/pexels-photo-96428-large.png';
+import slider3 from 'file!./../../views/img/pexels-photo-55609-large.png';
 
 var HomeHeader = React.createClass({
   render: function () {
@@ -7,23 +10,23 @@ var HomeHeader = React.createClass({
         <div className="slider">
           <ul className="slides">
             <li>
-              <img src="https://static.pexels.com/photos/57627/pexels-photo-57627-large.jpeg"/>
+              <img src={ slider1 }/>
               <div className="caption center-align">
-                <h3>This is our big Tagline!</h3>
+                <h3>Tagline 1!</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
             <li>
-              <img src="https://static.pexels.com/photos/96428/pexels-photo-96428.jpeg"/>
+              <img src={ slider2 }/>
               <div className="caption center-align">
-                <h3>Left Aligned Caption</h3>
+                <h3>Tagline 2!</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
             <li>
-              <img src="https://static.pexels.com/photos/55609/pexels-photo-55609-large.jpeg"/>
+              <img src={ slider3 }/>
               <div className="caption center-align top">
-                <h3>Right Aligned Caption</h3>
+                <h3>Tagline 3!</h3>
                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>

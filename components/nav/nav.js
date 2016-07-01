@@ -8,7 +8,7 @@ var Nav = React.createClass({
     return(
       <nav>
         <div className="nav-wrapper orange darken-1 z-depth-1">
-        <a href="#" className="brand-logo">PetHop</a>
+        <a href="/" className="brand-logo">PetHop</a>
 
           {/*<a href="#" className="brand-logo"><img src={ navLogo } />PetHop</a>*/}
               <ul id="nav-mobile" className="right hide-on-med-and-down">

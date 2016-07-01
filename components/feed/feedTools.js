@@ -3,11 +3,13 @@ import React from 'react';
 var FeedTools = React.createClass({
   render: function() {
     return (
-      <div className="addtrip">
-        <a className="waves-effect waves-light btn blue">Add Pet Trip</a>
-        {/*<a className="btn-floating btn-large waves-effect waves-light red center"><i className="material-icons">add</i></a>*/}
-      </div>
+      <div className="row">
+         <div className="input-field col s6">
+           <a href="#" className="btn waves-effect waves-light col s12 blue" onclick="Materialize.toast('Trip Added', 4000)">Add Pet Trip</a>
+         </div>
+       </div>
    )
   }
 });
+
 export default FeedTools;

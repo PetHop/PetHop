@@ -10,8 +10,7 @@ function Login() {
      <LoginForm redirectTo='/feed' >
 
      <div className="row">
-        <div className="col s2 m2 l2 center">
-          <div className="card white darken-1 center">
+        <div className="col s6 m6 l6 center">
           <div className='login'>
             <h1>Login</h1>
             <br/>
@@ -30,7 +29,6 @@ function Login() {
             <p>
               <input type="submit" value="Login" />
             </p>
-          </div>
           </div>
         </div>
       </div>

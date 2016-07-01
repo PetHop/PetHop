@@ -43,4 +43,5 @@ var InfoUpper = React.createClass({
    )
   }
 });
+
 export default InfoUpper;
