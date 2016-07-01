@@ -8,6 +8,7 @@ var SelectorButtons = React.createClass({
           <button onClick={ this.props.toggleActiveComponent.bind(null, 'contactInfoEdit') }> Your Contact info</button>
           <button onClick={ this.props.toggleActiveComponent.bind(null, 'vehicleEdit') }>Your Vehicle</button>
           <button onClick={ this.props.toggleActiveComponent.bind(null, 'addPet') }>Add a Pet</button>
+          <button onClick={ this.props.toggleActiveComponent.bind(null, 'imageUpload') }>Add a Profile Image</button>
         </div>
       </div>
     )
