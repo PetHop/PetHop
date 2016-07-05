@@ -48,7 +48,9 @@ module.exports =
   },
 
   readById: function (req, res, next) {
-    UserSchema.findById(req.params.id, function(err, result) {
+    UserSchema.findById(req.params.id)
+    .populate('pets')
+    .exec(function(err, result) {
       if (err) {
         res.send(err);
       } else {
