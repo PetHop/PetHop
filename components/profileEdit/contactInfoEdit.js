@@ -13,31 +13,31 @@ var ContactInfoEdit = React.createClass({
            <div className="row">
              <div className="input-field col s12 m12 l12">
                <input id="phone" type="text" className="validate" onChange={ this.props.handlePhoneChange}/>
-               <label for="phone">Telephone</label>
+               <label htmlFor="phone">Telephone</label>
              </div>
            </div>
          <div className="row">
            <div className="input-field col s12 m12 l12">
              <input id="street" type="text" className="validate" onChange={ this.props.handleStreetChange } />
-             <label for="street">Street Address</label>
+             <label htmlFor="street">Street Address</label>
            </div>
          </div>
          <div className="row">
            <div className="input-field col s12 m12 l12">
              <input id="city" type="text" className="validate" onChange={ this.props.handleCityChange }/>
-             <label for="city">City</label>
+             <label htmlFor="city">City</label>
            </div>
          </div>
          <div className="row">
            <div className="input-field col s12 m12 l12">
              <input id="state" type="text" className="validate" onChange={ this.props.handleStateChange } />
-             <label for="state">State</label>
+             <label htmlFor="state">State</label>
            </div>
          </div>
          <div className="row">
            <div className="input-field col s12 m12 l12">
              <input id="zip" type="text" className="validate" onChange={ this.props.handleZipChange } />
-             <label for="zip">Zip</label>
+             <label htmlFor="zip">Zip</label>
            </div>
          </div>
          <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" >Submit</button>
