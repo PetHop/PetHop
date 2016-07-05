@@ -20,24 +20,14 @@ var ImageUpload = React.createClass({
     acceptedFiles: "image/jpeg,image/png,image/gif"
   },
 
-
-  // FOR HE WHOM STYLES THIS UGLY BOX: THIS IS WHAT IS RENDERED:
-  
-  // <div class="filepicker dropzone dz-clickable">
-    // <div data-filetype=".jpg" class="filepicker-file-icon"></div>
-      // <div data-filetype=".png" class="filepicker-file-icon"></div>
-      // <div data-filetype=".gif" class="filepicker-file-icon"></div>
-      // <div class="dz-default dz-message">
-      // <span>Drop files here to upload</span>
-    // </div>
-  // </div>
-
   render: function(){
     return(
-      <div>
+      <div className="valign-wrapper">
+        <div className="row">
         <DropzoneComponent config={this.componentConfig}
                            eventHandlers={this.eventHandlers}
                            djsConfig={this.djsConfig} />
+        </div>
       </div>
     )
   }

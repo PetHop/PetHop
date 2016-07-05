@@ -5,13 +5,15 @@ import FeedLeft from './feedLeft.js';
 import Footer from './../footer/footer.js';
 // import Geolocator from './Geolocator';
 import Listing from './feedListing.js';
+import Tools from './feedTools.js';
 
 
 var Feed = React.createClass({
   render: function() {
     return (
        <div className="feed">
-          <Listing/>
+          <Tools />
+          <Listing />
        </div>
     );
   }
