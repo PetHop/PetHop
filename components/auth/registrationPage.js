@@ -163,6 +163,36 @@ var Registration = React.createClass({
             <input className="btn waves-effect waves-light col s12 m12 l6 blue"type="submit" value="Register" />
           </p>
         </div>
+        {/*<div>
+            <div className="center">
+             <h3>Register</h3>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l6">
+                <input id="first_name" type="text" className="validate"/>
+                <label for="first_name">First Name</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l6">
+                <input id="last_name" type="text" className="validate"/>
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l6">
+                <input id="email" type="email" className="validate"/>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l6">
+                <input id="password" type="password" className="validate"/>
+                <label for="password">Password</label>
+              </div>
+            </div>
+      </div>
+      <button className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" value="Register">Submit</button>*/}
 
       </RegistrationForm>
     </div>
