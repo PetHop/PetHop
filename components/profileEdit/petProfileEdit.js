@@ -40,13 +40,13 @@ var PetProfileEdit = React.createClass({
                 <div className="row">
                   <div className="input-field col s12 m12 l12">
                     <input id="name" type="text" className="validate" onChange={ this.props.handlePetNameChange } />
-                    <label for="name">What is your pet's name?</label>
+                    <label htmlFor="name">What is your pet's name?</label>
                   </div>
                 </div>
                 <div className="row">
                   {/*<div className="input-field col s12 m12 l6">
                     <input id="type" type="text" className="validate" onChange={ this.props.handleTypeChange } />
-                    <label for="type">What type of animal? (Dog? Cat? Bird?)</label>
+                    <label htmlFor="type">What type of animal? (Dog? Cat? Bird?)</label>
                   </div>*/}
                   <div className="input-field col s12 m12 l12">
                     <select>
@@ -55,19 +55,19 @@ var PetProfileEdit = React.createClass({
                       <option value="2">Cat</option>
                       <option value="3">Bird</option>
                     </select>
-                    <label for="type">What type of animal? (Dog? Cat? Bird?)</label>
+                    <label htmlFor="type">What type of animal? (Dog? Cat? Bird?)</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12 m12 l12">
                     <input id="breed" type="text" className="validate" onChange={ this.props.handlePetBreedChange } />
-                    <label for="breed">What is your companion's breed?</label>
+                    <label htmlFor="breed">What is your companion's breed?</label>
                   </div>
                 </div>
                 <div className="row">
                   {/*<div className="input-field col s12 m12 l6">
                     <input id="size" type="text" className="validate" onChange={ this.props.handlePetSizeChange } />
-                    <label for="size">Size (big, medium, or small?)</label>
+                    <label htmlFor="size">Size (big, medium, or small?)</label>
                   </div>*/}
                   <div className="input-field col s12 m12 l12">
                     <select>
@@ -76,19 +76,19 @@ var PetProfileEdit = React.createClass({
                       <option value="2">Medium</option>
                       <option value="3">Large</option>
                     </select>
-                    <label for="type">Size (Small, Medium, or Large?)</label>
+                    <label htmlFor="type">Size (Small, Medium, or Large?)</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12 m12 l12">
                     <input id="description" type="text" className="validate" onChange={ this.props.handlePetDescChange } />
-                    <label for="description">Description</label>
+                    <label htmlFor="description">Description</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12 m12 l12">
                     <input id="specialReq" type="text" className="validate" onChange={ this.props.handleSpecialReqChange } />
-                    <label for="specialReq">Does he/she have any special requirements?</label>
+                    <label htmlFor="specialReq">Does he/she have any special requirements?</label>
                   </div>
                 </div>
                 <button className="btn waves-effect waves-light col s12 m12 l16 blue" type="submit" >Submit</button>

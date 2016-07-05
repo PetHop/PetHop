@@ -110,20 +110,24 @@ var PetTrip = React.createClass({
       console.log("saved currentUser:", data);
     })
   },
-
-
   componentDidMount: function(){
     console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
-
+  componentDidMount: function(){
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+      });
+  },
    render: function(){
      console.log("rendering", this.state.currentUser);
 
      var renderOnlyWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } /> : null;
 
      return (
+
        <div>
          <h3>Post a new request for transportation assistance here!</h3>
          <div className="container">
