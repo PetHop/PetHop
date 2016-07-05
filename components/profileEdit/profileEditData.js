@@ -190,7 +190,8 @@ componentDidMount: function(){
 
  render: function(){
    return (
-    <FormSelector handleStreetChange={ this.handleStreetChange }
+    <FormSelector currentUser={ this.state.currentUser }
+                  handleStreetChange={ this.handleStreetChange }
                   handleCityChange={ this.handleCityChange }
                   handleStateChange={ this.handleStateChange }
                   handleZipChange={ this.handleZipChange }

@@ -34,7 +34,7 @@ var ProfileEditSelector = React.createClass({
                              handleSpecialReqChange={ this.props.handleSpecialReqChange }
                              handlePetProfileSubmit={ this.props.handlePetProfileSubmit }/>
     } else if ( this.state.activeComponent = 'imageUpload') {
-      return <ImageUpload />
+      return this.props.currentUser ? <ImageUpload currentUser={ this.props.currentUser }/> : null;
     } else {
       throw new Error('No active profileEdit component: ', this.state.activeComponent)
     }
