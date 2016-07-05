@@ -4,6 +4,12 @@ import ReactStormpath, { Authenticated, NotAuthenticated, LoginLink, LogoutLink,
 import navLogo from 'file!./../../views/img/nav-logo.png';
 
 var Nav = React.createClass({
+  componentDidMount: function(){
+    // Initialize collapse button
+    $(".button-collapse").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+  },
   render: function(){
     return(
       // <nav>
@@ -28,38 +34,41 @@ var Nav = React.createClass({
       //
       //   </div>
       // </nav>
-<nav>
-  <div className="nav-wrapper orange darken-1 z-depth-1">
-    <a href="/" className="brand-logo">PetHop</a>
-    <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-    <ul className="right hide-on-med-and-down">
-       <Link to='/'><li>Home</li></Link>
-       <Link to ='feed'><li>View Listings</li></Link>
-    <NotAuthenticated>
-       <Link to='register'><li>Sign Up</li></Link>
-       <Link to='login'><li>Log in</li></Link>
-    </NotAuthenticated>
-    <Authenticated>
-       <Link to='profile'><li>Your Profile</li></Link>
-       <Link to='profileedit'><li>Update Profile</li></Link>
-       <LogoutLink redirectTo='/'><li>Logout</li></LogoutLink>
-    </Authenticated>
-    </ul>
-    <ul id="slide-out" className="side-nav">
-        <Link to='/'><li>Home</li></Link>
-        <Link to ='feed'><li>View Listings</li></Link>
-     <NotAuthenticated>
-        <Link to='register'><li>Sign Up</li></Link>
-        <Link to='login'><li>Log in</li></Link>
-     </NotAuthenticated>
-     <Authenticated>
-        <Link to='profile'><li>Your Profile</li></Link>
-        <Link to='profileedit'><li>Update Profile</li></Link>
-        <LogoutLink redirectTo='/'><li>Logout</li></LogoutLink>
-     </Authenticated>
-    </ul>
-  </div>
-</nav>
+        <nav>
+            <div className="nav-wrapper orange darken-1 z-depth-1">
+              <a href="/" className="brand-logo">PetHop</a>
+              <a href="#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
+              <ul className="right hide-on-med-and-down">
+                 <Link to='/'><li>Home</li></Link>
+                 <Link to ='feed'><li>View Listings</li></Link>
+              <NotAuthenticated>
+                 <Link to='register'><li>Sign Up</li></Link>
+                 <Link to='login'><li>Log in</li></Link>
+              </NotAuthenticated>
+              <Authenticated>
+                 <Link to='profile'><li>Your Profile</li></Link>
+                 <Link to='profileedit'><li>Update Profile</li></Link>
+                 <LogoutLink redirectTo='/'><li>Logout</li></LogoutLink>
+              </Authenticated>
+              </ul>
+            </div>
+              <ul id="slide-out" className="side-nav">
+                  <Link to='/'><li>Home</li></Link>
+                  <Link to ='feed'><li>View Listings</li></Link>
+               <NotAuthenticated>
+                  <Link to='register'><li>Sign Up</li></Link>
+                  <Link to='login'><li>Log in</li></Link>
+               </NotAuthenticated>
+               <Authenticated>
+                  <Link to='profile'><li>Your Profile</li></Link>
+                  <Link to='profileedit'><li>Update Profile</li></Link>
+                  <LogoutLink redirectTo='/'><li>Logout</li></LogoutLink>
+               </Authenticated>
+              </ul>
+
+        </nav>
+
+
    )
   }
 });

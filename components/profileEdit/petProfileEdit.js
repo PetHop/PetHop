@@ -24,53 +24,77 @@ var PetProfileEdit = React.createClass({
     })
   },
 
-
+    componentDidMount: function(){
+      $(document).ready(function() {
+        $('select').material_select();
+    });
+  },
   render: function(){
     return(
-      <div>
-        <h3>Update Your Pet Information!</h3>
-          <div className="row">
-            <form className="col s12" onSubmit={ this.props.handlePetProfileSubmit } >
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="name" type="text" className="validate" onChange={ this.props.handlePetNameChange } />
-                  <label for="name">What is your pet's name?</label>
+          <div className="valign-wrapper">
+            <div className="row">
+              <form className="col s12" onSubmit={ this.props.handlePetProfileSubmit } >
+                <div className="col s12 center">
+                 <h3>Add/Update Your Pet Info!</h3>
                 </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="type" type="text" className="validate" onChange={ this.props.handleTypeChange } />
-                  <label for="type">What type of animal? (Dog? Cat? Bird?)</label>
+                <div className="row">
+                  <div className="input-field col s12 m12 l12">
+                    <input id="name" type="text" className="validate" onChange={ this.props.handlePetNameChange } />
+                    <label for="name">What is your pet's name?</label>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="breed" type="text" className="validate" onChange={ this.props.handlePetBreedChange } />
-                  <label for="breed">What is your companion's breed?</label>
+                <div className="row">
+                  {/*<div className="input-field col s12 m12 l6">
+                    <input id="type" type="text" className="validate" onChange={ this.props.handleTypeChange } />
+                    <label for="type">What type of animal? (Dog? Cat? Bird?)</label>
+                  </div>*/}
+                  <div className="input-field col s12 m12 l12">
+                    <select>
+                      <option value="" disabled selected onChange={ this.props.handleTypeChange }>Choose your option</option>
+                      <option value="1">Dog</option>
+                      <option value="2">Cat</option>
+                      <option value="3">Bird</option>
+                    </select>
+                    <label for="type">What type of animal? (Dog? Cat? Bird?)</label>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="size" type="text" className="validate" onChange={ this.props.handlePetSizeChange } />
-                  <label for="size">Size (big, medium, or small?)</label>
+                <div className="row">
+                  <div className="input-field col s12 m12 l12">
+                    <input id="breed" type="text" className="validate" onChange={ this.props.handlePetBreedChange } />
+                    <label for="breed">What is your companion's breed?</label>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="description" type="text" className="validate" onChange={ this.props.handlePetDescChange } />
-                  <label for="description">Description</label>
+                <div className="row">
+                  {/*<div className="input-field col s12 m12 l6">
+                    <input id="size" type="text" className="validate" onChange={ this.props.handlePetSizeChange } />
+                    <label for="size">Size (big, medium, or small?)</label>
+                  </div>*/}
+                  <div className="input-field col s12 m12 l12">
+                    <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Small</option>
+                      <option value="2">Medium</option>
+                      <option value="3">Large</option>
+                    </select>
+                    <label for="type">Size (Small, Medium, or Large?)</label>
+                  </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12 m12 l6">
-                  <input id="specialReq" type="text" className="validate" onChange={ this.props.handleSpecialReqChange } />
-                  <label for="specialReq">Does he/she have any special requirements?</label>
+                <div className="row">
+                  <div className="input-field col s12 m12 l12">
+                    <input id="description" type="text" className="validate" onChange={ this.props.handlePetDescChange } />
+                    <label for="description">Description</label>
+                  </div>
                 </div>
-              </div>
-              <button className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" >Submit</button>
-            </form>
+                <div className="row">
+                  <div className="input-field col s12 m12 l12">
+                    <input id="specialReq" type="text" className="validate" onChange={ this.props.handleSpecialReqChange } />
+                    <label for="specialReq">Does he/she have any special requirements?</label>
+                  </div>
+                </div>
+                <button className="btn waves-effect waves-light col s12 m12 l16 blue" type="submit" >Submit</button>
+              </form>
+            </div>
           </div>
-      </div>
     )
   }
 });
