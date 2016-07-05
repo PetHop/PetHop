@@ -80,9 +80,6 @@ handleContactInfoSubmit: function(e){
   user.city = this.state.city;
   user.state = this.state.state;
   user.phone = this.state.phone;
-  // new pet IDs should be pushed to (or deleted from) state.currentUser.pets before calling this function, then the entire array is submitted here.
-  user.pets = this.state.currentUser.pets
-
 
   this.context.handleMongoId(user, this.handleProfileUpdate);
   this.setState({ street: "", city: "", zip: "", state: "", phone: "" });
@@ -99,7 +96,7 @@ handlePetProfileSubmit: function(e){
   pet.petDesc = this.state.petDesc;
   pet.specialReq = this.state.specialReq;
 
-  this.context.handleMongoId(pet, this.handleAddPetProfile);
+  this.context.handleMongoId(pet, this.handleCreatePetProfile);
   this.setState({ petName: "", type: "", petSize: "", petBreed: "", petDesc: "", specialReq: "" });
 },
 
@@ -123,11 +120,11 @@ handleProfileUpdate: function(user, mongoId){
 },
 
 // After the MongoId of currentUser is retrieved, we are adding that to the pet object and saving the new pet to the database. The Id of the new pet will then be passed to another function to be saved in the current user's .pets property for easy future reference
-handleAddPetProfile: function(pet, mongoId){
-  console.log("handleAddPetProfile starting");
+handleCreatePetProfile: function(pet, mongoId){
+  console.log("handleCreatePetProfile starting");
   // now that we have the mongoId of the owner (currentUser), we attach it to the pet before POSTing the new pet
   pet.owner = mongoId;
-  console.log("handleAddPetProfile posting: ", pet);
+  console.log("handleCreatePetProfile posting: ", pet);
   $.ajax({
     url: '/pets/',
     method: 'POST',
@@ -135,15 +132,41 @@ handleAddPetProfile: function(pet, mongoId){
     data: pet,
     success: function(data){
       console.log("newly created pet _id: ", data._id);
-      this.state.currentUser.pets.push(data._id);
+      var petsUpdate = this.state.currentUser.pets;
+      petsUpdate.push(data._id);
+      this.setState(petsUpdate);
+      this.handlePetAtttachToUser();
       // DEPRECATED
       // We are taking the new pet's document ID passing it to the handleProfileUpdate so that the user that added this pet will be able to reference it from his own mongoDB entry.
       // var user = {};
       // user.pets = [data._id];
       // this.handleProfileUpdate(user, mongoId);
+
     }.bind(this),
     error: function(xhr, status, err){
       console.error('/pets/', status, err.toString());
+    }.bind(this)
+  });
+},
+
+handlePetAtttachToUser: function(){
+  // new pet IDs should be pushed to (or deleted from) state.currentUser.pets before calling this function, then the entire array is submitted here.
+  var user = {
+    pets: this.state.currentUser.pets
+  }
+  console.log("handlePetAtttachToUser starting, currentUser: ", this.state.currentUser)
+
+  $.ajax({
+    url: '/users/' + this.state.currentUser._id,
+    method: 'PUT',
+    dataType: 'json',
+    data: user,
+    success: function(data){
+      console.log("handlePetAtttachToUser success", data)
+      // DO SOMETHING USEFUL?
+    }.bind(this),
+      error: function(xhr, status, err){
+      console.error('/users/' + mongoId, status, err.toString());
     }.bind(this)
   });
 },
@@ -152,7 +175,7 @@ handleAddPetProfile: function(pet, mongoId){
 getCurrentUserInfo: function(empty, mongoId){
   var self = this;  // prevent some scope issues
   $.ajax({
-    url: '/users/' + mongoId,
+    url: '/users/' + mongoId + '/nopop',
     method: 'GET'
   }).done(function(data){
     self.setState({ currentUser: data });

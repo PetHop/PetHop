@@ -11,7 +11,6 @@ var MongoId = React.createClass({
   childContextTypes: {
     handleMongoId: React.PropTypes.func,
     consoleStormpathId: React.PropTypes.func,
-    getCurrentUsersPets: React.PropTypes.func
   },
 
   // Adds function to props, this is the one to use when calling the function
@@ -19,7 +18,6 @@ var MongoId = React.createClass({
     return{
       handleMongoId: this.handleMongoId,
       consoleStormpathId: this.consoleStormpathId,
-      getCurrentUsersPets: this.getCurrentUsersPets
     }
   },
 
@@ -42,18 +40,6 @@ var MongoId = React.createClass({
     })
   },
 
-  // AJAX request to get all of the logged in user's pets and save them in state
-  getCurrentUsersPets: function(empty, mongoId){
-    var self = this;
-    console.log("getCurrentUsersPets is about to AJAX");
-    $.ajax({
-      method: 'GET',
-      url: '/users/' + mongoId
-    }).done(function(data){
-      console.log("getCurrentUsersPets ajaxed succssfully. data:", data);
-      self.setState({ currentUsersPets: data.pets })
-    })
-  },
 
   // This function is for testing purposes only and also is broken now as it was written in profileEdit.js
   // consoleStormpathId: function(){

@@ -9,12 +9,11 @@ var PetTrip = React.createClass({
 
   contextTypes: {
     handleMongoId: React.PropTypes.func.isRequired,
-    getCurrentUsersPets: React.PropTypes.func.isRequired
   },
 
   getInitialState(){
     return{
-      pets: [],
+      currentUser: null,
       selectedPets: [],
       startDate: undefined,
       endDate: undefined,
@@ -100,20 +99,39 @@ var PetTrip = React.createClass({
   //    <input id="radiobtn" type="radio" onChange={this.requesting} value="Requesting a ride"/>Requesting a ride
   // </div>
 
+  getCurrentUserInfo: function(empty, mongoId){
+    console.log("getting CurrentUser info");
+    var self = this;  // prevent some scope issues
+    $.ajax({
+      url: '/users/' + mongoId,
+      method: 'GET'
+    }).done(function(data){
+      self.setState({ currentUser: data });
+      console.log("saved currentUser:", data);
+    })
+  },
 
 
   componentDidMount: function(){
+    console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
-    this.context.handleMongoId(null, this.context.getCurrentUsersPets)
+    this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
 
    render: function(){
+     console.log("rendering", this.state.currentUser);
+
+     var renderOnlyWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } /> : null;
+
      return (
        <div>
          <h3>Post a new request for transportation assistance here!</h3>
          <div className="container">
          <form className="form-inline" onSubmit={this.handleFormSubmit}>
           <div id="output"></div>
+
+            { renderOnlyWhenReady }
+
              <div className="form-group">
                <label>Where are leaving from?</label>
                <input type="text" className="form-control" placeholder="Starting location"
@@ -146,4 +164,4 @@ var PetTrip = React.createClass({
    }
 });
 
-export default PetTrip;
+module.exports = PetTrip;

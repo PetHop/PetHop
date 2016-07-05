@@ -57,5 +57,16 @@ module.exports =
         res.send(result);
       }
     });
+  },
+  
+  readByIdNoPop: function (req, res, next) {
+    UserSchema.findById(req.params.id)
+    .exec(function(err, result) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(result);
+      }
+    });
   }
 };
