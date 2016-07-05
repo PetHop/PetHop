@@ -56,6 +56,8 @@ app.get('/users', userCtrl.read);
 app.post('/users/', userCtrl.create);
 app.put('/users/:id', userCtrl.update);
 app.delete('/users/:id', userCtrl.delete);
+app.get('/users/:id', userCtrl.readById);
+app.get('/users/:id/nopop', userCtrl.readByIdNoPop);
 
 app.get('/travel', travelCtrl.read);
 app.post('/travel/', travelCtrl.create);
