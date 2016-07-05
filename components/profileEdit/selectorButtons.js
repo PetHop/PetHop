@@ -9,6 +9,7 @@ var SelectorButtons = React.createClass({
             <button className="btn block waves-effect waves-light col s12 m12 l12 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'contactInfoEdit') }> Update Info</button>
             <button className="btn block waves-effect waves-light col s12 m12 l12 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'vehicleEdit') }>Add Vehicle</button>
             <button className="btn block waves-effect waves-light col s12 m12 l12 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'addPet') }>Add Pet</button>
+            <button className="btn block waves-effect waves-light col s12 m12 l6 blue" onClick={ this.props.toggleActiveComponent.bind(null, 'imageUpload') }>Add a Profile Image</button>
           </div>
         </div>
       </div>

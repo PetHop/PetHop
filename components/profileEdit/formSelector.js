@@ -3,6 +3,7 @@ var PetProfileEdit = require('./petProfileEdit.js');
 var VehicleEdit = require('./vehicleEdit.js');
 var ContactInfoEdit = require('./contactInfoEdit.js');
 var SelectorButtons = require('./selectorButtons.js');
+var ImageUpload = require('./imageUpload.js');
 
 
 var ProfileEditSelector = React.createClass({
@@ -10,7 +11,7 @@ var ProfileEditSelector = React.createClass({
   getInitialState: function(){
     return{
       activeComponent: 'contactInfoEdit', // components will include editAddress, addPet, editVehicle, ????
-      activeUserId: null,
+      activeUserId: null, // I think this is extraneous at the moment...
     }
   },
 
@@ -32,6 +33,8 @@ var ProfileEditSelector = React.createClass({
                              handlePetDescChange={ this.props.handlePetDescChange }
                              handleSpecialReqChange={ this.props.handleSpecialReqChange }
                              handlePetProfileSubmit={ this.props.handlePetProfileSubmit }/>
+    } else if ( this.state.activeComponent = 'imageUpload') {
+      return <ImageUpload />
     } else {
       throw new Error('No active profileEdit component: ', this.state.activeComponent)
     }
