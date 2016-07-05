@@ -5,6 +5,7 @@ module.exports = (app) => {
     destination: './uploads/', // Specifies upload location...
 
     filename: function (req, file, cb) {
+      console.log("multer req", req);
       switch (file.mimetype) { // *Mimetype stores the file type, set extensions according to filetype
         case 'image/jpeg':
           ext = '.jpeg';

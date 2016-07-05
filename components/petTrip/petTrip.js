@@ -40,11 +40,17 @@ var PetTrip = React.createClass({
     this.setState({comments: e.target.value})
   },
   // The function should add a pets ID to array when checked, and remove it when unchecked.
-  handleAnimalTravelerCheckboxChange: function(e){
-    console.log("handleAnimalTravelerCheckboxChange Event:", e)
-    var tempAnimalTraveler = this.state.animalTraveler;
-
-    this.setState({animalTraveler: e.target.value })
+  handleTravelerCheckbox: function(e){
+    console.log("handleTravelerCheckbox e:", e)
+    // If the Id of the activated pet is not in the array, push it to the array.
+    if (this.state.selectedPets.indexOf(e.target)){
+      this.state.selectedPets.push(e.target);
+    // otherwise find the index of the Id and remove it from the array.
+    } else {
+      var index = this.state.selectedPets.indexOf(e.target);
+      this.state.selectedPets.splice(index,1);
+    }
+    console.log("selectedPets", this.state.selectedPets);
   },
 
   // Combine data from inputs to one object for transmission
@@ -56,7 +62,8 @@ var PetTrip = React.createClass({
     trip.startPoint = this.state.startPoint;
     trip.endPoint = this.state.endPoint;
     trip.comments = this.state.comments;
-    // trip.animalTraveler =
+    trip.animalTraveler = this.state.selectedPets;
+
     console.log("hangleFormSubmit:", trip);
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
     this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
@@ -123,8 +130,8 @@ var PetTrip = React.createClass({
   },
    render: function(){
      console.log("rendering", this.state.currentUser);
-
-     var renderOnlyWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } /> : null;
+     // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
+     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : null;
 
      return (
 
@@ -134,7 +141,7 @@ var PetTrip = React.createClass({
          <form className="form-inline" onSubmit={this.handleFormSubmit}>
           <div id="output"></div>
 
-            { renderOnlyWhenReady }
+            { allPetOptionsWhenReady }
 
              <div className="form-group">
                <label>Where are leaving from?</label>
