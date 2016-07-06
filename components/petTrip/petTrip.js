@@ -146,6 +146,7 @@ var PetTrip = React.createClass({
               <div className="col s12 center">
                <h3>Add details of your pets trip!</h3>
               </div>
+              { allPetOptionsWhenReady }
             <div className="row">
               <div className="input-field col s12 m12 l12">
                 <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />
