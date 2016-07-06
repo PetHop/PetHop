@@ -25,10 +25,14 @@ var PetTrip = React.createClass({
 
   // Update state based on user interaction with inputs
   handleStartDateChange: function (e){
+    console.log('fire start');
     this.setState({startDate: e.target.value})
+    console.log("start", this.state.startDate);
   },
   handleEndDateChange: function (e){
+    console.log('fire end');
     this.setState({endDate: e.target.value})
+    console.log("end", this.state.endDate);
   },
   handleStartPointChange: function (e){
     this.setState({startPoint: e.target.value})
@@ -119,13 +123,15 @@ var PetTrip = React.createClass({
   },
 
   componentDidMount: function(){
-    // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
-    this.context.handleMongoId(null, this.getCurrentUserInfo);
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
       });
+    console.log('mounting components');
+    // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
+    this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
+
 
    render: function(){
      console.log("rendering", this.state.currentUser);
@@ -134,41 +140,45 @@ var PetTrip = React.createClass({
 
      return (
 
-       <div>
-         <h3>Post a new request for transportation assistance here!</h3>
-         <div className="container">
-         <form className="form-inline" onSubmit={this.handleFormSubmit}>
-          <div id="output"></div>
-
-            { allPetOptionsWhenReady }
-
-             <div className="form-group">
-               <label>Where are leaving from?</label>
-               <input type="text" className="form-control" placeholder="Starting location"
-               onChange={this.handleStartPointChange} />
-             </div>
-             <div className="form-group">
-               <label>When are you leaving?</label>
-               <input type="date" className="form-control"
-               onChange={this.handleStartDateChange} />
-             </div>
-             <div className="form-group">
-               <label>Where are you going?</label>
-               <input type="text" className="form-control" placeholder="Destination" onChange={this.handleEndPointChange}   />
-             </div>
-             <div className="form-group">
-               <label>When will you arrive?</label>
-               <input type="date" className="form-control"
-               onChange={this.handleEndDateChange}/>
-             </div>
-             <div className="form-group">
-               <label>Is there anything else you would like us to know?</label>
-               <input type="textarea" className="form-control"
-               onChange={this.handleCommentsChange} value={this.comments}/>
+       <div className="valign-wrapper">
+        <div className="row">
+          <form className="col s12" onSubmit={ this.props.handleContactInfoSubmit }>
+              <div className="col s12 center">
+               <h3>Add details of your pets trip!</h3>
               </div>
-               <button type="submit" className="btn btn-primary">Post this Listing!</button>
-           </form>
-         </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />
+                <label htmlFor="street">What is your start Location?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="city" type="text" className="validate" onChange={ this.handleEndPointChange }/>
+                <label htmlFor="city">What is your end Location?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="date" type="date" className="datepicker" onChange={ this.handleStartDateChange }/>
+                <label htmlFor="date">What date are you leaving?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="date" type="date" className="datepicker" onChange={ this.handleEndDateChange }/>
+                <label htmlFor="date">What date will you arrive?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <textarea id="textarea" type="textarea" className="materialize-textarea" onChange={ this.handleCommentsChange } value={this.comments}></textarea>
+                <label htmlFor="textarea">Is there anything else you would like your driver to know?</label>
+              </div>
+            </div>
+            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" >Add Listing</button>
+          </form>
+        </div>
        </div>
       )
    }
