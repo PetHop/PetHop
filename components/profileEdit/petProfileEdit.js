@@ -44,17 +44,8 @@ var PetProfileEdit = React.createClass({
                   </div>
                 </div>
                 <div className="row">
-                  {/*<div className="input-field col s12 m12 l6">
+                  <div className="input-field col s12 m12 l6">
                     <input id="type" type="text" className="validate" onChange={ this.props.handleTypeChange } />
-                    <label htmlFor="type">What type of animal? (Dog? Cat? Bird?)</label>
-                  </div>*/}
-                  <div className="input-field col s12 m12 l12">
-                    <select>
-                      <option value="" disabled selected onChange={ this.props.handleTypeChange }>Choose your option</option>
-                      <option value="1">Dog</option>
-                      <option value="2">Cat</option>
-                      <option value="3">Bird</option>
-                    </select>
                     <label htmlFor="type">What type of animal? (Dog? Cat? Bird?)</label>
                   </div>
                 </div>

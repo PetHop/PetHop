@@ -43,15 +43,15 @@ var PetTrip = React.createClass({
   handleCommentsChange: function (e){
     this.setState({comments: e.target.value})
   },
-  // The function should add a pets ID to array when checked, and remove it when unchecked.
+  // The function should add a pet's ID to array when it's checkbox is checked, and remove it when unchecked.
   handleTravelerCheckbox: function(e){
-    console.log("handleTravelerCheckbox e:", e)
+    // If the item is not in the array, the index will be -1
+    var index = this.state.selectedPets.indexOf(e.target.value);
     // If the Id of the activated pet is not in the array, push it to the array.
-    if (this.state.selectedPets.indexOf(e.target)){
-      this.state.selectedPets.push(e.target);
+    if (index == -1){
+      this.state.selectedPets.push(e.target.value);
     // otherwise find the index of the Id and remove it from the array.
     } else {
-      var index = this.state.selectedPets.indexOf(e.target);
       this.state.selectedPets.splice(index,1);
     }
     console.log("selectedPets", this.state.selectedPets);
@@ -121,6 +121,7 @@ var PetTrip = React.createClass({
       console.log("saved currentUser:", data);
     })
   },
+
   componentDidMount: function(){
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
@@ -130,12 +131,8 @@ var PetTrip = React.createClass({
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
-  // componentDidMount: function(){
-  //   $('.datepicker').pickadate({
-  //       selectMonths: true, // Creates a dropdown to control month
-  //       selectYears: 15 // Creates a dropdown of 15 years to control year
-  //     });
-  // },
+
+
    render: function(){
      console.log("rendering", this.state.currentUser);
      // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
