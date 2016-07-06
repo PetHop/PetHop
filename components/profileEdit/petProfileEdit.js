@@ -44,7 +44,7 @@ var PetProfileEdit = React.createClass({
                   </div>
                 </div>
                 <div className="row">
-                  <div className="input-field col s12 m12 l6">
+                  <div className="input-field col s12 m12 l12">
                     <input id="type" type="text" className="validate" onChange={ this.props.handleTypeChange } />
                     <label htmlFor="type">What type of animal? (Dog? Cat? Bird?)</label>
                   </div>
@@ -56,18 +56,9 @@ var PetProfileEdit = React.createClass({
                   </div>
                 </div>
                 <div className="row">
-                  {/*<div className="input-field col s12 m12 l6">
+                  <div className="input-field col s12 m12 l12">
                     <input id="size" type="text" className="validate" onChange={ this.props.handlePetSizeChange } />
                     <label htmlFor="size">Size (big, medium, or small?)</label>
-                  </div>*/}
-                  <div className="input-field col s12 m12 l12">
-                    <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Small</option>
-                      <option value="2">Medium</option>
-                      <option value="3">Large</option>
-                    </select>
-                    <label htmlFor="type">Size (Small, Medium, or Large?)</label>
                   </div>
                 </div>
                 <div className="row">
