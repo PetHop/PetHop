@@ -26,6 +26,7 @@ var FeedListing = React.createClass({
       self.setState({ listing: data })
     })
   },
+  
 
   componentDidMount: function(){
     console.log("mounted");

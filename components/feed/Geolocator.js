@@ -4,11 +4,12 @@
     //Location
         //FeedMap
           //MapLoader
-    //Location
+
 
 
 import React from 'react';
 import geocoder from 'google-geocoder';
+import FeedMap from './feedMap.js';
 
 var Location = React.createClass({
   getInitialState: function(){
@@ -67,14 +68,19 @@ var Geolocator = React.createClass({
       render: function(){
           var geo = geocoder ({
             key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'
-});
-   geo.find(this.props.start, function(err, data){
-          console.log(data, "this should be the stuff")
+            });
+      var startLocations = geo.find(this.props.start, function(err, data){
+          if(err){
+            console.log(err.toString());
+          } else {
+            console.log(data, "this should be the stuff");
+          }
         });
-    console.log(this.props.start, "I am from line 95");
+    //console.log(this.props.start, "I am from line 95");
     return(
       <div>
-        { geo }
+      { startLocations }
+      <FeedMap geolocations = { this.props.start }/>
       </div>
     )
   }
