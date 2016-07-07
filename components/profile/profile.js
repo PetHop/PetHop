@@ -11,7 +11,7 @@ var Profile = React.createClass({
   getInitialState: function(){
     return {
       // Will hold data for the user whose profile is currently being viewed
-      userData: ""
+      userData: undefined
     }
   },
 
