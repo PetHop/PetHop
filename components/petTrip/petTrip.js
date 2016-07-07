@@ -123,10 +123,6 @@ var PetTrip = React.createClass({
   },
 
   componentDidMount: function(){
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-      });
     console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
@@ -136,17 +132,28 @@ var PetTrip = React.createClass({
    render: function(){
      console.log("rendering", this.state.currentUser);
      // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
-     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : null;
+     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : <h2>Please add a pet from the update profile page!</h2>;
 
      return (
 
        <div className="valign-wrapper">
         <div className="row">
+<<<<<<< HEAD
           <form className="col s12" onSubmit={ this.props.handleContactInfoSubmit }>
               <div className="col s12 center">
                <h3>Add details of your pets trip!</h3>
               </div>
               { allPetOptionsWhenReady }
+=======
+          <form className="col s12" onSubmit={ this.handleFormSubmit }>
+
+            <div className="col s12 center">
+              <h3>Add details of your pets trip!</h3>
+            </div>
+
+              { allPetOptionsWhenReady }
+
+>>>>>>> 8daf21bef5ad6e09109086fb1b1c2c9f6de163af
             <div className="row">
               <div className="input-field col s12 m12 l12">
                 <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />
