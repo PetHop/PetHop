@@ -1,3 +1,11 @@
+//Feed
+    //Tools
+    //Listing
+    //FeedMap
+        //MapLoader
+    //Location
+
+
 import React from 'react';
 import pet1 from 'file!./../../views/img/lucy.png';
 import owner1 from 'file!./../../views/img/nick.png';
@@ -20,6 +28,7 @@ var FeedListing = React.createClass({
       self.setState({ listing: data })
     })
   },
+  
 
   componentDidMount: function(){
     console.log("mounted");
