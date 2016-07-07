@@ -199,7 +199,6 @@ componentDidMount: function(){
                   handleContactInfoSubmit={ this.handleContactInfoSubmit }
                   handlePetNameChange={ this.handlePetNameChange }
                   handleTypeChange={ this.handleTypeChange }
-                  type={ this.state.type }
                   handlePetSizeChange={ this.handlePetSizeChange }
                   handlePetBreedChange={ this.handlePetBreedChange }
                   handlePetDescChange={ this.handlePetDescChange }

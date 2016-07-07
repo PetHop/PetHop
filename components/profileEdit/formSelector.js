@@ -33,8 +33,7 @@ var ProfileEditSelector = React.createClass({
                              handlePetBreedChange={ this.props.handlePetBreedChange }
                              handlePetDescChange={ this.props.handlePetDescChange }
                              handleSpecialReqChange={ this.props.handleSpecialReqChange }
-                             handlePetProfileSubmit={ this.props.handlePetProfileSubmit }
-                             type={ this.props.type }/>
+                             handlePetProfileSubmit={ this.props.handlePetProfileSubmit } />
     } else if ( this.state.activeComponent = 'imageUpload') {
       // This ternary statement is to prevent rendering before currentUser is defined, which would break the app
       return this.props.currentUser ? <ImageUpload currentUser={ this.props.currentUser }/> : null;
