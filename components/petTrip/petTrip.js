@@ -1,9 +1,6 @@
 import React from 'react';
 import AllPetOptions from './allPetOptions.js';
 
-function bark(message){
-  document.getElementById('output').innerHTML = message;
-};
 
 var PetTrip = React.createClass({
 

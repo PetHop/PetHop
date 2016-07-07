@@ -10,14 +10,14 @@ var MongoId = React.createClass({
   // Declares the type of the context?
   childContextTypes: {
     handleMongoId: React.PropTypes.func,
-    consoleStormpathId: React.PropTypes.func,
+    // consoleStormpathId: React.PropTypes.func,
   },
 
   // Adds function to props, this is the one to use when calling the function
   getChildContext: function(){
     return{
       handleMongoId: this.handleMongoId,
-      consoleStormpathId: this.consoleStormpathId,
+      // consoleStormpathId: this.consoleStormpathId,
     }
   },
 
