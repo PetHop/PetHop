@@ -31,7 +31,7 @@
     <script src="./stormpath-sdk-react.min.js"></script>
 
   	<script type="text/javascript" src="../static/bundle.js"></script>
-  
+
 
     <script>
        $(document).ready(function () {
@@ -43,5 +43,24 @@
         $('.parallax').parallax();
       });
     </script>
+    <script>
+$(document).ready(function(){
+    $('.fromdate').datepicker({
+    dateFormat: 'yy-m-d',
+    inline: true,
+    onSelect: function(dateText, inst) {
+        var date = $(this).datepicker('getDate'),
+            day  = date.getDate(),
+            month = date.getMonth() + 1,
+            year =  date.getFullYear();
+        alert(day + '-' + month + '-' + year);
+    }
+});
+
+var fromdate =  $('.fromdate').datepicker('getDate');
+alert(fromdate);
+
+});
+</script>
   </body>
 </html>

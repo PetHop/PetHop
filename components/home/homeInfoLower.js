@@ -14,7 +14,7 @@ var InfoLower = React.createClass({
         </div>
         <div className="parallax-tagline">
         <div className="caption center-align light grey-text text-lighten-3">
-            <h3>Tagline 1!</h3>
+            <h3>PetHop drivers treat your pets like they are family!</h3>
             <a href="#feed" className="btn waves-effect waves-light col s12 m12 l6 blue">View Listings</a>
         </div>
         </div>
