@@ -28,7 +28,7 @@ var FeedListing = React.createClass({
       self.setState({ listing: data })
     })
   },
-  
+
 
   componentDidMount: function(){
     console.log("mounted");
@@ -56,7 +56,6 @@ var FeedListing = React.createClass({
                   </div>
                   <div className="card-action center">
                   <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
-                  <a href="#profile">View Profile</a>
                   <a href="#">Delete</a>
                   </div>
                 </div>
@@ -75,7 +74,6 @@ var FeedListing = React.createClass({
                   </div>
                   <div className="card-action center">
                   <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
-                  <a href="#profile">View Profile</a>
                   <a href="#">Delete</a>
                   </div>
                 </div>

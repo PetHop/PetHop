@@ -1,11 +1,9 @@
-//Feed
-    //Tools
-    //Listing
-    //Location
-        //FeedMap
-          //MapLoader
-
-
+// Feed
+//     Tools
+//     Listing
+//     Location
+//         FeedMap
+//           MapLoader
 
 import React from 'react';
 import geocoder from 'google-geocoder';

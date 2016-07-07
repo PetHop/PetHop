@@ -1,5 +1,4 @@
 import React from 'react';
-import bluebs from 'file!./../../views/img/teambluebs.png';
 
 var year = new Date().getFullYear();
 
