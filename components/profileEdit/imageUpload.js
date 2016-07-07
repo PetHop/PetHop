@@ -7,7 +7,7 @@ var DropzoneComponent = require('react-dropzone-component');
 var currentUser = {};
 var djsConfig = {
     addRemoveLinks: true,
-    acceptedFiles: "image/jpeg,image/png,image/gif",
+    acceptedFiles: "image/jpeg,image/png",
     renameFilename: function (name) {
      return currentUser._id + "_profile";
     },
@@ -23,12 +23,11 @@ var ImageUpload = React.createClass({
 
   componentDidMount: function(){
     currentUser = this.props.currentUser;
-    console.log("currentUser", currentUser);
   },
 
   // Configuration for Dropzone
   componentConfig: {
-      iconFiletypes: ['.jpg', '.png', '.gif'],
+      iconFiletypes: ['.jpg', '.png'],
       showFiletypeIcon: true,
       postUrl: '/uploadHandler',
   },
@@ -36,20 +35,18 @@ var ImageUpload = React.createClass({
   // Functions that execute at certain events in the Dropzone process
   eventHandlers: {
     success: function(file, response, error) {
-      console.log(response.responseText);
-      console.log("success: currentUser:", currentUser._id);
+      console.log('server response: recall image from ', response.responseText);
       var user = {
-        userImg: './../../' + response.responseText
+        userImg: 'http://pethop.co/' + response.responseText
       }
-      console.log("userImg", user.userImg);
+      console.log("userImg to be saved in profile: ", user.userImg);
       $.ajax({
         url: '/users/' + currentUser._id,
         method: 'PUT',
         dataType: 'json',
         data: user,
         success: function(data){
-          console.log("handlePetAtttachToUser success", data)
-          // DO SOMETHING USEFUL?
+          console.log("handleImageAtttachToUser success", data)
         }.bind(this),
           error: function(xhr, status, err){
           console.error('/users/' + mongoId, status, err.toString());
@@ -59,7 +56,6 @@ var ImageUpload = React.createClass({
   },
 
   render: function(){
-    console.log("imageUpload render", this.state);
     return(
       <div className="valign-wrapper">
         <div className="row">
