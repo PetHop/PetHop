@@ -22,7 +22,8 @@ var ProfileEditSelector = React.createClass({
                               handleCityChange={ this.props.handleCityChange }
                               handleStateChange={ this.props.handleStateChange }
                               handleZipChange={ this.props.handleZipChange }
-                              handlePhoneChange={ this.props.handlePhoneChange }                              handleContactInfoSubmit={ this.props.handleContactInfoSubmit }/>
+                              handlePhoneChange={ this.props.handlePhoneChange }
+                              handleContactInfoSubmit={ this.props.handleContactInfoSubmit }/>
     } else if ( this.state.activeComponent === 'vehicleEdit') {
       return <VehicleEdit />
     } else if ( this.state.activeComponent === 'addPet') {

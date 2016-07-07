@@ -139,61 +139,59 @@ var Registration = React.createClass({
           <span spIf="!account.enabled">To verify your account, click the verification link that we sent to your email then proceed to login by going to <LoginLink />.</span>
         </div>
         <div spIf="!account.created">
-          <p>
-            <label htmlFor="firstName">First name</label><br />
-            <input id="firstName" type="text" name="givenName" />
-          </p>
-          <p>
-            <label htmlFor="lastName">Last name</label><br />
-            <input id="lastName" type="text" name="surname" />
-          </p>
-          <p>
-            <label htmlFor="email">Email</label><br />
-            <input id="email" type="text" name="email" />
-          </p>
-          <p>
-            <label htmlFor="password">Password</label><br />
-            <input id="password" type="password" name="password" />
-          </p>
           <p spIf="form.error">
             <strong>Error:</strong><br />
             <span spBind="form.errorMessage" />
           </p>
-          <p>
-            <input className="btn waves-effect waves-light col s12 m12 l6 blue"type="submit" value="Register" />
-          </p>
+          <div className="row">
+             <div className="col s12 m12 l6">
+              <div className="center">
+               <h3>Register</h3>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="firstname" type="text" className="validate" name="givenName"/>
+                  <label htmlFor="firstname">First Name</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="lastname" type="text" className="validate" name="surname"/>
+                  <label htmlFor="lastname">Last Name</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="email" type="email" className="validate" name="email"/>
+                  <label htmlFor="email">Email</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="password" type="password" className="validate" name="password"/>
+                  <label htmlFor="password">Password</label>
+                </div>
+              </div>
+            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Register">Sign Up</button>
         </div>
-        {/*<div>
-            <div className="center">
-             <h3>Register</h3>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 m12 l6">
-                <input id="first_name" type="text" className="validate"/>
-                <label for="first_name">First Name</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 m12 l6">
-                <input id="last_name" type="text" className="validate"/>
-                <label for="last_name">Last Name</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 m12 l6">
-                <input id="email" type="email" className="validate"/>
-                <label for="email">Email</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 m12 l6">
-                <input id="password" type="password" className="validate"/>
-                <label for="password">Password</label>
-              </div>
-            </div>
-      </div>
-      <button className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" value="Register">Submit</button>*/}
-
+        </div>
+        </div>
+      {/*<p>
+        <label htmlFor="firstName">First name</label><br />
+        <input id="firstName" type="text" name="givenName" />
+      </p>
+      <p>
+        <label htmlFor="lastName">Last name</label><br />
+        <input id="lastName" type="text" name="surname" />
+      </p>
+      <p>
+        <label htmlFor="email">Email</label><br />
+        <input id="email" type="text" name="email" />
+      </p>
+      <p>
+        <label htmlFor="password">Password</label><br />
+        <input id="password" type="password" name="password" />
+      </p>*/}
       </RegistrationForm>
     </div>
   );

@@ -123,30 +123,33 @@ var PetTrip = React.createClass({
   },
 
   componentDidMount: function(){
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-      });
     console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
+      $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year
+      format: 'You selecte!d: dddd, dd mmm, yyyy'
+    });
   },
 
 
    render: function(){
      console.log("rendering", this.state.currentUser);
      // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
-     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : null;
+     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : <h2>Please add a pet from the update profile page!</h2>;
 
      return (
 
        <div className="valign-wrapper">
         <div className="row">
-          <form className="col s12" onSubmit={ this.props.handleContactInfoSubmit }>
-              <div className="col s12 center">
-               <h3>Add details of your pets trip!</h3>
-              </div>
+          <form className="col s12" onSubmit={ this.handleFormSubmit }>
+            <div className="col s12 center">
+              <h3>Add details of your pets trip!</h3>
+            </div>
+
               { allPetOptionsWhenReady }
+
             <div className="row">
               <div className="input-field col s12 m12 l12">
                 <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />
@@ -162,12 +165,13 @@ var PetTrip = React.createClass({
             <div className="row">
               <div className="input-field col s12 m12 l12">
                 <input id="date" type="date" className="datepicker" onChange={ this.handleStartDateChange }/>
-                <label htmlFor="date">What date are you leaving?</label>
+                {/*<input id="date" type="date" className="validate" onChange={ this.handleStartDateChange }/>*/}
+                <label For="date">What date are you leaving?</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12 m12 l12">
-                <input id="date" type="date" className="datepicker" onChange={ this.handleEndDateChange }/>
+                <input id="date" type="date" className="validate" onChange={ this.handleEndDateChange }/>
                 <label htmlFor="date">What date will you arrive?</label>
               </div>
             </div>
