@@ -7,6 +7,8 @@
 
 
 import React from 'react';
+import pet1 from 'file!./../../views/img/lucy.png';
+import owner1 from 'file!./../../views/img/nick.png';
 
 var FeedListing = React.createClass({
    getInitialState: function(){
@@ -43,25 +45,41 @@ var FeedListing = React.createClass({
               <div className="col s12 m12 l3">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
-                  <img src= "" alt="" className="responsive-img"/>
+                  <img src={ owner1 }alt="" className="responsive-img"/>
                 </div>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img src=""
-
-                     />
-                    <span className="card-title"> { item.userDriver.firstName} + { item.userDriver.lastName } </span>
+                    <img src={ pet1 }/>
+                    <span className="card-title">{ item.userDriver.firstName } + { item.userDriver.lastName } </span>
                   </div>
                   <div className="card-content">
                     <p> Needs a ride to:{ item.endPoint } </p>
                   </div>
-                  <div className="card-action">
+                  <div className="card-action center">
                   <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
-                  <a href="#">View Profile</a>
+                  <a href="#profile">View Profile</a>
+                  <a href="#">Delete</a>
                   </div>
                 </div>
               </div>
-
-
+              <div className="col s12 m12 l3">
+                <div className="card z-depth-2">
+                <div className="ownerPic">
+                  <img src={ owner1 }alt="" className="responsive-img"/>
+                </div>
+                  <div className="card-image waves-effect waves-block waves-light">
+                    <img src={ pet1 }/>
+                    <span className="card-title">{ item.userDriver.firstName } + { item.userDriver.lastName } </span>
+                  </div>
+                  <div className="card-content">
+                    <p> Needs a ride to:{ item.endPoint } </p>
+                  </div>
+                  <div className="card-action center">
+                  <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
+                  <a href="#profile">View Profile</a>
+                  <a href="#">Delete</a>
+                  </div>
+                </div>
+              </div>
              </div>
             </div>
           );
