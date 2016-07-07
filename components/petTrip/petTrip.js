@@ -25,10 +25,14 @@ var PetTrip = React.createClass({
 
   // Update state based on user interaction with inputs
   handleStartDateChange: function (e){
+    console.log('fire start');
     this.setState({startDate: e.target.value})
+    console.log("start", this.state.startDate);
   },
   handleEndDateChange: function (e){
+    console.log('fire end');
     this.setState({endDate: e.target.value})
+    console.log("end", this.state.endDate);
   },
   handleStartPointChange: function (e){
     this.setState({startPoint: e.target.value})
@@ -39,12 +43,18 @@ var PetTrip = React.createClass({
   handleCommentsChange: function (e){
     this.setState({comments: e.target.value})
   },
-  // The function should add a pets ID to array when checked, and remove it when unchecked.
-  handleAnimalTravelerCheckboxChange: function(e){
-    console.log("handleAnimalTravelerCheckboxChange Event:", e)
-    var tempAnimalTraveler = this.state.animalTraveler;
-
-    this.setState({animalTraveler: e.target.value })
+  // The function should add a pet's ID to array when it's checkbox is checked, and remove it when unchecked.
+  handleTravelerCheckbox: function(e){
+    // If the item is not in the array, the index will be -1
+    var index = this.state.selectedPets.indexOf(e.target.value);
+    // If the Id of the activated pet is not in the array, push it to the array.
+    if (index == -1){
+      this.state.selectedPets.push(e.target.value);
+    // otherwise find the index of the Id and remove it from the array.
+    } else {
+      this.state.selectedPets.splice(index,1);
+    }
+    console.log("selectedPets", this.state.selectedPets);
   },
 
   // Combine data from inputs to one object for transmission
@@ -56,7 +66,8 @@ var PetTrip = React.createClass({
     trip.startPoint = this.state.startPoint;
     trip.endPoint = this.state.endPoint;
     trip.comments = this.state.comments;
-    // trip.animalTraveler =
+    trip.animalTraveler = this.state.selectedPets;
+
     console.log("hangleFormSubmit:", trip);
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
     this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
@@ -111,54 +122,63 @@ var PetTrip = React.createClass({
     })
   },
 
-
   componentDidMount: function(){
     console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
 
+
    render: function(){
      console.log("rendering", this.state.currentUser);
-
-     var renderOnlyWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } /> : null;
+     // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
+     var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : <h2>Please add a pet from the update profile page!</h2>;
 
      return (
-       <div>
-         <h3>Post a new request for transportation assistance here!</h3>
-         <div className="container">
-         <form className="form-inline" onSubmit={this.handleFormSubmit}>
-          <div id="output"></div>
 
-            { renderOnlyWhenReady }
+       <div className="valign-wrapper">
+        <div className="row">
+          <form className="col s12" onSubmit={ this.handleFormSubmit }>
 
-             <div className="form-group">
-               <label>Where are leaving from?</label>
-               <input type="text" className="form-control" placeholder="Starting location"
-               onChange={this.handleStartPointChange} />
-             </div>
-             <div className="form-group">
-               <label>When are you leaving?</label>
-               <input type="date" className="form-control"
-               onChange={this.handleStartDateChange} />
-             </div>
-             <div className="form-group">
-               <label>Where are you going?</label>
-               <input type="text" className="form-control" placeholder="Destination" onChange={this.handleEndPointChange}   />
-             </div>
-             <div className="form-group">
-               <label>When will you arrive?</label>
-               <input type="date" className="form-control"
-               onChange={this.handleEndDateChange}/>
-             </div>
-             <div className="form-group">
-               <label>Is there anything else you would like us to know?</label>
-               <input type="textarea" className="form-control"
-               onChange={this.handleCommentsChange} value={this.comments}/>
+            <div className="col s12 center">
+              <h3>Add details of your pets trip!</h3>
+            </div>
+
+              { allPetOptionsWhenReady }
+
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />
+                <label htmlFor="street">What is your start Location?</label>
               </div>
-               <button type="submit" className="btn btn-primary">Post this Listing!</button>
-           </form>
-         </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="city" type="text" className="validate" onChange={ this.handleEndPointChange }/>
+                <label htmlFor="city">What is your end Location?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="date" type="date" className="datepicker" onChange={ this.handleStartDateChange }/>
+                <label htmlFor="date">What date are you leaving?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="date" type="date" className="datepicker" onChange={ this.handleEndDateChange }/>
+                <label htmlFor="date">What date will you arrive?</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <textarea id="textarea" type="textarea" className="materialize-textarea" onChange={ this.handleCommentsChange } value={this.comments}></textarea>
+                <label htmlFor="textarea">Is there anything else you would like your driver to know?</label>
+              </div>
+            </div>
+            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" >Add Listing</button>
+          </form>
+        </div>
        </div>
       )
    }

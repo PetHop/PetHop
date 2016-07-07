@@ -12,6 +12,14 @@
   width: 100%;
   height: 100vh;
 }
+.filepicker.dropzone.dz-clickable {
+  width: 375px;
+  height: 400px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  border: 2px dashed orange;
+  text-align: center;
+}
 #google-map{
     z-index: -2;
 }
@@ -32,14 +40,31 @@
 .parallax-container {
     height: 600px;
    }
-
 .nav-wrapper {
   z-index: 1;
 }
 .footer-wrapper {
   z-index: 1;
 }
-.addtrip{
+.picker__date-display {
+  background-color: #ff9800;
+}
+.picker__weekday-display {
+ background-color: rgba(51,51,51,0.08)
+}
+.picker__day.picker__day--today.picker__day--selected.picker_box {
+ background-color: #ff9800;
+}
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+ background-color: #ff9800;
+}
+.picker__day.picker__day--today {
+ color: #ff9800;
+}
+.picker__close, .picker__today {
+ color: #ff9800;
+}
+.addtrip {
   margin-top: 10px;
   position: relative;
   left: 10px;
@@ -62,10 +87,33 @@
   position: relative;
   top: 225px;
 }
+.datepicker.picker_input {
+  background-color: #ff9800;
+}
+
+button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
+    background-color: #ff9800;
+    color: #FFF;
+}
+
 @media only screen and (max-width: 1100px) {
   #google-map-container{
-    display: none;
+  display: none;
   }
+}
+ul.row.center.col.s12.m12.l12 {
+  width: 100vw;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+  color: #ff9800;
+}
+.input-field textarea[class=materialize-textarea]:focus {
+  border-bottom: 1px solid #ff9800;
+  box-shadow: 0 1px 0 0 #ff9800;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
@@ -147,11 +195,4 @@
 .input-field input[type=email].invalid {
   border-bottom: 1px solid #f44336;
   box-shadow: 0 1px 0 0 #f44336;
-}
-
-/*petTrip*/
-
-[type="radio"]:not(:checked), [type="radio"]:checked {
-  position: static;
-  left: 0;
 }

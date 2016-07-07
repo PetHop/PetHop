@@ -6,7 +6,6 @@ var InfoLower = React.createClass({
       $('.parallax').parallax();
   },
   render: function() {
-    // $('.parallax').parallax();
     return (
 
       <div className="parallax-container">

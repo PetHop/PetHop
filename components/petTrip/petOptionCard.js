@@ -2,17 +2,12 @@ var React = require('react');
 
 var PetOptionCard = React.createClass({
   render: function(){
+    console.log(this.props.handleTravelerCheckbox);
     return (
       <div>
-        <ul>
-          <li>{ this.props.name }</li>
-          <li>{ this.props.size }</li>
-          <li>{ this.props.type }</li>
-          <li>{ this.props.breed }</li>
-          <li>{ this.props.key }</li>
-          <li>{ this.props._id }</li>
-
-        </ul>
+        <p>PHOTO PLACEHOLDER</p>
+        <input type="checkbox" className="filled-in" id={ this.props.id } value={ this.props.id } onChange={ this.props.handleTravelerCheckbox }/>
+        <label htmlFor={ this.props.id }>{ this.props.name } the { this.props.breed } { this.props.type }</label>
       </div>
     );
   }

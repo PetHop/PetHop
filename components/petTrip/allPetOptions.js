@@ -11,6 +11,7 @@ var AllPetOptions = function(props){
                           size={ item.petSize }
                           key={ item._id }
                           id={ item._id }
+                          handleTravelerCheckbox={ props.handleTravelerCheckbox }
                           />
 
   })

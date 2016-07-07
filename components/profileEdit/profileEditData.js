@@ -190,7 +190,8 @@ componentDidMount: function(){
 
  render: function(){
    return (
-    <FormSelector handleStreetChange={ this.handleStreetChange }
+    <FormSelector currentUser={ this.state.currentUser }
+                  handleStreetChange={ this.handleStreetChange }
                   handleCityChange={ this.handleCityChange }
                   handleStateChange={ this.handleStateChange }
                   handleZipChange={ this.handleZipChange }
@@ -198,6 +199,7 @@ componentDidMount: function(){
                   handleContactInfoSubmit={ this.handleContactInfoSubmit }
                   handlePetNameChange={ this.handlePetNameChange }
                   handleTypeChange={ this.handleTypeChange }
+                  type={ this.state.type }
                   handlePetSizeChange={ this.handlePetSizeChange }
                   handlePetBreedChange={ this.handlePetBreedChange }
                   handlePetDescChange={ this.handlePetDescChange }
