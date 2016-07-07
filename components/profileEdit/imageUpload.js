@@ -3,21 +3,8 @@ var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
 var DropzoneComponent = require('react-dropzone-component');
 
-// Holds currentUser info because props and state seem to be inaccessible in ImageUpload component after componentDidMount
+// Holds currentUser info because props and state seem to be inaccessible in ImageUpload component after componentDidMount. I hope I understand what is happening here soon...
 var currentUser = {};
-var djsConfig = {
-    addRemoveLinks: true,
-    acceptedFiles: "image/jpeg,image/png",
-    renameFilename: function (name) {
-     return currentUser._id + "_profile";
-    },
-    temp: currentUser._id,
-    // These show up in req.body.xxxx on the server side, but I cannot get anything that comes through props to show up as defined when sent.
-    params: {
-        id: "derp" + currentUser._id,
-        anotherParam: 42,
-    }
-};
 
 var ImageUpload = React.createClass({
 
@@ -55,13 +42,31 @@ var ImageUpload = React.createClass({
     }
   },
 
+  djsConfig: {
+    addRemoveLinks: true,
+    acceptedFiles: "image/jpeg,image/png",
+    renameFilename: function (name) {
+     return currentUser._id + "_profile";
+    },
+    temp: currentUser._id,
+    // This paramater object shows up in req.body.xxxx on the server side, but I cannot get anything that comes through props to show up there. Everything is undefined when sent..
+    params: {}
+  },
+
   render: function(){
     return(
       <div className="valign-wrapper">
         <div className="row">
-        <DropzoneComponent config={this.componentConfig}
+          <h3>Upload a profile image here so we know who we're working with.</h3>
+          <DropzoneComponent config={this.componentConfig}
                            eventHandlers={this.eventHandlers}
-                           djsConfig={djsConfig} />
+                           djsConfig={this.djsConfig} />
+        </div>
+        <div className="row">
+          <h3>Upload a cover photo here to spruce up your posts and profile page!</h3>
+          <DropzoneComponent config={this.componentConfig}
+                           eventHandlers={this.eventHandlers}
+                           djsConfig={this.djsConfig} />
         </div>
       </div>
     )

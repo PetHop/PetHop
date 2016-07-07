@@ -6,7 +6,7 @@ var createNewUser = function (account, res, next){
   // Save StormpathID (last 22 characters of account.href property)
   var newStormpathId = account.href.slice(account.href.length - 22);
   console.log('stormpath ID:', newStormpathId, 'just registered!');
-  console.log(account);
+  console.log("new account:", account);
   // Create new user from model by recycling info from the Stormpath registration form and include the stormpathId as well.
   var newUser = new UserSchema({
       stormpathId: newStormpathId,
@@ -14,6 +14,7 @@ var createNewUser = function (account, res, next){
       lastName: account.surname,
       email: account.email,
   });
+  console.log("newUser local", newUser)
   // This saves the user we just created in MongoDB
   newUser.save(function(err, result){
       console.log(result);
