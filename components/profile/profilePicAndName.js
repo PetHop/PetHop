@@ -5,8 +5,8 @@ var PicAndName = React.createClass({
   render: function () {
     return (
      <div className="prolfilePicAndName">
-       <img classname="profileOwnerPic" src="#"/>
-       <p>this.prop.ownername here</p>
+       <img classname="profileOwnerPic" src={this.props.userImg} />
+       <h2>{this.props.firstName} {this.props.lastName}</h2>
 
 
      </div>

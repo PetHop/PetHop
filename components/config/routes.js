@@ -28,7 +28,7 @@ ReactDOM.render(
         <Route path='/feed' component={ Feed }/>
         <Route path='/profile' component={ Profile }/>
         <Route path='/tripdetails' component={ TripDetails }/>
-        <Route path='/pettrip' component={ PetTrip }/>
+        <AuthenticatedRoute path='/pettrip' component={ PetTrip }/>
         <AuthenticatedRoute path='/profileedit' component={ ProfileEdit }/>
         <LoginRoute path='/login' component={ Login }/>
         <Route path='/register' component={ RegistrationPage }/>

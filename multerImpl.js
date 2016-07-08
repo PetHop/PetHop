@@ -2,10 +2,12 @@ module.exports = (app) => {
   const multer = require('multer'); // Grabs Multer
 
   const storage = multer.diskStorage({
-    destination: './uploads/', // Specifies upload location...
+    destination: './usercontent/', // Specifies upload location...
 
+
+    // Files will come in with their name already altered to our convention(mongoid + imagepurpose)
     filename: function (req, file, cb) {
-      console.log("multer req", req);
+      console.log("multer req.body", req);
       switch (file.mimetype) { // *Mimetype stores the file type, set extensions according to filetype
         case 'image/jpeg':
           ext = '.jpeg';
@@ -18,7 +20,7 @@ module.exports = (app) => {
           break;
       }
 
-      cb(null, file.originalname.slice(0, 4) + Date.now() + ext);
+      cb(null, file.originalname + ext);
     }
   });
 

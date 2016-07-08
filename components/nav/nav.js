@@ -52,7 +52,7 @@ var Nav = React.createClass({
               </Authenticated>
               </ul>
             </div>
-              <ul id="slide-out" className="side-nav">
+               <ul id="slide-out" className="side-nav">
                   <Link to='/'><li>Home</li></Link>
                   <Link to ='feed'><li>View Listings</li></Link>
                <NotAuthenticated>
@@ -65,8 +65,7 @@ var Nav = React.createClass({
                   <LogoutLink redirectTo='/'><li>Logout</li></LogoutLink>
                </Authenticated>
               </ul>
-
-        </nav>
+          </nav>
 
 
    )

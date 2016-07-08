@@ -9,28 +9,35 @@ function Login() {
      <LoginForm redirectTo='/feed' >
 
      <div className="row">
-        <div className="col s12 m12 l6 center">
-          <div className='login'>
-            <h1>Login</h1>
-            <br/>
-            <p>
-              <label htmlFor="username">Email</label><br />
-              <input id="username" type="text" name="username" placeholder="enter username"/>
-            </p>
-            <p>
+        <div className="col s12 m12 l6">
+          <div className="center">
+            <h3>Login</h3>
+          </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="email" type="email" className="validate" name="username"/>
+                <label htmlFor="email">Email</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12 m12 l12">
+                <input id="password" type="password" className="validate" name="password"/>
+                <label htmlFor="password">Password</label>
+              </div>
+            </div>
+            {/*<p>
               <label htmlFor="password">Password</label><br />
               <input id="password" type="password" name="password" placeholder="enter password" />
-            </p>
+            </p>*/}
             <p spIf="form.error">
               <strong>Error:</strong><br />
               <span spBind="form.errorMessage" />
             </p>
             <p>
-              <input className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" value="Login" />
+              <input className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Login" />
             </p>
           </div>
         </div>
-      </div>
       {/*<div>
           <div className="center">
            <h3>Login</h3>

@@ -1,9 +1,6 @@
 import React from 'react';
 import AllPetOptions from './allPetOptions.js';
 
-function bark(message){
-  document.getElementById('output').innerHTML = message;
-};
 
 var PetTrip = React.createClass({
 
@@ -122,11 +119,16 @@ var PetTrip = React.createClass({
     })
   },
 
-  componentDidMount: function(){
-    console.log('mounting components');
-    // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
-    this.context.handleMongoId(null, this.getCurrentUserInfo);
-  },
+  // componentDidMount: function(){
+  //   console.log('mounting components');
+  //   // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
+  //   this.context.handleMongoId(null, this.getCurrentUserInfo);
+  //     $('.datepicker').pickadate({
+  //     selectMonths: true, // Creates a dropdown to control month
+  //     selectYears: 15, // Creates a dropdown of 15 years to control year
+  //     format: 'You selecte!d: dddd, dd mmm, yyyy',
+  //   });
+  // },
 
 
    render: function(){
@@ -139,7 +141,6 @@ var PetTrip = React.createClass({
        <div className="valign-wrapper">
         <div className="row">
           <form className="col s12" onSubmit={ this.handleFormSubmit }>
-
             <div className="col s12 center">
               <h3>Add details of your pets trip!</h3>
             </div>
@@ -160,14 +161,14 @@ var PetTrip = React.createClass({
             </div>
             <div className="row">
               <div className="input-field col s12 m12 l12">
-                <input id="date" type="date" className="datepicker" onChange={ this.handleStartDateChange }/>
                 <label htmlFor="date">What date are you leaving?</label>
+                <input id="date" type="date" className="validate" onChange={ this.handleStartDateChange }/>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s12 m12 l12">
-                <input id="date" type="date" className="datepicker" onChange={ this.handleEndDateChange }/>
                 <label htmlFor="date">What date will you arrive?</label>
+                <input id="date" type="date" className="validate" onChange={ this.handleEndDateChange }/>
               </div>
             </div>
             <div className="row">

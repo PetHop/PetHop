@@ -12,6 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/views'));
+app.use('/usercontent', express.static(__dirname + '/usercontent'));
 require('./multerImpl')(app); //Call the multerImpl and pass in app state to it
 
 
