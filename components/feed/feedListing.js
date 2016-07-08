@@ -40,9 +40,8 @@ var FeedListing = React.createClass({
      var listingthings = props.map(function(item){
        console.log("in map");
        return (
-         <div>
-            <div className="row">
-              <div className="col s12 m12 l3">
+
+              <div className="col s12 m12 l6">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
                   <img src={ owner1 }alt="" className="responsive-img"/>
@@ -60,31 +59,14 @@ var FeedListing = React.createClass({
                   </div>
                 </div>
               </div>
-              <div className="col s12 m12 l3">
-                <div className="card z-depth-2">
-                <div className="ownerPic">
-                  <img src={ owner1 }alt="" className="responsive-img"/>
-                </div>
-                  <div className="card-image waves-effect waves-block waves-light">
-                    <img src={ pet1 }/>
-                    <span className="card-title">{ item.userDriver.firstName } + { item.userDriver.lastName } </span>
-                  </div>
-                  <div className="card-content">
-                    <p> Needs a ride to:{ item.endPoint } </p>
-                  </div>
-                  <div className="card-action center">
-                  <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
-                  <a href="#">Delete</a>
-                  </div>
-                </div>
-              </div>
-             </div>
-            </div>
+
           );
     });
     return (
-      <div>
-      {listingthings}
+      <div className="feedListing">
+        <div className="row">
+          {listingthings}
+        </div>
       </div>
     )
   },

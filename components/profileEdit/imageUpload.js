@@ -56,14 +56,16 @@ var ImageUpload = React.createClass({
   render: function(){
     return(
       <div className="valign-wrapper">
-        <div className="row">
-          <h3>Upload a profile image here so we know who we're working with.</h3>
+        <div className="row center">
+          <h3>UPLOAD/CHANGE PROFILE PHOTO</h3>
+          <h5>People like to see the person they are sending their pets with!</h5>
           <DropzoneComponent config={this.componentConfig}
                            eventHandlers={this.eventHandlers}
                            djsConfig={this.djsConfig} />
         </div>
-        <div className="row">
-          <h3>Upload a cover photo here to spruce up your posts and profile page!</h3>
+        <div className="row center">
+          <h3>UPLOAD/CHANGE YOU HEADER PHOTO</h3>
+          <h5>Make sure that you use your pets cutest picture!</h5>
           <DropzoneComponent config={this.componentConfig}
                            eventHandlers={this.eventHandlers}
                            djsConfig={this.djsConfig} />
