@@ -7,7 +7,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 import ReactStormpath, { Router, AuthenticatedRoute, LoginRoute, LoginLink, HomeRoute } from 'react-stormpath';
 
-import TripDetails from './../tripDetails/tripDetails';
+import TripDetails from './../details/tripDetails';
 import Feed from './../feed/feed';
 import Footer from './../footer/footer';
 import Home from './../home/home';

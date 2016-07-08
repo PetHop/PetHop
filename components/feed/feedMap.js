@@ -13,13 +13,11 @@
 var FeedMap = React.createClass({
 
   render: function(){
-    // var locations = this.props.geolocations.lastResults.results.map(function(item){
-    //   return <Marker position={{ lat: item.geometry.location.lat, lng: item.geometry.location.lng }} key={item.place_id}/>
-    //
-    // });
+    console.log(this.props.geolocations, "this is the geo data passed to map");
 
-
-
+    var startPoints = this.props.geolocations ? this.props.geolocations.map(function(item){
+      return <Marker position={{ lat: item.location.lat, lng: item.location.lng}} icon={'img/marker.png'}/>
+      }) : null;
 
 
     return (
@@ -28,7 +26,7 @@ var FeedMap = React.createClass({
         <GoogleMap
          defaultZoom={4}
          center={{lat: 30.8787, lng: -94.000}}>
-
+        { startPoints }
       </GoogleMap>
       </MapLoader>
       </div>

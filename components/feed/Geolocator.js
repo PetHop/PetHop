@@ -31,9 +31,7 @@ var Location = React.createClass({
     this.getAllpetTripFromServer();
   },
 
-//()
   render: function(){
-    console.log(this.state.petTrip, 'I am the console log from line 28');
     return (
       <div>
           <AllpetTrip petTrip={this.state.petTrip}/>
@@ -43,14 +41,11 @@ var Location = React.createClass({
 
 });
 
-
 var AllpetTrip = React.createClass({
   render: function(){
-      // console.log(this.props.petTrip, "at map")
-    var trips = this.props.petTrip.map(function(item){
+    var trips = this.props.petTrip.length ? this.props.petTrip.map(function(item){
       return <Geolocator start={item.startPoint}/>
-    });
-
+    }) : null;
     return (
       <div>
         { trips }
@@ -59,25 +54,36 @@ var AllpetTrip = React.createClass({
   }
 });
 
-
-
-
 var Geolocator = React.createClass({
+  getInitialState: function(){
+    return {
+      location: undefined
+    }
+  },
+
+  getLocations: function(){
+    var self = this;
+    var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
+    var coder = geocoder(key);
+    var geo = coder.find(this.props.start, function(err, data){
+      console.log(data, "yes this is the geocoder data");
+      self.setState({ location: data });
+      return data;
+    })
+  },
+
+  componentDidMount: function(){
+    this.getLocations();
+  },
+
   render: function(){
-    var geo = geocoder ({
-    key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'
-    });
-      geo.find(this.props.start, function(err, data){
-      console.log(data, "this should be the stuff")
-        });
       return(
         <div>
-        <FeedMap  geolocations = { geo }/>
+        <FeedMap geolocations = { this.state.location }/>
         </div>
     )
   }
 
 });
-
 
 module.exports = Location;
