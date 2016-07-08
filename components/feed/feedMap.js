@@ -13,11 +13,16 @@
 
 
 var FeedMap = React.createClass({
-  render: function(){
 
-    //   var startLocation = this.props.geolocations.map(function(start){
-    //   return <Marker position={{lat: start.GeoPlace.location.lat ,lng: start.GeoPlace.location.lng }}/>
+  render: function(){
+    // var locations = this.props.geolocations.lastResults.results.map(function(item){
+    //   return <Marker position={{ lat: item.geometry.location.lat, lng: item.geometry.location.lng }} key={item.place_id}/>
+    //
     // });
+
+
+
+
 
     return (
       <div id="google-map">

@@ -1,6 +1,12 @@
 import React from 'react';
 
 
+var Trip = React.createClass({
+  getInitialState: function(){
+
+  }
+})
+
 var TripDetailsHeader = React.createClass({
   render: function() {
     return (
