@@ -7,7 +7,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 import ReactStormpath, { Router, AuthenticatedRoute, LoginRoute, LoginLink, HomeRoute } from 'react-stormpath';
 
-import TripDetails from './../details/tripDetails';
+
 import Feed from './../feed/feed';
 import Footer from './../footer/footer';
 import Home from './../home/home';
@@ -27,7 +27,7 @@ ReactDOM.render(
         <IndexRoute component={ Home }/>
         <Route path='/feed' component={ Feed }/>
         <Route path='/profile' component={ Profile }/>
-        <Route path='/tripdetails' component={ TripDetails }/>
+
         <AuthenticatedRoute path='/pettrip' component={ PetTrip }/>
         <AuthenticatedRoute path='/profileedit' component={ ProfileEdit }/>
         <LoginRoute path='/login' component={ Login }/>
