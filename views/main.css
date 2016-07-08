@@ -6,6 +6,10 @@
   min-height: 52vw;
   overflow-y: scroll;
 }
+
+.feedListing {
+  width: 50vw;
+}
 .feedtools{
   width: 20vw;
 }
@@ -13,9 +17,18 @@
   width: 100%;
   height: 100vh;
 }
+
+.something {
+  padding: 0 .75rem;
+}
+
+.something label {
+  font-size: 1rem;
+}
+
 .filepicker.dropzone.dz-clickable {
-  width: 375px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   background-color: #eeeeee;
   border-radius: 8px;
   border: 2px dashed orange;
@@ -23,9 +36,12 @@
 }
 #google-map{
     z-index: -2;
+    position: absolute;
+    display: block;
     top: 0px;
     right: 0px;
 }
+
 #google-map-container{
     position: absolute;
     top: 0;
@@ -112,6 +128,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   #google-map-container{
   display: none;
   }
+
+  .feedListing {
+    width: 100vw;
+  }
+}
+input[type=date]:focus:not([readonly]) {
+  border-bottom: 1px solid #ff9800;
+  box-shadow: 0 1px 0 0 #ff9800;
 }
 [type="checkbox"].filled-in:checked+label:after  {
   background-color: #ff9800;
