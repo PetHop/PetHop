@@ -5,12 +5,13 @@ var logo = require('file!./../../views/img/login-logo.png');
 
 function Login() {
   return (
+ <div className="valign-wrapper">
    <div className="login">
-     <LoginForm redirectTo='/feed' >
-
-     <div className="row">
-        <div className="col s12 m12 l6">
+     <LoginForm redirectTo='/feed' className="col s12 m12 l12" >
+     <div className="row col 12">
+        <div className="col s12 m12 l12">
           <div className="center">
+            <img src={ logo }alt="" className="responsive-img"/>
             <h3>Login</h3>
           </div>
             <div className="row">
@@ -57,6 +58,7 @@ function Login() {
     </div>
     <button className="btn waves-effect waves-light col s12 m12 l6 blue" type="submit" value="Login" >Submit</button>*/}
          </LoginForm>
+         </div>
        </div>
  );
 }
