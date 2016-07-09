@@ -19,7 +19,6 @@ var PetTrip = React.createClass({
       comments: undefined,
     }
   },
-
   // Update state based on user interaction with inputs
   handleStartDateChange: function (e){
     console.log('fire start');
@@ -69,9 +68,7 @@ var PetTrip = React.createClass({
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
     this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
   },
-
-
-  // POST new listing to the server
+// POST new listing to the server
   handlePetTripFormUpdate: function (trip, mongoId){
     $.ajax({
       url: '/travel/',
@@ -85,27 +82,6 @@ var PetTrip = React.createClass({
       }.bind(this)
     });
   },
-  // Radio Button code to select whether or not a person is offering or requesting a ride. We have decided to simplify our product to meet MVP requirements and only allow those in need of a ride ot post for now, while others will be able to accept the listing after it has been created.
-  // giving: function(e){
-  //   var value = e.target.value;
-  //   if (this.state.active !== value) {
-  //     bark("Giving a Ride");
-  //     this.setState({ active: value });
-  //   }
-  // },
-  // requesting: function(e){
-  //   var value = e.target.value;
-  //   if (this.state.active !== value) {
-  //     bark("Requesting a ride");
-  //     this.setState({ active: value });
-  //   }
-  // },
-  // <div>
-  //    <input id="radiobtn" type="radio" onChange={this.giving} value="Giving a ride"/>Giving a ride
-  // </div>
-  // <div>
-  //    <input id="radiobtn" type="radio" onChange={this.requesting} value="Requesting a ride"/>Requesting a ride
-  // </div>
 
   getCurrentUserInfo: function(empty, mongoId){
     console.log("getting CurrentUser info");
@@ -123,11 +99,6 @@ var PetTrip = React.createClass({
     console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
-    //   $('.datepicker').pickadate({
-    //   selectMonths: true, // Creates a dropdown to control month
-    //   selectYears: 15, // Creates a dropdown of 15 years to control year
-    //   format: 'You selecte!d: dddd, dd mmm, yyyy',
-    // });
   },
 
 
@@ -160,15 +131,19 @@ var PetTrip = React.createClass({
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12 m12 l12">
+              <div className="something">
                 <label htmlFor="date">What date are you leaving?</label>
-                <input id="date" type="date" className="validate" onChange={ this.handleStartDateChange }/>
+              </div>
+              <div className="input-field col s12 m12 l12">
+              <input id="date" type="date" className="datetime" onChange={ this.handleStartDateChange }/>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12 m12 l12">
+              <div className="something">
                 <label htmlFor="date">What date will you arrive?</label>
-                <input id="date" type="date" className="validate" onChange={ this.handleEndDateChange }/>
+              </div>
+              <div className="input-field col s12 m12 l12">
+                <input id="date" type="date" className="datetime" onChange={ this.handleEndDateChange }/>
               </div>
             </div>
             <div className="row">

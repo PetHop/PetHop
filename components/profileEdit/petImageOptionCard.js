@@ -54,7 +54,7 @@ var PetImageOptionCard = React.createClass({
 
   render: function(){
     return(
-      <div className="row">
+      <div className="row center">
         <h5>Profile photo for { this.props.pet.petName }, the { this.props.pet.petBreed } {this.props.pet.type }</h5>
         <DropzoneComponent config={ this.componentConfig }
                            eventHandlers={ this.eventHandlers }

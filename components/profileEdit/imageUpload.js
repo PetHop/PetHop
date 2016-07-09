@@ -102,7 +102,7 @@ var ImageUpload = React.createClass({
       });
     }
   },
-  
+
   // This config is for the user's 'profile' image -the difference is in the naming convention in renameFilename:
   djsConfigProfile: {
     addRemoveLinks: true,
@@ -135,17 +135,19 @@ var ImageUpload = React.createClass({
 
     return(
       <div className="valign-wrapper">
-        <div className="row">
-          <h3>Upload a profile image here so we know who we're working with.</h3>
-          <DropzoneComponent config={ this.componentConfig }
-                           eventHandlers={ this.eventHandlersProfile }
-                           djsConfig={ this.djsConfigProfile } />
+        <div className="row center">
+          <h3>UPLOAD/CHANGE PROFILE PHOTO</h3>
+          <h5>People like to see the person they are sending their pets with!</h5>
+          <DropzoneComponent config={this.componentConfig}
+                           eventHandlers={this.eventHandlersProfile}
+                           djsConfig={this.djsConfigProfile} />
         </div>
-        <div className="row">
-          <h3>Upload a cover photo here to spruce up your posts and profile page!</h3>
-          <DropzoneComponent config={ this.componentConfig }
-                           eventHandlers={ this.eventHandlersCover }
-                           djsConfig={ this.djsConfigCover } />
+        <div className="row center">
+          <h3>UPLOAD/CHANGE YOU HEADER PHOTO</h3>
+          <h5>Make sure that you use your pets cutest picture!</h5>
+          <DropzoneComponent config={this.componentConfig}
+                           eventHandlers={this.eventHandlersCover}
+                           djsConfig={this.djsConfigProfile} />
         </div>
 
         { petOptionsDelayed }
