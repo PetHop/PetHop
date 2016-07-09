@@ -119,16 +119,16 @@ var PetTrip = React.createClass({
     })
   },
 
-  // componentDidMount: function(){
-  //   console.log('mounting components');
-  //   // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
-  //   this.context.handleMongoId(null, this.getCurrentUserInfo);
-  //     $('.datepicker').pickadate({
-  //     selectMonths: true, // Creates a dropdown to control month
-  //     selectYears: 15, // Creates a dropdown of 15 years to control year
-  //     format: 'You selecte!d: dddd, dd mmm, yyyy',
-  //   });
-  // },
+  componentDidMount: function(){
+    console.log('mounting components');
+    // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
+    this.context.handleMongoId(null, this.getCurrentUserInfo);
+    //   $('.datepicker').pickadate({
+    //   selectMonths: true, // Creates a dropdown to control month
+    //   selectYears: 15, // Creates a dropdown of 15 years to control year
+    //   format: 'You selecte!d: dddd, dd mmm, yyyy',
+    // });
+  },
 
 
    render: function(){
