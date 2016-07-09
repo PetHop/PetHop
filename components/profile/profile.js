@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './profileHeader.js';
 import PicAndName from './profilePicAndName.js';
 import Info from './profileInfo.js';
 import Listing from './profileListing';
@@ -38,18 +37,35 @@ var Profile = React.createClass({
 
 
   render: function () {
-    var picAndNameWhenReady = this.state.userData ? <PicAndName
-                firstName={this.state.userData.firstName}
-                lastName={this.state.userData.lastName}
-                userImg={this.state.userData.userImg}
-                /> : null;
+    var loadContentWhenReady = this.state.userData ?
+      <div className="profile'">
+        <PicAndName firstName={this.state.userData.firstName}
+                    lastName={this.state.userData.lastName}
+                    userImg={this.state.userData.userImg}
+                    coverPhoto={this.state.userData.bigImg}
+                    />
+        <Info email={ this.state.userData.email }
+              phone={ this.state.userData.phone }
+              street={ this.state.userData.street }
+              city={ this.state.userData.city }
+              state={this.state.userData.state }
+              zip={ this.state.userData.zip }
+              vehicleType={ this.state.userData.vehicleType }
+              vehicleColor={ this.state.userData.vehicleColor }
+              vehicleMake={ this.state.userData.make }
+              vehicleModel={ this.state.userData.model }
+              vehicleYear={ this.state.userData.year }
+              vehicleImg={ this.state.userData.vehicleImg }
+              />
+        <Listing pets={ this.state.userData.pets }
+                 animalBeingSent={ this.state.userData.animalBeingSent }
+                 />
+      </div>
+    : null;
 
     return (
-     <div className="profile">
-       <Header />
-       {picAndNameWhenReady}
-       <Info />
-       <Listing />
+      <div>
+       { loadContentWhenReady }
      </div>
    );
   }

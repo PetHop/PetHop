@@ -3,32 +3,7 @@ var React = require('react');
 
 var PetProfileEdit = React.createClass({
 
-  handleImageUpload: function(img) {
 
-    console.log(img)
-    $.ajax({
-      url: '/petpic',
-      method: 'POST',
-      // dataType: 'form',
-      data: img,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function(data) {
-        console.log("success!");
-        console.log(data);
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error('/petpic', status, err.toString())
-      }.bind(this)
-    })
-  },
-
-    componentDidMount: function(){
-      $(document).ready(function() {
-        $('select').material_select();
-    });
-  },
   render: function(){
     return(
           <div className="valign-wrapper">

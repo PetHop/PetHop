@@ -13,7 +13,7 @@ var MongoId = React.createClass({
     // consoleStormpathId: React.PropTypes.func,
   },
 
-  // Adds function to props, this is the one to use when calling the function
+  // Adds function to context, this is the one to use when calling the function
   getChildContext: function(){
     return{
       handleMongoId: this.handleMongoId,
