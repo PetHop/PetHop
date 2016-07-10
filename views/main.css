@@ -69,6 +69,7 @@ ul.right.hide-on-med-and-down {
 .profile-card {
   position: relative;
   margin: 0 auto 0 auto;
+  height: 100%;
 }
 
 /*Maps*/
@@ -164,7 +165,21 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   float:right;
   top: 24px;
   right: 20px;
-
+}
+@media only screen and (max-width: 590px) {
+  #edit-btn {
+    width: 80%;
+    position: relative;
+    margin: 0 auto 20 auto;;
+    top: 0px;
+    right: 30px;
+  }
+  #user-name {
+    position: relative;
+    float: left;
+    top: 28px;
+    padding-bottom: 20px;
+  }
 }
 #user-name {
   position: relative;

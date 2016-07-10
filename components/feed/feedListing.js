@@ -50,7 +50,7 @@ var FeedListing = React.createClass({
               <div className="col s12 m12 l6">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
-                  <img src={ item.userDriver.userImg } alt="" className="responsive-img"/>
+                  <img src={ item.userDriver.userImg} alt="" className="responsive-img"/>
                 </div>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img src='{ item.userDriver.pets.petProfileImage }'/>
