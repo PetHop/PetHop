@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStormpath, { RegistrationForm, LoginLink } from 'react-stormpath';
+var logo = require('file!./../../views/img/login-logo.png');
 
 var Registration = React.createClass({
   // getInitialState(){
@@ -133,6 +134,7 @@ var Registration = React.createClass({
 
   render: function(){
     return (
+    <div className="valign-wrapper">
      <div className="registration">
        <RegistrationForm>
         <div spIf="account.created">
@@ -144,8 +146,9 @@ var Registration = React.createClass({
             <span spBind="form.errorMessage" />
           </p>
           <div className="row">
-             <div className="col s12 m12 l6">
+             <div className="col s12 m12 l12">
               <div className="center">
+            <img src={ logo }alt="" className="responsive-img"/>
                <h3>Register</h3>
               </div>
               <div className="row">
@@ -160,6 +163,24 @@ var Registration = React.createClass({
                   <label htmlFor="lastname">Last Name</label>
                 </div>
               </div>
+              {/*<div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="petName" type="text" className="validate" name="surname"/>
+                  <label htmlFor="petName">Pet Name</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="petType" type="text" className="validate" name="surname"/>
+                  <label htmlFor="petType">Pet Type</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12 m12 l12">
+                  <input id="petBreed" type="text" className="validate" name="surname"/>
+                  <label htmlFor="petBreed">Pet Breed</label>
+                </div>
+              </div>*/}
               <div className="row">
                 <div className="input-field col s12 m12 l12">
                   <input id="email" type="email" className="validate" name="email"/>
@@ -172,28 +193,13 @@ var Registration = React.createClass({
                   <label htmlFor="password">Password</label>
                 </div>
               </div>
-            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Register">Sign Up</button>
+            <a href="#feed" className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Register">Sign Up</a>
         </div>
         </div>
         </div>
-      {/*<p>
-        <label htmlFor="firstName">First name</label><br />
-        <input id="firstName" type="text" name="givenName" />
-      </p>
-      <p>
-        <label htmlFor="lastName">Last name</label><br />
-        <input id="lastName" type="text" name="surname" />
-      </p>
-      <p>
-        <label htmlFor="email">Email</label><br />
-        <input id="email" type="text" name="email" />
-      </p>
-      <p>
-        <label htmlFor="password">Password</label><br />
-        <input id="password" type="password" name="password" />
-      </p>*/}
       </RegistrationForm>
     </div>
+  </div>
   );
 }
 });
