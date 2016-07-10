@@ -36,15 +36,21 @@ var FeedListing = React.createClass({
   },
 
    allListing: function(){
+     var seeDetails = function(id){
+       console.log("seeDetails of ID", id);
+       console.log("this.props", FeedListing.props);
+      //  this.props.handleActiveIdChange(id);
+      //  this.props.handleActiveComponentChange('details');
+     };
+
      console.log("allListing function", this.state.listing);
      var listingthings = this.state.listing.map(function(item){
-       console.log("in map");
        return (
 
               <div className="col s12 m12 l6">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
-                  <img src={ item.userDriver.userImg}alt="" className="responsive-img"/>
+                  <img src={ item.userDriver.userImg } alt="" className="responsive-img"/>
                 </div>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img src='{ item.userDriver.pets.petProfileImage }'/>
@@ -54,7 +60,7 @@ var FeedListing = React.createClass({
                     <p> Needs a ride to: { item.endPoint } </p>
                   </div>
                   <div className="card-action center">
-                  <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
+                  <button onClick={ seeDetails.bind(null, item._id) }>View Details</button>
                   <a href="#">Delete</a>
                   </div>
                 </div>
@@ -75,7 +81,7 @@ var FeedListing = React.createClass({
      return(
        <div>
 
-       {this.allListing()}
+       { this.allListing() }
 
        </div>
      )
