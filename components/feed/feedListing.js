@@ -59,7 +59,6 @@ var FeedListing = React.createClass({
                   </div>
                 </div>
               </div>
-
           );
     });
     return (
