@@ -40,7 +40,7 @@ var Feed = React.createClass({
     if (this.state.activeComponent == 'details') {
       return <Details activeTravelId={ this.state.activeTravelId } />
     } else if (this.state.activeComponent == 'listings') {
-      return <Listings handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.state.handleActiveComponentChange }/>
+      return <Listings handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
     } else if (this.state.activeComponent == 'contact') {
       return <ContactListing activeTravelId={ this.state.activeTravelId }/>
     } else {
