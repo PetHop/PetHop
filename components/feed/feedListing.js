@@ -31,12 +31,12 @@ var FeedListing = React.createClass({
 
 
   componentDidMount: function(){
-    //console.log("mounted, props", this.props);
+    console.log("mounted feedlisting, props", this.props);
     this.getAllListingsFromServer();
   },
 
    allListing: function(){
-     console.log(props);
+     console.log("allListing function", this.state.listing);
      var listingthings = this.state.listing.map(function(item){
        console.log("in map");
        return (
@@ -44,14 +44,14 @@ var FeedListing = React.createClass({
               <div className="col s12 m12 l6">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
-                  <img src={ owner1 }alt="" className="responsive-img"/>
+                  <img src={ item.userDriver.userImg}alt="" className="responsive-img"/>
                 </div>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img src={ pet1 }/>
+                    <img src='{ item.userDriver.pets.petProfileImage }'/>
                     <span className="card-title">{ item.userDriver.firstName } + { item.userDriver.lastName } </span>
                   </div>
                   <div className="card-content">
-                    <p> Needs a ride to:{ item.endPoint } </p>
+                    <p> Needs a ride to: { item.endPoint } </p>
                   </div>
                   <div className="card-action center">
                   <a href="/tripdetails/{ item.animalTraveler._id }">View Details</a>
@@ -66,15 +66,16 @@ var FeedListing = React.createClass({
         <div className="row">
           {listingthings}
         </div>
-        </div>
+      </div>
       )
    },
 
    render: function(){
+     console.log("feedlisting render");
      return(
        <div>
 
-       {this.allListing}
+       {this.allListing()}
 
        </div>
      )
