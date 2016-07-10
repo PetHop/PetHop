@@ -18,7 +18,6 @@ var Footer = React.createClass({
                         <li><a className="grey-text text-lighten-3" href="#">Home</a></li>
                         <li><a className="grey-text text-lighten-3" href="#feed">View Listings</a></li>
                         <li><a className="grey-text text-lighten-3" href="#profile">Profile</a></li>
-                        <li><a className="grey-text text-lighten-3" href="#!">Team PetHop</a></li>
                       </ul>
                     </div>
                   </div>
@@ -26,7 +25,6 @@ var Footer = React.createClass({
                 <div className="footer-copyright">
                   <div className="container">
                   © { year } PetHop.co | All Rights Reserved
-                  <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
                   </div>
                 </div>
               </footer>
