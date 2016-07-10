@@ -1,8 +1,16 @@
 import React from 'react';
 import AllPetOptions from './allPetOptions.js';
+import { Router, browserHistory } from 'react-router';
 
 
 var PetTrip = React.createClass({
+
+  gotoPage: function() {
+      browserHistory.push('#/feed');
+  },
+
+
+
 
   contextTypes: {
     handleMongoId: React.PropTypes.func.isRequired,
@@ -55,7 +63,7 @@ var PetTrip = React.createClass({
 
   // Combine data from inputs to one object for transmission
   handleFormSubmit: function(e){
-    e.preventDefault(); //prevents page refresh
+    // e.preventDefault(); //prevents page refresh
     var trip = {};
     trip.startDate = this.state.startDate;
     trip.endDate = this.state.endDate;
@@ -64,9 +72,10 @@ var PetTrip = React.createClass({
     trip.comments = this.state.comments;
     trip.animalTraveler = this.state.selectedPets;
 
-    console.log("hangleFormSubmit:", trip);
+    console.log("handleFormSubmit:", trip);
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
     this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
+    this.gotoPage();
   },
 // POST new listing to the server
   handlePetTripFormUpdate: function (trip, mongoId){
@@ -152,7 +161,7 @@ var PetTrip = React.createClass({
                 <label htmlFor="textarea">Is there anything else you would like your driver to know?</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" >Add Listing</button>
+            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" > Add Listing</button>
           </form>
         </div>
        </div>

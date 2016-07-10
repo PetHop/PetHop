@@ -172,7 +172,8 @@ var Registration = React.createClass({
                   <label htmlFor="password">Password</label>
                 </div>
               </div>
-            <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Register">Sign Up</button>
+
+            <button href="#feed" className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" value="Register" >Sign Up</button>
         </div>
         </div>
         </div>
