@@ -22,7 +22,7 @@ var userCreationCtrl = require('./controllers/userCreationCtrl.js');
 // Initialize and configure stormpath
 app.use(stormpath.init(app, {
   website: true,
-  //This option expands the custom data section when we do a GET request to ''/me' to see the account object of the currently logged in user. We need this because the mongo_id is in there.
+  //This option expands the custom data section when we do a GET request to '/me' to see the account object of the currently logged in user. We need this because the mongo_id is in there.
   web: {
     me: {
       expand: {
@@ -40,6 +40,7 @@ app.use(stormpath.init(app, {
         userCreationCtrl(account, null, function(err, resultId){
           data.mongo_id = resultId;
           data.save();
+          res.redirect(302, '/feed').end(); // This line will redirect us to /feed from teh registration form.
           next();
         });
       }
@@ -58,7 +59,7 @@ app.post('/users/', userCtrl.create);
 app.put('/users/:id', userCtrl.update);
 app.delete('/users/:id', userCtrl.delete);
 app.get('/users/:id', userCtrl.readById);
-app.get('/users/:id/nopop', userCtrl.readByIdNoPop);
+app.get('/users/:id/nopop', userCtrl.readByIdNoPop); // no extra data populated (so we can get the IDs of other components)
 
 app.get('/travel', travelCtrl.read);
 app.post('/travel/', travelCtrl.create);
@@ -125,7 +126,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-
+// Connect to the database.
 mongoose.connect("mongodb://localhost:27017/pethop");
 mongoose.connection.once('open', function(){
   console.log("MongoDB connected successfully");
@@ -136,6 +137,7 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+// Wait for Stormpath to connect to it's API before accepting connections so we can check authentication.
 app.on('stormpath.ready', function () {
   app.listen(8080, function (err) {
     if (err) {
