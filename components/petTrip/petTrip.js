@@ -121,9 +121,9 @@ var PetTrip = React.createClass({
               { allPetOptionsWhenReady }
 
               <div>
+                <br/>
                 <Link to='profileedit'>Click here to edit your profile. You must add/select at least one pet to continue.</Link>
-              </div>
-              <div>
+                <br/>
                 <Link to='profileedit'>Also, check that your contact info is accurate or drivers may not be able to reach you!</Link>
               </div>
             <div className="row">

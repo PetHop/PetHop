@@ -52,7 +52,7 @@ var Feed = React.createClass({
     console.log("activeComponent", this.state.activeComponent);
     return (
        <div className="feed">
-          <Tools activeComponent={ this.state.activeComponent } />
+          <Tools activeComponent={ this.state.activeComponent } handleActiveComponentChange={ this.handleActiveComponentChange }/>
           { this.displaySelector() }
           <Location />
        </div>
