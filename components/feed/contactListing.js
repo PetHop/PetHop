@@ -28,8 +28,8 @@ var contactListing = React.createClass({
   },
 
   render: function(){
-    var mailto = 'mailto' + this.state.activeTravelData.tripPostedBy.email;
-    return(
+    var mailto = this.state.travelData ? ('mailto' + this.state.activeTravelData.tripPostedBy.email) : null;
+    var contactInfo = this.state.activeTravelData ? (
       <div>
         <h4>Great!</h4>
         <p>We're glad you want to help!</p>
@@ -37,6 +37,12 @@ var contactListing = React.createClass({
         <img src={ this.state.activeTravelData.tripPostedBy.userImg } height="200" width="200" className="circle" />
         <img src={ this.state.activeTravelData.animalTraveler.petProfileImage } height="200" width="200" className="circle" />
         <h5>Thanks for using PetHop and enjoy your trip!</h5>
+      </div>
+    ) : null;
+
+    return(
+      <div>
+        { contactInfo }
       </div>
     )
   }
