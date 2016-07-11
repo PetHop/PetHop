@@ -22,8 +22,13 @@ var FeedTools = React.createClass({
     } else if ( this.props.activeComponent == 'details'){
       return(
         <div className="input-field col s12 m12 l6">
-          <button onClick={ this.props.handleActiveComponentChange.bind(null, 'contact') } >Contact User</button>
+          <button className="btn waves-effect waves-light col s6 blue" onClick={ this.props.handleActiveComponentChange.bind(null, 'listings') } >Back to Listings</button>
+          <button className="btn waves-effect waves-light col s6 blue" onClick={ this.props.handleActiveComponentChange.bind(null, 'contact') } >Contact User</button>
         </div>
+      )
+    } else if ( this.props.activeComponent == 'contact'){
+      return(
+          <button className="btn waves-effect waves-light col s6 blue" onClick={ this.props.handleActiveComponentChange.bind(null, 'details') } >Back to Details</button>
       )
     }
   },
