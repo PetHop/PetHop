@@ -96,6 +96,7 @@ handleYearChange: function(e){
 
 // Combines all of the vehicle form data into one object to prepare for transmission.
 handleVehicleInfoSubmit: function(e){
+  e.preventDefault();
   var vehicle = {};
   vehicle.make = this.state.make;
   vehicle.vehicleType = this.state.vehicleType;
@@ -109,6 +110,7 @@ handleVehicleInfoSubmit: function(e){
 
 // Combines all of the contact form data into one object to prepare for transmission.
 handleContactInfoSubmit: function(e){
+  e.preventDefault();
   var user = {};
   user.street = this.state.street;
   user.zip = this.state.zip;
@@ -122,6 +124,7 @@ handleContactInfoSubmit: function(e){
 
 // Combines all of the pet form data into one object to prepare for ajax transmission.
 handlePetProfileSubmit: function(e){
+  e.preventDefault();
   var pet = {};
   pet.petName = this.state.petName;
   pet.type = this.state.type;
@@ -130,6 +133,7 @@ handlePetProfileSubmit: function(e){
   pet.petDesc = this.state.petDesc;
   pet.specialReq = this.state.specialReq;
 
+  console.log("pet object to submit", pet);
   this.context.handleMongoId(pet, this.handleCreatePetProfile);
   this.redirectToProfile();
 },
