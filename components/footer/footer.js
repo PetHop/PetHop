@@ -9,8 +9,8 @@ var Footer = React.createClass({
                 <div className="container">
                   <div className="row">
                     <div className="col l6 s12">
-                      <h5 className="white-text">Footer Content</h5>
-                      <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                      <h5 className="white-text">The Pet Hop Mission</h5>
+                      <p className="grey-text text-lighten-4">Our goal is to connect your furry friends with a safe and reliable travel. Think of us as Uber for your pets.</p>
                     </div>
                     <div className="col l4 offset-l2 s12">
                       <h5 className="white-text">Links</h5>

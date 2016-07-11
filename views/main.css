@@ -48,7 +48,7 @@ ul.right.hide-on-med-and-down {
 /*Main Feed*/
 .feed {
   min-height: 52vw;
-  overflow-y: scroll;
+
 }
 .feedListing {
   width: 50vw;

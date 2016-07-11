@@ -43,9 +43,11 @@ var Location = React.createClass({
 
 var AllpetTrip = React.createClass({
   render: function(){
-    var trips = this.props.petTrip.length ? this.props.petTrip.map(function(item){
+    var trips = this.props.petTrip.map(function(item){
       return <Geolocator start={item.startPoint}/>
-    }) : null;
+    });
+
+    console.log(trips, "wanting multiple trips");
     return (
       <div>
         { trips }
@@ -66,15 +68,16 @@ var Geolocator = React.createClass({
     var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
     var coder = geocoder(key);
     var geo = coder.find(this.props.start, function(err, data){
-      console.log(data, "yes this is the geocoder data");
       self.setState({ location: data });
       return data;
+
     })
   },
 
   componentDidMount: function(){
     this.getLocations();
   },
+
 
   render: function(){
       return(

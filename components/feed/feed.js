@@ -15,6 +15,7 @@ import ContactListing from './contactListing.js';
 
 
 var Feed = React.createClass({
+
   getInitialState: function(){
     return{
       activeTravelId: null,
@@ -47,6 +48,10 @@ var Feed = React.createClass({
     } else {
       throw new Error('No active component: ', this.state.activeComponent)
     }
+  },
+
+  componentDidMount: function(){
+    window.scrollTo(0,0);
   },
 
   render: function() {
