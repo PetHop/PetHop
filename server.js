@@ -61,10 +61,11 @@ app.delete('/users/:id', userCtrl.delete);
 app.get('/users/:id', userCtrl.readById);
 app.get('/users/:id/nopop', userCtrl.readByIdNoPop); // no extra data populated (so we can get the IDs of other components)
 
-app.get('/travel', travelCtrl.read);
+app.get('/travel', travelCtrl.read); // all extra data is populated here
 app.post('/travel/', travelCtrl.create);
 app.put('/travel/:id', travelCtrl.update);
 app.delete('/travel/:id', travelCtrl.delete);
+app.get('/travel/:id', travelCtrl.readById); // all extra data is populated here
 
 app.get('/pets', petsCtrl.read);
 app.post('/pets/', petsCtrl.create);

@@ -1,55 +1,47 @@
 import React from 'react';
 
 
-// The next step here is to figure out how to get a mongoID from a feed card to componentDidMount in this form....
-
 var Details = React.createClass({
   getInitialState: function(){
     return {
       // Will hold data for the trip that is currently being viewed
-      travelData: undefined
+      travelData: null
     }
   },
 
-
-
   componentDidMount: function(){
-    console.log('activeId changed to :', this.props.activeTravelId );
+    this.setActiveTravel(this.props.activeTravelId);
   },
 
-  // This is the ajax request to load a Travel data from the server given a mongoId
-  getTravelInfo: function(empty, travelId){
-    var self = this;  // prevent some scope issues
-    $.ajax({
-      url: '/travels/' + travelId,
-      method: 'GET'
-    }).done(function(data){
-      self.setState({ travelData: data });
-      console.log("saved travelData:", self.state.travelData);
-    })
+  // This function finds the listing in our array of data with the matching activeTravelId and saves it in stat for easy access. This saves us from needing to do another AJAX call. (And from having to write an ajax readById w/ populate function which is proving difficult at this absurd hour).
+  setActiveTravel: function(){
+    for (var i = 0; i < this.props.listing.length; i++){
+      if (this.props.listing[i]._id == this.props.activeTravelId) {
+        this.setState({travelData:this.props.listing[i]});
+        return console.log("setActiveTravel:", this.props.listing[i]);
+      }
+    }
+    throw new Error('ID not found:', this.props.activeTravelId)
+  },
+
+  // This function adds all pets requesting transport in this listing to a single convenient string.
+  petNameCombiner: function(){
+    var names = this.state.travelData.animalTraveler[0].petName;
+    for (var i = 1; i < this.state.travelData.animalTraveler.length; i++) {
+      names += (' and ' + this.state.travelData.animalTraveler[i].petName);
+    }
+    return names;
   },
 
 
   render: function () {
-
-
-
-
-
+    console.log("rendering travelData", this.state.travelData.startPoint);
     return (
+      <div className="details">
+        <h3>{ this.petNameCombiner() } needs a ride from { this.state.travelData.startPoint } to { this.state.travelData.endPoint } on { this.state.travelData.startDate.toString() }. Are you able to assist?</h3>
 
-     <div className="details">
-      <li>WTF</li>
-      {/*<li>{this.state.travelData.startDate}</li>*/}
-      {/*{this.state.travelData.userDriver.startPoint}
-      {this.state.travelData.userDriver.endPoint}
-      {this.state.travelData.userDriver.animalTraveler.petSize}
-      {this.state.travelData.userDriver.animalTraveler.petBreed}
-      {this.state.travelData.userDriver.firstName}
-      {this.state.travelData.userDriver.lastName}
-      {this.state.travelData.userDriver.phone}*/}
 
-     </div>
+      </div>
    );
   }
 });

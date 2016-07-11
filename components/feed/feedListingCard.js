@@ -4,10 +4,6 @@ var React = require('react')
 var FeedListingCard = React.createClass({
 
   render: function(){
-    console.log("feedlistingcard", this.props);
-    console.log('petProfileImage', this.props.listing.animalTraveler.petProfileImage);
-    console.log('humanprofileimage', this.props.listing.tripPostedBy.userImg );
-
     return(
           <main>
             <div className="col s12 m12 l6 container">

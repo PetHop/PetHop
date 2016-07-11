@@ -28,14 +28,10 @@ var PetTrip = React.createClass({
   },
   // Update state based on user interaction with inputs
   handleStartDateChange: function (e){
-    console.log('fire start');
     this.setState({startDate: e.target.value})
-    console.log("start", this.state.startDate);
   },
   handleEndDateChange: function (e){
-    console.log('fire end');
     this.setState({endDate: e.target.value})
-    console.log("end", this.state.endDate);
   },
   handleStartPointChange: function (e){
     this.setState({startPoint: e.target.value})
@@ -57,7 +53,6 @@ var PetTrip = React.createClass({
     } else {
       this.state.selectedPets.splice(index,1);
     }
-    console.log("selectedPets", this.state.selectedPets);
   },
 
   // Combine data from inputs to one object for transmission
@@ -72,7 +67,6 @@ var PetTrip = React.createClass({
     trip.animalTraveler = this.state.selectedPets;
     trip.tripPostedBy = this.state.currentUser._id;
 
-    console.log("handleFormSubmit:", trip);
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
     this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
     this.gotoPage();
@@ -93,26 +87,22 @@ var PetTrip = React.createClass({
   },
 
   getCurrentUserInfo: function(empty, mongoId){
-    console.log("getting CurrentUser info");
     var self = this;  // prevent some scope issues
     $.ajax({
       url: '/users/' + mongoId,
       method: 'GET'
     }).done(function(data){
       self.setState({ currentUser: data });
-      console.log("saved currentUser:", data);
     })
   },
 
   componentDidMount: function(){
-    console.log('mounting components');
     // (first get mongoId of logged in user, then) get current user's pets so we can map them to a form of option to select which pets need a ride.
     this.context.handleMongoId(null, this.getCurrentUserInfo);
   },
 
 
    render: function(){
-     console.log("rendering", this.state.currentUser);
      // Will prevent AllPetOptions component from loading until data is present (otherwise everything breaks and will render a blank page)
      var allPetOptionsWhenReady = this.state.currentUser ? <AllPetOptions currentUser={ this.state.currentUser } handleTravelerCheckbox={ this.handleTravelerCheckbox } /> : <h2>Please add a pet from the update profile page!</h2>;
 

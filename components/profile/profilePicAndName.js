@@ -3,8 +3,6 @@ import React from 'react';
 var PicAndName = React.createClass({
 
   render: function () {
-    console.log("picandname", this.props);
-
 
     return (
      <div className="profilePicAndName">
