@@ -99,6 +99,14 @@ ul.right.hide-on-med-and-down {
   position: relative;
   margin-left: 15px;
 }
+#detail-user {
+  border: 5px solid #ffffff;
+}
+.details {
+  width: 60vw;
+  position: relative;
+  left: 70px
+}
 /*Maps*/
 #google-map{
     z-index: -2;

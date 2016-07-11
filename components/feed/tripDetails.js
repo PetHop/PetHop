@@ -28,18 +28,32 @@ var Details = React.createClass({
     console.log(this.props.activeTravelId, 'componentdidmount');
   },
 
+  // <img src={ this.state.activeTravelData.animalTraveler[0].petProfileImage } className="responsive-img circle" />
+  // <span className="card-title">{ this.state.activeTravelData.AnimalTraveler[0].petName } { this.props.listing.tripPostedBy.lastName } </span>
+  // <h6> Can you help </h6><h5>{ this.state.activeTravelData.animalTraveler[0].petName }</h5><h6> get from { this.state.activeTravelData.startPoint } to { this.state.activeTravelData.endPoint } on { this.state.activeTravelData.startDate } ? </h6>
 
   render: function () {
     console.log(this.state.activeTravelData);
     var tripDetails = (this.state.activeTravelData) ? (
-        <div className="details">
-          <img src={ this.state.activeTravelData.animalTraveler[0].petProfileImage } height="300" width="300" />
-          <h6> Can you help </h6><h5>{ this.state.activeTravelData.animalTraveler[0].petName }</h5><h6> get from { this.state.activeTravelData.startPoint } to { this.state.activeTravelData.endPoint } on { this.state.activeTravelData.startDate } ? </h6>
-          <h5> Additional Details: </h5>
-          <p> { this.state.activeTravelData.comments } </p>
-          <p> Request posted by:  { this.state.activeTravelData.tripPostedBy.firstName } { this.state.activeTravelData.tripPostedBy.lastName }</p>
-
+      <div className="valign-wrapper">
+        <div className="details col 6">
+            <div className="col s12 m12 l6 container left">
+              <div className="card z-depth-2">
+                <div className="card-image waves-effect waves-block waves-light">
+                </div>
+                  <div className="card-content center">
+                    <p className="flow-text" id="contact">
+                      <img src={ this.state.activeTravelData.animalTraveler[0].petProfileImage } className="responsive-img circle" id="detail-user" />
+                      <h6> Can you help </h6><h5>{ this.state.activeTravelData.animalTraveler[0].petName }</h5><h6> Get from: { this.state.activeTravelData.startPoint } to { this.state.activeTravelData.endPoint }? </h6>
+                      <h5> Additional Details: </h5>
+                      <p> { this.state.activeTravelData.comments } </p>
+                      <p> Request posted by:  { this.state.activeTravelData.tripPostedBy.firstName } { this.state.activeTravelData.tripPostedBy.lastName }</p>
+                    </p>
+                  </div>
+              </div>
+          </div>
         </div>
+      </div>
       )
         : null;
 
