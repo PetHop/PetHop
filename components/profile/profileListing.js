@@ -3,7 +3,6 @@ import React from 'react';
 var ProfileListing = React.createClass({
 
   petLister: function(){
-    console.log('hello petLister', this.props.pets);
     var petList = this.props.pets.map(function(item){
       return(
         <div className="row">
