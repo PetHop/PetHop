@@ -16,7 +16,9 @@ var Main = React.createClass({
       <div className="main">
         <MainData>
           <Nav />
-          { this.props.children }
+            <main>
+              { this.props.children }
+            </main>
           <Footer />
         </MainData>
       </div>

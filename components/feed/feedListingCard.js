@@ -9,11 +9,11 @@ var FeedListingCard = React.createClass({
             <div className="col s12 m12 l6 container">
               <div className="card z-depth-2">
               <div className="ownerPic">
-                <img src={ this.props.listing.tripPostedBy.userImg } alt="" className="responsive-img"/>
+                <img src={ this.props.listing.tripPostedBy.userImg } alt="" className="responsive-img circle" id="feed-user" height="120" width="120"/>
               </div>
                 <div className="card-image waves-effect waves-block waves-light">
                   <img src={ this.props.listing.animalTraveler[0].petProfileImage } />
-                  <span className="card-title">{ this.props.listing.tripPostedBy.firstName } { this.props.listing.tripPostedBy.lastName } </span>
+                  <span className="card-title">{ this.props.listing.animalTraveler[0].petName } { this.props.listing.tripPostedBy.lastName } </span>
                 </div>
                 <div className="card-content">
                   <h5>Needs a Ride</h5>

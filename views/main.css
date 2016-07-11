@@ -14,9 +14,9 @@ main {
 }
 
 .footer-wrapper {
-  position: relative;
+  /*position: relative;
   z-index: 10;
-  bottom: 0;
+  bottom: 0;*/
 }
 ul.right.hide-on-med-and-down {
     margin-bottom: 0px;
@@ -26,7 +26,7 @@ ul.right.hide-on-med-and-down {
 /*Registration & Login*/
 .login {
   width: 600px;
-  height: 75vh;
+  height: 100vh;
   position: relative;
   top: 150px;
   margin: 0 auto 0 auto;
@@ -34,7 +34,7 @@ ul.right.hide-on-med-and-down {
 }
 .registration {
   width: 600px;
-  height: 85vh;
+  height: 100vh;
   position: relative;
   top: 150px;
   margin: 0 auto 100px auto;
@@ -86,6 +86,12 @@ ul.right.hide-on-med-and-down {
   margin: 0 auto 0 auto;
   height: 100%;
 }
+#feed-user {
+  border: 5px solid #ffffff;
+  position: relative;
+  bottom: 75px;
+  right: 10px;
+}
 #view-details {
   margin-right: 50px;
 }
@@ -100,6 +106,10 @@ ul.right.hide-on-med-and-down {
     position:static;
     top: 0px;
     right: 0px;
+}
+.midbody {
+  min-height: 80vh;
+  position: static;
 }
 
 #google-map-container{
