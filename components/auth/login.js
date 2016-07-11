@@ -5,7 +5,7 @@ var logo = require('file!./../../views/img/pethop_logo.png');
 
 function Login() {
   return (
- <div className="valign-wrapper">
+ <div className="valign-wrapper container">
    <div className="login">
      <LoginForm redirectTo='/feed' className="col s12 m12 l12" >
      <div className="row col 12">
