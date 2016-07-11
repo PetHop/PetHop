@@ -38,9 +38,12 @@ app.use(stormpath.init(app, {
         return next(err);
       } else {
         userCreationCtrl(account, null, function(err, resultId){
+          console.log("userCreationCtrl resultId", resultId);
           data.mongo_id = resultId;
+          console.log("data", data);
           data.save();
-          res.redirect(302, '/feed').end(); // This line will redirect us to /feed from teh registration form.
+          // This line will redirect us to /feed from teh registration form.
+          // res.redirect(302, '/feed').end(); // .end of undefined error is breaking this.
           next();
         });
       }

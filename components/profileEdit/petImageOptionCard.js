@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
 var DropzoneComponent = require('react-dropzone-component');
 
+// This doesn't update with every iteration of the dropzone. Causing problems. Ned to figure out how to give the eventhandler and djsconfig access to proper this context
 var imgServer;
 var currentPet;
 
