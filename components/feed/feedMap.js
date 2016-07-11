@@ -7,26 +7,34 @@
  import React from 'react';
  import { GoogleMap, Marker } from 'react-google-maps';
  import MapLoader from './maploader.js';
+ import { default as MarkerClusterer } from "react-google-maps/lib/addons/MarkerClusterer";
 
 
 
-var FeedMap = React.createClass({
+ var FeedMap = React.createClass({
 
   render: function(){
-    console.log(this.props.geolocations, "this is the geo data passed to map");
-
     var startPoints = this.props.geolocations ? this.props.geolocations.map(function(item){
-      return <Marker position={{ lat: item.location.lat, lng: item.location.lng}} icon={'img/marker.png'}/>
+      return <Marker position={ { lat: item.location.lat, lng: item.location.lng} } icon={'img/marker.png'}/>
       }) : null;
 
-
+console.log({startPoints}, "SHITYTT FUCK");
     return (
       <div id="google-map">
         <MapLoader>
         <GoogleMap
          defaultZoom={4}
-         center={{lat: 30.8787, lng: -94.000}}>
-        { startPoints }
+         center={{lat: 40., lng: -99.000}}>
+
+
+        >
+          <MarkerClusterer
+          averageCenter
+          enableRetinaIcons
+          gridSize={20}
+          >
+
+          </MarkerClusterer>
       </GoogleMap>
       </MapLoader>
       </div>

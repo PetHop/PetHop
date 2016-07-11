@@ -14,7 +14,7 @@ var Details = React.createClass({
 
 
   componentDidMount: function(){
-
+    console.log('activeId changed to :', this.props.activeTravelId );
   },
 
   // This is the ajax request to load a Travel data from the server given a mongoId

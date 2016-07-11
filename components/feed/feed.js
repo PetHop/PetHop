@@ -15,6 +15,7 @@ import ContactListing from './contactListing.js';
 
 
 var Feed = React.createClass({
+
   getInitialState: function(){
     return{
       activeTravelId: null,
@@ -23,12 +24,14 @@ var Feed = React.createClass({
   },
 
   handleActiveIdChange: function(travelId){
+
     this.setState({
       activeTravelId: travelId
-    })
+    });
   },
 
   handleActiveComponentChange: function(componentName){
+    console.log("handleActiveComponentChange", componentName);
     this.setState({
       activeComponent: componentName
     })
@@ -36,11 +39,10 @@ var Feed = React.createClass({
 
   // Displays either the feed (by default) or details of a particular listing depending on user selection
   displaySelector: function(){
-    console.log("displayselector is happening");
     if (this.state.activeComponent == 'details') {
       return <Details activeTravelId={ this.state.activeTravelId } />
     } else if (this.state.activeComponent == 'listings') {
-      return <Listings handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
+      return <Listings activeTravelId={ this.state.activeTravelId } handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
     } else if (this.state.activeComponent == 'contact') {
       return <ContactListing activeTravelId={ this.state.activeTravelId }/>
     } else {
@@ -48,11 +50,15 @@ var Feed = React.createClass({
     }
   },
 
+  componentDidMount: function(){
+    window.scrollTo(0,0);
+  },
+
   render: function() {
     console.log("activeComponent", this.state.activeComponent);
     return (
        <div className="feed">
-          <Tools activeComponent={ this.state.activeComponent } />
+          <Tools activeComponent={ this.state.activeComponent } handleActiveComponentChange={ this.handleActiveComponentChange }/>
           { this.displaySelector() }
           <Location />
        </div>

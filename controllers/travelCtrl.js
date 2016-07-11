@@ -17,7 +17,7 @@ module.exports =
     TravelModel
     .find()
     .populate('animalTraveler')
-    .populate('userDriver')
+    .populate('tripPostedBy')
     .exec(function(err, result){
       if (err) {
         res.send(err);
