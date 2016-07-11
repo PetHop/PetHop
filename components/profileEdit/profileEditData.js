@@ -1,10 +1,15 @@
 
 import React from 'react';
+import { Router, browserHistory } from 'react-router';
 import PetProfileEdit from './petProfileEdit.js';
 import ContactInfoEdit from './contactInfoEdit.js';
 import FormSelector from './formSelector.js'
 
 var ProfileEditData = React.createClass({
+
+redirectToProfile: function() {
+  browserHistory.push('#/profile');
+},
 
 // List context functions that I plan to use in this component
 contextTypes: {
@@ -91,7 +96,6 @@ handleYearChange: function(e){
 
 // Combines all of the vehicle form data into one object to prepare for transmission.
 handleVehicleInfoSubmit: function(e){
-  console.log("handleVehicleInfoSubmit");
   var vehicle = {};
   vehicle.make = this.state.make;
   vehicle.vehicleType = this.state.vehicleType;
@@ -99,9 +103,8 @@ handleVehicleInfoSubmit: function(e){
   vehicle.model = this.state.model;
   vehicle.year = this.state.year;
 
-  console.log(vehicle);
   this.context.handleMongoId(vehicle, this.handleProfileUpdate);
-  this.setState({ make: "", model: "", year: "", vehicleType: "", vehicleColor: "" });
+  this.redirectToProfile();
 },
 
 // Combines all of the contact form data into one object to prepare for transmission.
@@ -114,7 +117,7 @@ handleContactInfoSubmit: function(e){
   user.phone = this.state.phone;
 
   this.context.handleMongoId(user, this.handleProfileUpdate);
-  this.setState({ street: "", city: "", zip: "", state: "", phone: "" });
+  this.redirectToProfile();
 },
 
 // Combines all of the pet form data into one object to prepare for ajax transmission.
@@ -128,7 +131,7 @@ handlePetProfileSubmit: function(e){
   pet.specialReq = this.state.specialReq;
 
   this.context.handleMongoId(pet, this.handleCreatePetProfile);
-  this.setState({ petName: "", type: "", petSize: "", petBreed: "", petDesc: "", specialReq: "" });
+  this.redirectToProfile();
 },
 
 // This function updates the user profile with new contact info, vehicle info, and petIDs
