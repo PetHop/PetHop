@@ -19,30 +19,39 @@ var Feed = React.createClass({
   getInitialState: function(){
     return{
       activeTravelId: null,
-      activeComponent: "listings"
+      activeComponent: "listings",
+      listing: []
     }
   },
 
   handleActiveIdChange: function(travelId){
-
     this.setState({
       activeTravelId: travelId
     });
   },
 
   handleActiveComponentChange: function(componentName){
-    console.log("handleActiveComponentChange", componentName);
     this.setState({
       activeComponent: componentName
+    })
+  },
+
+  getAllListingsFromServer: function(){
+    var self = this;
+    $.ajax({
+       method: 'GET',
+       url: '/travel'
+    }).done(function(data){
+       self.setState({ listing: data })
     })
   },
 
   // Displays either the feed (by default) or details of a particular listing depending on user selection
   displaySelector: function(){
     if (this.state.activeComponent == 'details') {
-      return <Details activeTravelId={ this.state.activeTravelId } />
+      return <Details activeTravelId={ this.state.activeTravelId } listing={ this.state.listing }/>
     } else if (this.state.activeComponent == 'listings') {
-      return <Listings activeTravelId={ this.state.activeTravelId } handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
+      return <Listings activeTravelId={ this.state.activeTravelId } listing={ this.state.listing } handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
     } else if (this.state.activeComponent == 'contact') {
       return <ContactListing activeTravelId={ this.state.activeTravelId }/>
     } else {
@@ -51,11 +60,11 @@ var Feed = React.createClass({
   },
 
   componentDidMount: function(){
+    this.getAllListingsFromServer();
     window.scrollTo(0,0);
   },
 
   render: function() {
-    console.log("activeComponent", this.state.activeComponent);
     return (
        <div className="feed">
           <Tools activeComponent={ this.state.activeComponent } handleActiveComponentChange={ this.handleActiveComponentChange }/>

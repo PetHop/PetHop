@@ -12,29 +12,6 @@ import TripDetails from './tripDetails.js';
 import FeedListingCard from './feedListingCard.js';
 
 var FeedListing = React.createClass({
-   getInitialState: function(){
-     return {
-       listing: []
-     }
-   },
-
-   getAllListingsFromServer: function(){
-     console.log("before ajax");
-     var self = this;
-     $.ajax({
-      method: 'GET',
-      url: '/travel'
-    }).done(function(data){
-      console.log("after ajax", data);
-      self.setState({ listing: data })
-    })
-  },
-
-
-  componentDidMount: function(){
-    this.getAllListingsFromServer();
-  },
-
 
   seeDetails: function(id){
     this.props.handleActiveIdChange(id);
@@ -43,7 +20,7 @@ var FeedListing = React.createClass({
 
   allListing: function(){
    var that = this; // I'm not sure if this is bad form or a good way to do this... It feels messy... but it works when I need to call the function inside the map.
-     var listingthings = this.state.listing.map(function(item){
+     var listingthings = this.props.listing.map(function(item){
 
        return <FeedListingCard listing={ item }
                                key={ item._id }
