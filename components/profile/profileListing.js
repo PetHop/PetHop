@@ -10,7 +10,5 @@ var ProfileListing = React.createClass({
   }
 });
 
-{/*<p>{ this.props.petName } needs a ride to { this.props.destination }</p>*/}
-
 
 export default ProfileListing;

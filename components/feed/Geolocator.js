@@ -46,8 +46,6 @@ var AllpetTrip = React.createClass({
     var trips = this.props.petTrip.map(function(item){
       return <Geolocator start={item.startPoint}/>
     });
-
-    console.log(trips, "wanting multiple trips");
     return (
       <div>
         { trips }
