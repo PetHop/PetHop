@@ -6,7 +6,7 @@ var Registration = React.createClass({
 
   render: function(){
     return (
-    <div className="valign-wrapper">
+    <div className="valign-wrapper container">
      <div className="registration">
        <RegistrationForm>
         <div spIf="account.created">

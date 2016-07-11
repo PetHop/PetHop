@@ -44,6 +44,7 @@ var FeedListing = React.createClass({
   allListing: function(){
    var that = this; // I'm not sure if this is bad form or a good way to do this... It feels messy... but it works when I need to call the function inside the map.
      var listingthings = this.state.listing.map(function(item){
+
        return <FeedListingCard listing={ item }
                                key={ item._id }
                                seeDetails={ that.seeDetails } />

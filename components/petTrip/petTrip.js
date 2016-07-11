@@ -70,6 +70,7 @@ var PetTrip = React.createClass({
     trip.endPoint = this.state.endPoint;
     trip.comments = this.state.comments;
     trip.animalTraveler = this.state.selectedPets;
+    trip.tripPostedBy = this.state.currentUser._id;
 
     console.log("handleFormSubmit:", trip);
     this.context.handleMongoId(trip, this.handlePetTripFormUpdate);

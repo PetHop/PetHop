@@ -1,13 +1,26 @@
 /*Globally Available Items*/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 .nav-wrapper {
   z-index: 1;
+}
+
+.footer-wrapper {
+  position: relative;
+  z-index: 10;
+  bottom: 0;
 }
 ul.right.hide-on-med-and-down {
     margin-bottom: 0px;
     height: 64px;
-}
-.footer-wrapper {
-  z-index: 1;
 }
 
 /*Registration & Login*/
@@ -17,13 +30,15 @@ ul.right.hide-on-med-and-down {
   position: relative;
   top: 150px;
   margin: 0 auto 0 auto;
+  z-index: 0;
 }
 .registration {
   width: 600px;
-  height: 75vh;
+  height: 85vh;
   position: relative;
   top: 150px;
   margin: 0 auto 100px auto;
+  z-index: 0;
 }
 
 /*Home*/
@@ -48,10 +63,10 @@ ul.right.hide-on-med-and-down {
 /*Main Feed*/
 .feed {
   min-height: 52vw;
-
 }
 .feedListing {
   width: 50vw;
+  overflow-y: scroll;
 }
 .feedtools{
   width: 20vw;
@@ -63,7 +78,7 @@ ul.right.hide-on-med-and-down {
   position: absolute;
   margin-right: 15px;
   right: 0;
-  bottom: 100px;
+  bottom: 115px;
   z-index: 5;
 }
 .profile-card {
@@ -71,7 +86,13 @@ ul.right.hide-on-med-and-down {
   margin: 0 auto 0 auto;
   height: 100%;
 }
-
+#view-details {
+  margin-right: 50px;
+}
+#contact {
+  position: relative;
+  margin-left: 15px;
+}
 /*Maps*/
 #google-map{
     z-index: -2;
@@ -88,8 +109,8 @@ ul.right.hide-on-med-and-down {
     height: 95vh;
     width: 49.5vw;
     margin: auto;
-    margin-bottom: 10%;
-    margin-top: 64px;
+    /*margin-bottom: 10%;*/
+    /*margin-top: 64px;*/
     z-index: 0
 }
 @media only screen and (max-width: 993px) {
@@ -158,7 +179,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   border: 5px solid #ffffff;
   position: relative;
   bottom: 75px;
-  left: 20px;
+  left: 40px;
 }
 #edit-btn {
   position: relative;

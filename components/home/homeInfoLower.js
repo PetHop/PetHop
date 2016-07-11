@@ -1,6 +1,7 @@
 import React from 'react';
 import parallax1 from 'file!./../../views/img/pexels-photo-26128-large.jpg';
 
+
 var InfoLower = React.createClass({
   componentDidMount: function(){
       $('.parallax').parallax();
