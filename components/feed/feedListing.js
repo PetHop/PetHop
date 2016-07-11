@@ -46,25 +46,28 @@ var FeedListing = React.createClass({
      console.log("allListing function", this.state.listing);
      var listingthings = this.state.listing.map(function(item){
        return (
-
-              <div className="col s12 m12 l6">
+            <main>
+              <div className="col s12 m12 l6 container">
                 <div className="card z-depth-2">
                 <div className="ownerPic">
-                  <img src={ item.userDriver.userImg} alt="" className="responsive-img"/>
+                  <img src={ owner1 } alt="" className="responsive-img"/>
                 </div>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img src='{ item.userDriver.pets.petProfileImage }'/>
+                    <img src={ pet1 }/>
                     <span className="card-title">{ item.userDriver.firstName } + { item.userDriver.lastName } </span>
                   </div>
                   <div className="card-content">
-                    <p> Needs a ride to: { item.endPoint } </p>
+                    <h5>Needs a Ride</h5>
+                    <p><i className="material-icons">location_on</i>From: { item.startPoint }</p>
+                    <p><i className="material-icons">location_on</i>To: { item.endPoint }</p>
                   </div>
                   <div className="card-action center">
-                  <button onClick={ seeDetails.bind(null, item._id) }>View Details</button>
-                  <a href="#">Delete</a>
+                  <button className="waves-effect waves-light btn blue white-text" onClick={ seeDetails.bind(null, item._id) }>View Details</button>
                   </div>
                 </div>
               </div>
+            </main>
+
           );
     });
     return (
