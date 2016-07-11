@@ -29,7 +29,11 @@ getInitialState(){
     petDesc: undefined,
     specialReq: undefined,
     // These are for vehicleEdit
-
+    vehicleType: undefined,
+    vehicleColor: undefined,
+    make: undefined,
+    model: undefined,
+    year: undefined
     }
 },
 
@@ -69,11 +73,39 @@ handleSpecialReqChange: function(e){
   this.setState({ specialReq: e.target.value })
 },
 // Handle change functions for vehicleEdit
+handleVehicleTypeChange: function(e){
+  this.setState({ vehicleType: e.target.value })
+},
+handleColorChange: function(e){
+  this.setState({ vehicleColor: e.target.value })
+},
+handleMakeChange: function(e){
+  this.setState({ make: e.target.value })
+},
+handleModelChange: function(e){
+  this.setState({ model: e.target.value })
+},
+handleYearChange: function(e){
+  this.setState({ year: e.target.value })
+},
 
+// Combines all of the vehicle form data into one object to prepare for transmission.
+handleVehicleInfoSubmit: function(e){
+  console.log("handleVehicleInfoSubmit");
+  var vehicle = {};
+  vehicle.make = this.state.make;
+  vehicle.vehicleType = this.state.vehicleType;
+  vehicle.vehicleColor = this.state.vehicleColor;
+  vehicle.model = this.state.model;
+  vehicle.year = this.state.year;
+
+  console.log(vehicle);
+  this.context.handleMongoId(vehicle, this.handleProfileUpdate);
+  this.setState({ make: "", model: "", year: "", vehicleType: "", vehicleColor: "" });
+},
 
 // Combines all of the contact form data into one object to prepare for transmission.
 handleContactInfoSubmit: function(e){
-  e.preventDefault(); //prevents page refresh
   var user = {};
   user.street = this.state.street;
   user.zip = this.state.zip;
@@ -87,7 +119,6 @@ handleContactInfoSubmit: function(e){
 
 // Combines all of the pet form data into one object to prepare for ajax transmission.
 handlePetProfileSubmit: function(e){
-  e.preventDefault();
   var pet = {};
   pet.petName = this.state.petName;
   pet.type = this.state.type;
@@ -204,6 +235,12 @@ componentDidMount: function(){
                   handlePetDescChange={ this.handlePetDescChange }
                   handleSpecialReqChange={ this.handleSpecialReqChange }
                   handlePetProfileSubmit={ this.handlePetProfileSubmit }
+                  handleVehicleTypeChange={ this.handleVehicleTypeChange }
+                  handleColorChange={ this.handleColorChange }
+                  handleMakeChange={ this.handleMakeChange }
+                  handleModelChange={ this.handleModelChange }
+                  handleYearChange={ this.handleYearChange }
+                  handleVehicleInfoSubmit={ this.handleVehicleInfoSubmit }
                   />
    )
  }
