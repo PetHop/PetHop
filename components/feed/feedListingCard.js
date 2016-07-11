@@ -9,7 +9,7 @@ var FeedListingCard = React.createClass({
             <div className="col s12 m12 l6 container">
               <div className="card z-depth-2">
               <div className="ownerPic">
-                <img src={ this.props.listing.tripPostedBy.userImg } alt="" className="responsive-img circle" id="feed-user" height="120" width="120"/>
+                <img src={ this.props.listing.tripPostedBy.userImg } className="responsive-img circle" id="feed-user" height="120" width="120"/>
               </div>
                 <div className="card-image waves-effect waves-block waves-light">
                   <img src={ this.props.listing.animalTraveler[0].petProfileImage } />
