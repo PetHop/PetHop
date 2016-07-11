@@ -11,9 +11,6 @@ var PetTrip = React.createClass({
       browserHistory.push('#/feed');
   },
 
-
-
-
   contextTypes: {
     handleMongoId: React.PropTypes.func.isRequired,
   },

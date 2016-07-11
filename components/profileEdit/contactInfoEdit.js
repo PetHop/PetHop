@@ -48,10 +48,4 @@ var ContactInfoEdit = React.createClass({
   }
 });
 
-{/*<div className="row">
-   <div className="input-field col s6">
-     <a href="#profile" className="btn waves-effect waves-light col s12 blue" onclick="Materialize.toast('Profile Updated', 4000)">Update</a>
-   </div>
- </div>*/}
-
 module.exports = ContactInfoEdit;
