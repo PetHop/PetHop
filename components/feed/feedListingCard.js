@@ -20,7 +20,7 @@ var FeedListingCard = React.createClass({
             <p> Needs a ride to:{ this.props.listing.endPoint } </p>
           </div>
           <div className="card-action center">
-        <button onClick={ this.props.seeDetails.bind(null, this.props.listing._id) } >View Details</button>
+            <button onClick={ this.props.seeDetails.bind(null, this.props.listing._id) } >View Details</button>
           <a href="#">Delete</a>
           </div>
         </div>

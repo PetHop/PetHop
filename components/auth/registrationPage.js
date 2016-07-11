@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactStormpath, { RegistrationForm, LoginLink } from 'react-stormpath';
-var logo = require('file!./../../views/img/login-logo.png');
+var logo = require('file!./../../views/img/pethop_logo.png');
 
 var Registration = React.createClass({
   // getInitialState(){

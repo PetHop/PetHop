@@ -32,26 +32,22 @@ var FeedListing = React.createClass({
 
 
   componentDidMount: function(){
-    console.log("mounted feedlisting, props", this.props);
     this.getAllListingsFromServer();
   },
 
 
   seeDetails: function(id){
-    console.log("seeDetails of ID", id);
-    console.log("this.props", FeedListing.props);
     this.props.handleActiveIdChange(id);
     this.props.handleActiveComponentChange('details');
   },
 
   allListing: function(){
-   var seeDetailsScoped = this.seeDetails; // I'm not sure if this is bad form or a good way to do this... It feels messy... but it works when I need to call the function inside the map.
-   console.log("allListing function", this.state.listing);
-   var listingthings = this.state.listing.map(function(item){
-     return <FeedListingCard listing={ item }
-                             key={ item._id }
-                             seeDetails={ seeDetailsScoped } />
-   });
+   var that = this; // I'm not sure if this is bad form or a good way to do this... It feels messy... but it works when I need to call the function inside the map.
+     var listingthings = this.state.listing.map(function(item){
+       return <FeedListingCard listing={ item }
+                               key={ item._id }
+                               seeDetails={ that.seeDetails } />
+     });
 
     return (
       <div className="feedListing">
@@ -63,7 +59,6 @@ var FeedListing = React.createClass({
   },
 
    render: function(){
-     console.log("feedlisting render");
      return(
        <div>
 
