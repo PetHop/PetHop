@@ -48,7 +48,11 @@ module.exports =
   },
 
   readById: function (req, res, next) {
-    TravelModel.findById(req.params.id, function(err, result) {
+    TravelModel
+    .findOne({ _id: req.params.id })
+    .populate('animalTraveler')
+    .populate('tripPostedBy')
+    .exec(function(err, result) {
       if (err) {
         res.send(err);
       } else {
