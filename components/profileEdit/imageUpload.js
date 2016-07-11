@@ -147,7 +147,7 @@ var ImageUpload = React.createClass({
           <h5>Make sure that you use your pets cutest picture!</h5>
           <DropzoneComponent config={this.componentConfig}
                            eventHandlers={this.eventHandlersCover}
-                           djsConfig={this.djsConfigProfile} />
+                           djsConfig={this.djsConfigCover} />
         </div>
 
         { petOptionsDelayed }

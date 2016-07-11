@@ -1,42 +1,78 @@
+/*Globally Available Items*/
+.nav-wrapper {
+  z-index: 1;
+}
+ul.right.hide-on-med-and-down {
+    margin-bottom: 0px;
+    height: 64px;
+}
+.footer-wrapper {
+  z-index: 1;
+}
+
+/*Registration & Login*/
 .login {
   width: 600px;
   height: 75vh;
   position: relative;
-  top: 200px;
+  top: 150px;
   margin: 0 auto 0 auto;
 }
-.feed {
-  min-height: 52vw;
-  overflow-y: scroll;
+.registration {
+  width: 600px;
+  height: 75vh;
+  position: relative;
+  top: 150px;
+  margin: 0 auto 100px auto;
 }
 
+/*Home*/
+.home_row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+.slider {
+  width: 100%;
+  height: 100vh;
+}
+.parallax-container {
+    height: 600px;
+   }
+.parallax-tagline {
+    position: relative;
+    top: 225px;
+   }
+
+/*Main Feed*/
+.feed {
+  min-height: 52vw;
+
+}
 .feedListing {
   width: 50vw;
 }
 .feedtools{
   width: 20vw;
 }
-.slider {
-  width: 100%;
-  height: 100vh;
+.card {
+  position: relative;
+}
+.ownerPic{
+  position: absolute;
+  margin-right: 15px;
+  right: 0;
+  bottom: 100px;
+  z-index: 5;
+}
+.profile-card {
+  position: relative;
+  margin: 0 auto 0 auto;
+  height: 100%;
 }
 
-.something {
-  padding: 0 .75rem;
-}
-
-.something label {
-  font-size: 1rem;
-}
-
-.filepicker.dropzone.dz-clickable {
-  width: 200px;
-  height: 200px;
-  background-color: #eeeeee;
-  border-radius: 8px;
-  border: 2px dashed orange;
-  text-align: center;
-}
+/*Maps*/
 #google-map{
     z-index: -2;
     display: block;
@@ -56,17 +92,31 @@
     margin-top: 64px;
     z-index: 0
 }
+@media only screen and (max-width: 993px) {
+  #google-map-container{
+  display: none;
+  }
+
+  .feedListing {
+    width: 100vw;
+  }
+}
 .gm-style-mtc {
   display: none;
 }
-.parallax-container {
-    height: 600px;
-   }
-.nav-wrapper {
-  z-index: 1;
+
+/*Add Pet Trip*/
+.addtrip {
+  margin-top: 10px;
+  position: relative;
+  left: 10px;
 }
-.footer-wrapper {
-  z-index: 1;
+.something {
+  padding: 0 .75rem;
+}
+
+.something label {
+  font-size: 1rem;
 }
 .picker__date-display {
   background-color: #ff9800;
@@ -86,47 +136,69 @@
 .picker__close, .picker__today {
  color: #ff9800;
 }
-.addtrip {
-  margin-top: 10px;
-  position: relative;
-  left: 10px;
-}
-.card {
-  position: relative;
-}
-.ownerPic{
-  position: absolute;
-  margin-right: 15px;
-  right: 0;
-  bottom: 100px;
-  z-index: 5;
-}
-.profile-card {
-  position: relative;
-  margin: 0 auto 0 auto;
-}
-.parallax-tagline {
-  position: relative;
-  top: 225px;
-}
 .datepicker.picker_input {
   background-color: #ff9800;
 }
-
 button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
     background-color: #ff9800;
     color: #FFF;
 }
 
-@media only screen and (max-width: 993px) {
-  #google-map-container{
-  display: none;
+/*Profile*/
+.cover-photo {
+  position: relative;
+  overflow:auto;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.info-wraper {
+  position: relative;
+}
+#profile-user {
+  border: 5px solid #ffffff;
+  position: relative;
+  bottom: 75px;
+  left: 20px;
+}
+#edit-btn {
+  position: relative;
+  float:right;
+  top: 24px;
+  right: 20px;
+}
+@media only screen and (max-width: 590px) {
+  #edit-btn {
+    width: 80%;
+    position: relative;
+    margin: 0 auto 20 auto;;
+    top: 0px;
+    right: 30px;
   }
-
-  .feedListing {
-    width: 100vw;
+  #user-name {
+    position: relative;
+    float: left;
+    top: 28px;
+    padding-bottom: 20px;
   }
 }
+#user-name {
+  position: relative;
+  float: left;
+}
+
+/*File Picker*/
+.filepicker.dropzone.dz-clickable {
+  width: 200px;
+  height: 200px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  border: 2px dashed orange;
+  text-align: center;
+}
+
+
+
+/*Input Color Styling*/
 input[type=date]:focus:not([readonly]) {
   border-bottom: 1px solid #ff9800;
   box-shadow: 0 1px 0 0 #ff9800;
@@ -226,8 +298,4 @@ input[type=date]:focus:not([readonly]) {
 .input-field input[type=email].invalid {
   border-bottom: 1px solid #f44336;
   box-shadow: 0 1px 0 0 #f44336;
-}
-ul.right.hide-on-med-and-down {
-    margin-bottom: 0px;
-    height: 64px;
 }

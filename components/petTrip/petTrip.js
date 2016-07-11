@@ -1,6 +1,8 @@
 import React from 'react';
 import AllPetOptions from './allPetOptions.js';
 import { Router, browserHistory } from 'react-router';
+var Link = require('react-router').Link;
+
 
 
 var PetTrip = React.createClass({
@@ -127,6 +129,12 @@ var PetTrip = React.createClass({
 
               { allPetOptionsWhenReady }
 
+              <div>
+                <Link to='profileedit'>Click here to edit your profile. You must add/select at least one pet to continue.</Link>
+              </div>
+              <div>
+                <Link to='profileedit'>Also, check that your contact info is accurate or drivers may not be able to reach you!</Link>
+              </div>
             <div className="row">
               <div className="input-field col s12 m12 l12">
                 <input id="street" type="text" className="validate" onChange={ this.handleStartPointChange } />

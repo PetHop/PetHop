@@ -1,11 +1,11 @@
 import React from 'react';
-
+var logo = require('file!./../../views/img/login-logo.png');
 
 var InfoUpper = React.createClass({
   render: function() {
     return (
-
-      <div className="row">
+    <div className="row">
+      <div className="home_row center">
         <h3 className="center">How PetHop Works!</h3>
           <h5 className="center condensed">It's easy as 1, 2, 3</h5>
           <div className="col s12 m4">
@@ -39,6 +39,7 @@ var InfoUpper = React.createClass({
           </div>
         </div>
       </div>
+    </div>
 
    )
   }
