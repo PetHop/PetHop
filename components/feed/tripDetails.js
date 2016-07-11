@@ -34,10 +34,10 @@ var Details = React.createClass({
     var tripDetails = (this.state.activeTravelData) ? (
         <div className="details">
           <img src={ this.state.activeTravelData.animalTraveler[0].petProfileImage } height="300" width="300" />
-          <h6> Can you help </h6><h5>{ this.state.activeTravelData.animalTraveler[0].petName }</h5><h6> get from { this.state.activeTravelData.startPoint } to { this.state.activeTravelData.endPoint } on { this.state.activeTravelData.startDate }? </h6>
+          <h6> Can you help </h6><h5>{ this.state.activeTravelData.animalTraveler[0].petName }</h5><h6> get from { this.state.activeTravelData.startPoint } to { this.state.activeTravelData.endPoint } on { this.state.activeTravelData.startDate } ? </h6>
           <h5> Additional Details: </h5>
           <p> { this.state.activeTravelData.comments } </p>
-          <p> - { this.state.activeTravelData.tripPostedBy.firstName } { this.state.activeTravelData.tripPostedBy.lastName }</p>
+          <p> Request posted by:  { this.state.activeTravelData.tripPostedBy.firstName } { this.state.activeTravelData.tripPostedBy.lastName }</p>
 
         </div>
       )

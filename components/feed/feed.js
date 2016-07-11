@@ -53,7 +53,7 @@ var Feed = React.createClass({
     } else if (this.state.activeComponent == 'listings') {
       return <Listings activeTravelId={ this.state.activeTravelId } listing={ this.state.listing } handleActiveIdChange={ this.handleActiveIdChange } handleActiveComponentChange={ this.handleActiveComponentChange }/>
     } else if (this.state.activeComponent == 'contact') {
-      return <ContactListing activeTravelId={ this.state.activeTravelId }/>
+      return <ContactListing activeTravelId={ this.state.activeTravelId } listing={ this.state.listing }/>
     } else {
       throw new Error('No active component: ', this.state.activeComponent)
     }
