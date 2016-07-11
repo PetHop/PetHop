@@ -135,7 +135,6 @@ handlePetProfileSubmit: function(e){
 
   console.log("pet object to submit", pet);
   this.context.handleMongoId(pet, this.handleCreatePetProfile);
-  this.redirectToProfile();
 },
 
 // This function updates the user profile with new contact info, vehicle info, and petIDs
@@ -174,12 +173,7 @@ handleCreatePetProfile: function(pet, mongoId){
       petsUpdate.push(data._id);
       this.setState(petsUpdate);
       this.handlePetAtttachToUser();
-      // DEPRECATED
-      // We are taking the new pet's document ID passing it to the handleProfileUpdate so that the user that added this pet will be able to reference it from his own mongoDB entry.
-      // var user = {};
-      // user.pets = [data._id];
-      // this.handleProfileUpdate(user, mongoId);
-
+      this.redirectToProfile();
     }.bind(this),
     error: function(xhr, status, err){
       console.error('/pets/', status, err.toString());
