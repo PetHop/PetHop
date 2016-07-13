@@ -62,7 +62,7 @@ var ImageUpload = React.createClass({
     success: function(file, response, error) {
       console.log('server response: recall image from ', response.responseText);
       var user = {
-        userImg: imgServer() + response.responseText
+        userImg: response.responseText //imgServer() + response.responseText
       }
       // ADD AJAX function in eventHandle functions later: If (currentUser.userImg) delete that image from server before continuing to the next funciton to upload a new one..
       // Currently it is overwritten and that is fine unless they upload a different image format, which will not hurt functionality, but will leave us with a clutter of unnecessary old images and wasted storage space over time.

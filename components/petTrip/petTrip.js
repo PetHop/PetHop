@@ -66,10 +66,11 @@ var PetTrip = React.createClass({
     trip.comments = this.state.comments;
     trip.animalTraveler = this.state.selectedPets;
     trip.tripPostedBy = this.state.currentUser._id;
-
-    this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
-    this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
-    this.gotoPage();
+    if (trip.startDate && trip.endDate && trip.startPoint && trip.endPoint && trip.animalTraveler) {
+      this.context.handleMongoId(trip, this.handlePetTripFormUpdate);
+      this.setState({ startDate: "", endDate: "", startPoint: "", endPoint: "", comments: ""});
+      this.gotoPage();
+    }
   },
 // POST new listing to the server
   handlePetTripFormUpdate: function (trip, mongoId){
