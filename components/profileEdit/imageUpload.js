@@ -10,7 +10,7 @@ var PetImageOptionCard = require('./petImageOptionCard.js');
 var currentUserExpanded;
 
 // location variable should be either 'production' or 'testing' and affects the imgServer function in state by setting what the root image location is stored as in the database (either localhost for testing or pethop.co for production)
-var location = 'production';
+var location = 'testing'; // testing || production
 
 // this function will be called from Dropzone's eventHandlers to determine the image server that should be used.
 var imgServer = function() {
