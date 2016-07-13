@@ -1,5 +1,5 @@
 import React from 'react';
-import parallax1 from 'file!./../../views/img/26128.jpg';
+import parallax1 from ' http://pethop.com/static/26128.jpg';
 
 
 var InfoLower = React.createClass({
