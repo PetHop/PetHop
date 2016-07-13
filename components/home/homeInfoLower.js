@@ -1,5 +1,5 @@
 import React from 'react';
-import parallax1 from 'file!./../../views/img/pexels-photo-26128-large.jpg';
+import parallax1 from 'file!./../../views/img/26128.jpg';
 
 
 var InfoLower = React.createClass({
