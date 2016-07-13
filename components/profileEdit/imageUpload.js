@@ -10,13 +10,13 @@ var PetImageOptionCard = require('./petImageOptionCard.js');
 var currentUserExpanded;
 
 // location variable should be either 'production' or 'testing' and affects the imgServer function in state by setting what the root image location is stored as in the database (either localhost for testing or pethop.co for production)
-var location = 'testing';
+var location = 'production';
 
 // this function will be called from Dropzone's eventHandlers to determine the image server that should be used.
 var imgServer = function() {
   if (location == 'testing') {
     return 'http://localhost:8080/'
-  } else if (location == 'production ') {
+  } else if (location == 'production') {
     return 'http://pethop.co/'
   }
 };
@@ -62,7 +62,7 @@ var ImageUpload = React.createClass({
     success: function(file, response, error) {
       console.log('server response: recall image from ', response.responseText);
       var user = {
-        userImg: response.responseText //imgServer() + response.responseText
+        userImg: imgServer() + response.responseText
       }
       // ADD AJAX function in eventHandle functions later: If (currentUser.userImg) delete that image from server before continuing to the next funciton to upload a new one..
       // Currently it is overwritten and that is fine unless they upload a different image format, which will not hurt functionality, but will leave us with a clutter of unnecessary old images and wasted storage space over time.
@@ -84,6 +84,7 @@ var ImageUpload = React.createClass({
   eventHandlersCover: {
     success: function(file, response, error) {
       console.log('server response: recall image from ', response.responseText);
+      console.log("imgserver + response cover", (imgServer() + response.responseText));
       var user = {
         bigImg: imgServer() + response.responseText
       }
