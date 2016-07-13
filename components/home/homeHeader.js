@@ -1,7 +1,7 @@
 import React from 'react';
-import slider1 from 'file!./../../views/img/pexels-photo-57627-large.png';
-import slider2 from 'file!./../../views/img/pexels-photo-96428-large.png';
-import slider3 from 'file!./../../views/img/pexels-photo-55609-large.png';
+import slider1 from 'file!./../../views/img/57627.png';
+import slider2 from 'file!./../../views/img/96428.png';
+import slider3 from 'file!./../../views/img/55609.png';
 
 var HomeHeader = React.createClass({
   componentDidMount: function(){
