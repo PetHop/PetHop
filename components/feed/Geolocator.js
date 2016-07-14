@@ -61,16 +61,55 @@ var Geolocator = React.createClass({
     }
   },
 
-  getLocations: function(){
-    var self = this;
-    var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
-    var coder = geocoder(key);
-    var geo = coder.find(this.props.start, function(err, data){
-      self.setState({ location: data });
-      return data;
 
-    })
+
+  searchAddress: function() {
+
+    var addressInput = document.getElementById(this.props.start).value;
+
+    var geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({address: addressInput}, function(results, status) {
+
+      if (status == google.maps.GeocoderStatus.OK) {
+                  var myResult = coords.push(results[0].geometry.location);
+                    if(coords.length == addresses.length) {
+                        if( typeof callback == 'function' ) {
+                            callback();
+                        }
+                    }
+                }
+                else {
+                    throw('No results found: ' + status);
+
+
+        createMarker(myResult); // call the function that adds the marker
+
+        map.setCenter(myResult);
+
+        map.setZoom(17);
+
+      }
+    });
   },
+
+
+
+//   getLocations: function(){
+//     var self = this;
+//
+//     var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
+//     var coder = geocoder(key);
+//     var geo = coder.find(this.props.start, function(err, data){
+//        var coords = [];
+//       coords.push(data[0]);
+// console.log(coords, "this is it");
+//       self.setState({ location: data });
+//
+//       return data;
+//
+//     })
+//   },
 
   componentDidMount: function(){
     this.getLocations();

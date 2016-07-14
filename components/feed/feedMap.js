@@ -14,7 +14,7 @@
  var FeedMap = React.createClass({
 
   render: function(){
-
+      
     var startPoints = this.props.geolocations ? this.props.geolocations.map(function(item){
       return <Marker position={ { lat: item.location.lat, lng: item.location.lng} } icon={'img/marker.png'}/>
       }) : null;
