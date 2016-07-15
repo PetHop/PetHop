@@ -1,4 +1,5 @@
 var React = require('react');
+import Footer from './../footer/footer.js';
 
 
 var VehicleEdit = React.createClass({

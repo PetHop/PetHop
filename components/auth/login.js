@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactStormpath, { LoginForm } from 'react-stormpath';
 var logo = require('file!./../../views/img/pethop_logo.png');
+import Footer from './../footer/footer.js';
 
 
 function Login() {
   return (
+<div>
  <div className="valign-wrapper container">
    <div className="login">
      <LoginForm redirectTo='/feed' className="col s12 m12 l12" >
@@ -39,6 +41,9 @@ function Login() {
          </LoginForm>
          </div>
        </div>
+      <Footer />
+    </div>
+
  );
 }
 

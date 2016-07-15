@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactStormpath, { RegistrationForm, LoginLink } from 'react-stormpath';
 var logo = require('file!./../../views/img/pethop_logo.png');
+import Footer from './../footer/footer.js';
 
 var Registration = React.createClass({
 
   render: function(){
     return (
+      <div>
     <div className="valign-wrapper container">
      <div className="registration">
        <RegistrationForm>
@@ -55,6 +57,8 @@ var Registration = React.createClass({
         </div>
       </RegistrationForm>
     </div>
+  </div>
+    <Footer />
   </div>
   );
 }

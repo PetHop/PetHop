@@ -4,6 +4,7 @@ var VehicleEdit = require('./vehicleEdit.js');
 var ContactInfoEdit = require('./contactInfoEdit.js');
 var SelectorButtons = require('./selectorButtons.js');
 var ImageUpload = require('./imageUpload.js');
+import Footer from './../footer/footer.js';
 
 
 var ProfileEditSelector = React.createClass({
@@ -60,6 +61,7 @@ var ProfileEditSelector = React.createClass({
       <div>
         <SelectorButtons toggleActiveComponent={ this.toggleActiveComponent } />
         { this.showComponent() }
+      <Footer />
       </div>
     )
   }

@@ -1,6 +1,10 @@
 var React = require('react');
+import Footer from './../footer/footer.js';
 
 var ContactInfoEdit = React.createClass({
+  // componentDidMount: function(){
+  //   Materialize.toast('I am a toast!', 4000) // 4000 is the duration of the toast
+  // },
 
   render: function(){
     return (
@@ -40,7 +44,7 @@ var ContactInfoEdit = React.createClass({
              <label htmlFor="zip">Zip</label>
            </div>
          </div>
-         <button className="btn waves-effect waves-light col s12 m12 l12 blue" type="submit" >Submit</button>
+         <button className="btn waves-effect waves-light col s12 m12 l12 blue" onclick="Materialize.toast('I am a toast', 4000)" type="submit">Submit</button>
        </form>
      </div>
     </div>

@@ -4,6 +4,7 @@ var ReactDOMServer = require('react-dom/server');
 var DropzoneComponent = require('react-dropzone-component');
 var AllPetImageOptions = require('./allPetImageOptions.js');
 var PetImageOptionCard = require('./petImageOptionCard.js');
+import Footer from './../footer/footer.js';
 
 
 // The following three variables are my hackaround way of making data available inside Dropzone's event handlers and configuration objects. I'm not sure why they are giving me so much trouble but I just can't access state and I need to move on.
@@ -152,7 +153,6 @@ var ImageUpload = React.createClass({
         </div>
 
         { petOptionsDelayed }
-
       </div>
     )
   }

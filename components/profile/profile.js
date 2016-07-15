@@ -2,6 +2,7 @@ import React from 'react';
 import PicAndName from './profilePicAndName.js';
 import Info from './profileInfo.js';
 import Listing from './profileListing';
+import Footer from './../footer/footer.js';
 
 
 // The next step here is to figure out how to get a mongoID from a feed card to componentDidMount in this form....
@@ -60,6 +61,7 @@ var Profile = React.createClass({
         <Listing pets={ this.state.userData.pets }
                  animalBeingSent={ this.state.userData.animalBeingSent }
                  />
+        <Footer />
       </div>
     : null;
 

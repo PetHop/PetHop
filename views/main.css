@@ -11,6 +11,7 @@ main {
 
 .nav-wrapper {
   z-index: 1;
+  position: absolute;
 }
 
 .footer-wrapper {
@@ -62,10 +63,11 @@ ul.right.hide-on-med-and-down {
 
 /*Main Feed*/
 .feed {
-  min-height: 52vw;
+  height: 80vh;
 }
 .feedListing {
   width: 50vw;
+  height: 84vh;
   overflow-y: scroll;
 }
 .feedtools{
@@ -111,9 +113,10 @@ ul.right.hide-on-med-and-down {
 #google-map{
     z-index: -2;
     display: block;
-    position:static;
+    position: static;
     top: 0px;
     right: 0px;
+    margin: auto;
 }
 .midbody {
   min-height: 80vh;
@@ -122,13 +125,12 @@ ul.right.hide-on-med-and-down {
 
 #google-map-container{
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 0px;
-    height: 95vh;
+    height: 100vh;
     width: 49.5vw;
+    overflow: hidden;
     margin: auto;
-    /*margin-bottom: 10%;*/
-    /*margin-top: 64px;*/
     z-index: 0
 }
 @media only screen and (max-width: 993px) {
