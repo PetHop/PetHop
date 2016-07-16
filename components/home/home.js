@@ -6,6 +6,9 @@ import InfoLower from './homeInfoLower.js';
 import Footer from './../footer/footer.js'
 
 function Home() {
+  
+
+
   return (
    <div className="home">
      <Header />
