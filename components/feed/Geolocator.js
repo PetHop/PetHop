@@ -7,7 +7,6 @@
 
 import React from 'react';
 import geocoder from 'google-geocoder';
-import FeedMap from './feedMap.js';
 import { GoogleMap, Marker } from 'react-google-maps';
 import MapLoader from './maploader.js';
 
