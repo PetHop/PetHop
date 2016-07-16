@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 var InfoLower = React.createClass({
   componentDidMount: function(){
       $('.parallax').parallax();
@@ -10,7 +9,7 @@ var InfoLower = React.createClass({
 
       <div className="parallax-container">
         <div className="parallax">
-          <img src='http://pethop.co/views/img/26128.png'/>
+          <img src='http://pethop.co/views/img/26128.jpg'/>
         </div>
         <div className="parallax-tagline">
         <div className="caption center-align light grey-text text-lighten-3">
