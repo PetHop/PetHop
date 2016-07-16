@@ -56,49 +56,112 @@ var Location = React.createClass({
 
   var Geolocator = React.createClass({
     getInitialState: function(){
-      return {
-        location: []
-      }
-    },
+    return {
+      location: [],
+      allLocations: []
+     }
+   },
     allLocations: [],
     getLocations: function(){
-      var self = this;
-      var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
-      var coder = geocoder(key);
-      var arr = [];
-      var geo = coder.find(this.props.start, function(err, data){
-        self.allLocations.push(data[0]);
-    })
+    var self = this;
+    var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
+    var coder = geocoder(key);
+    var arr = [];
+    var allLocations =[];
+    var geo = coder.find(this.props.start, function(err, data){
+      self.allLocations.push(data[0]);
+     self.setState({
+          allLocations: self.allLocations
+     })
+    //  .bind(this)
+
+   })
     },
 
-    componentDidMount: function(){
-      this.getLocations();
-    },
+   componentDidMount: function(){
+     this.getLocations();
+   },
 
     render: function(){
-      var startPoints = this.allLocations ? this.allLocations.map(function(item){
-        return <Marker position={
-          { lat: item.location.lat, lng: item.location.lng}
-        } icon={'img/marker.png'}/>
-        }) : null;
+    var startPoints = this.allLocations ?      this.state.allLocations.map(function(item){
+      return <Marker position={
+        { lat: item.location.lat, lng: item.location.lng}
+      } icon={'img/marker.png'}/>
+      }) : null;
 
 
-      return (
-        <div id="google-map">
-          <MapLoader>
-          <GoogleMap
-           defaultZoom={4}
-           center={{lat: 40., lng: -99.000}}>
-          >
+    return (
+      <div id="google-map">
+        <MapLoader>
+        <GoogleMap
+         defaultZoom={4}
+         center={{lat: 40., lng: -99.000}}>
+        >
 
-            { startPoints }
+          { startPoints }
 
-        </GoogleMap>
-        </MapLoader>
-        </div>
+      </GoogleMap>
+      </MapLoader>
+      </div>
 
       )
-    }
-  });
+     }
+   });
 
-module.exports = Location;
+   module.exports = Location;
+
+
+
+
+
+
+
+
+//   var Geolocator = React.createClass({
+//     getInitialState: function(){
+//       return {
+//         location: []
+//       }
+//     },
+//     allLocations: [],
+//     getLocations: function(){
+//       var self = this;
+//       var key = { key: 'AIzaSyC9Zst0uBpxGJ2P4LLv3IMATpN9Ppl4ImI'};
+//       var coder = geocoder(key);
+//       var arr = [];
+//       var geo = coder.find(this.props.start, function(err, data){
+//         self.allLocations.push(data[0]);
+//     })
+//     },
+//
+//     componentDidMount: function(){
+//       this.getLocations();
+//     },
+//
+//     render: function(){
+//       var startPoints = this.allLocations ? this.allLocations.map(function(item){
+//         return <Marker position={
+//           { lat: item.location.lat, lng: item.location.lng}
+//         } icon={'img/marker.png'}/>
+//         }) : null;
+//
+//
+//       return (
+//         <div id="google-map">
+//           <MapLoader>
+//           <GoogleMap
+//            defaultZoom={4}
+//            center={{lat: 40., lng: -99.000}}>
+//           >
+//
+//             { startPoints }
+//
+//         </GoogleMap>
+//         </MapLoader>
+//         </div>
+//
+//       )
+//     }
+//   });
+//
+// module.exports = Location;
